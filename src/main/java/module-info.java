@@ -5,6 +5,7 @@ module org.example.knk_projekti {
   requires org.kordamp.ikonli.javafx;
   requires java.sql;
 
-  opens org.example.knk_projekti to javafx.fxml;
-  exports org.example.knk_projekti;
+  opens app to javafx.fxml;
+
+  exports app;
 }
