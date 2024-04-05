@@ -10,7 +10,7 @@ git clone https://www.github.com/gjonhajdari/up-scholarships
 cd up-scholarships
 ```
 
-Access the MySQL CLI and run the following scripts
+Open your terminal and access the MySQL CLI to run the database scripts
 
 ```bash
 mysql -u root -p < src/main/db-structure.sql
