@@ -57,14 +57,14 @@ create table if not exists scholarships.admin(
 
 DELIMITER //
 
-CREATE TRIGGER `scholarships`.`check_voucher_deadline`
-BEFORE INSERT ON `scholarships`.`application`
+CREATE TRIGGER scholarships.check_voucher_deadline
+BEFORE INSERT ON scholarships.application
 FOR EACH ROW
 BEGIN
     DECLARE deadline_passed BOOLEAN;
 
     SELECT TRUE INTO deadline_passed
-    FROM `scholarships`.`voucher`
+    FROM scholarships.voucher
     WHERE voucher_id = NEW.voucher_id
     AND DATE(deadline) < DATE(NEW.application_date);
 
