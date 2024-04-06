@@ -42,6 +42,13 @@ create table if not exists scholarships.awardees(
   foreign key (voucher_id) references voucher(voucher_id)
 );
 
+create table if not exists scholarships.admin(
+  admin_id int not null auto_increment,
+  username nvarchar(30) not null,
+  password char(64) not null,
+  primary key (admin_id)
+);
+
 -- --------------------
 -- Triggers
 -- --------------------
