@@ -19,6 +19,8 @@ create table if not exists scholarships.voucher(
   voucher_id int not null auto_increment,
   title nvarchar(100) not null,
   amount decimal(10, 2) not null,
+  category nvarchar(30) not null, -- UNIVERSITY, STEM, OTHER
+  description text not null,
   deadline date not null,
   primary key (voucher_id)
 );
@@ -27,17 +29,9 @@ create table if not exists scholarships.application(
   application_id int not null auto_increment,
   student_id char(12) not null,
   voucher_id int not null,
-  application_date date not null,
+  application_date date not null default current_date,
+  status nvarchar(30) not null default , -- PENDING, APPROVED, REJECTED
   primary key (application_id),
-  foreign key (student_id) references student(student_id),
-  foreign key (voucher_id) references voucher(voucher_id)
-);
-
-create table if not exists scholarships.awardees(
-  student_id char(12) not null,
-  voucher_id int not null,
-  award_date date not null,
-  primary key (student_id, voucher_id),
   foreign key (student_id) references student(student_id),
   foreign key (voucher_id) references voucher(voucher_id)
 );
