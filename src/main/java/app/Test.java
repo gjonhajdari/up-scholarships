@@ -1,6 +1,6 @@
 package app;
 
-import repository.ConnectionUtil;
+import database.ConnectionUtil;
 
 import java.sql.*;
 
