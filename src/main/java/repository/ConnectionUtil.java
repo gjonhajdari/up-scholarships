@@ -12,7 +12,11 @@ public class ConnectionUtil {
 
   public static Connection getConnection() throws SQLException {
     if (connection == null || connection.isClosed()) {
-      connection = DriverManager.getConnection(URL, USER, PASSWORD);
+      try {
+        connection = DriverManager.getConnection(URL, USER, PASSWORD);
+      } catch (SQLException e) {
+        throw new RuntimeException(e);
+      }
     }
 
     return connection;
