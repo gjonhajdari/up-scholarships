@@ -39,9 +39,9 @@
             </VBox>
             <VBox alignment="CENTER" fillWidth="false" spacing="10.0">
                <children>
-                  <TextField fx:id="txtID" prefHeight="26.0" prefWidth="200.0" promptText="Student ID" style="-fx-border-radius: 6px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff; -fx-background-radius: 6px;" />
+                  <TextField fx:id="txtStudentId" prefHeight="26.0" prefWidth="200.0" promptText="Student ID" style="-fx-border-radius: 6px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff; -fx-background-radius: 6px;" />
                   <PasswordField fx:id="txtPassword" prefWidth="200.0" promptText="Password" style="-fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff;" />
-                  <Button fx:id="btnLogin" mnemonicParsing="false" onMouseClicked="#handleLoginStudent" prefWidth="70.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 7px; -fx-border-color: #14b8a6; -fx-border-radius: 6px; -fx-background-insets: 0;" text="Log in" textFill="#f0f9ff" />
+                  <Button fx:id="btnLogin" mnemonicParsing="false" onMouseClicked="#handleLoginStudentClick" prefWidth="70.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 7px; -fx-border-color: #14b8a6; -fx-border-radius: 6px; -fx-background-insets: 0;" text="Log in" textFill="#f0f9ff" />
                </children>
             </VBox>
          </children>
