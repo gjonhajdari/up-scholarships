@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="24.0">
+         <children>
+            <VBox alignment="CENTER" spacing="8.0">
+               <children>
+                  <ImageView fitHeight="86.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/up_logo.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="16.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="University of Prishtina Scholarships" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#555555" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" fillWidth="false" spacing="10.0">
+               <children>
+                  <TextField fx:id="txtID" prefHeight="26.0" prefWidth="200.0" promptText="Student ID" style="-fx-border-radius: 6px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff; -fx-background-radius: 6px;" />
+                  <PasswordField fx:id="txtPassword" prefWidth="200.0" promptText="Password" style="-fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff;" />
+                  <Button fx:id="btnLogin" mnemonicParsing="false" onMouseClicked="#handleLoginStudent" prefWidth="70.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 7px; -fx-border-color: #14b8a6; -fx-border-radius: 6px; -fx-background-insets: 0;" text="Log in" textFill="#f0f9ff" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>
