@@ -2,6 +2,8 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import service.Navigator;
 
 public class HomeController {
   @FXML
@@ -10,12 +12,12 @@ public class HomeController {
   private Button btnAdmin;
 
   @FXML
-  private void handleStudentClick() {
-
+  private void handleStudentClick(MouseEvent me) {
+    Navigator.navigate(me, Navigator.LOGIN_PAGE_USER);
   }
 
   @FXML
-  private void handleAdminClick() {
-
+  private void handleAdminClick(MouseEvent me) {
+    Navigator.navigate(me, Navigator.LOGIN_PAGE_ADMIN);
   }
 }
