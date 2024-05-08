@@ -17,7 +17,7 @@
          <children>
             <VBox alignment="CENTER" spacing="8.0">
                <children>
-                  <ImageView fitHeight="86.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/up_logo.png" />
                      </image>
@@ -27,21 +27,30 @@
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="University of Prishtina Scholarships" textAlignment="CENTER">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="20.0" />
                      </font>
                   </Text>
                   <Text fill="#555555" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back">
                      <font>
-                        <Font size="10.0" />
+                        <Font size="12.0" />
                      </font>
                   </Text>
                </children>
             </VBox>
             <VBox alignment="CENTER" fillWidth="false" spacing="10.0">
                <children>
-                  <TextField fx:id="txtUsername" prefHeight="26.0" prefWidth="200.0" promptText="Admin username" style="-fx-border-radius: 6px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff; -fx-background-radius: 6px;" />
-                  <PasswordField fx:id="txtPassword" prefWidth="200.0" promptText="Password" style="-fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff;" />
-                  <Button fx:id="btnLogin" mnemonicParsing="false" onMouseClicked="#handleLoginAdminClick" prefWidth="70.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 7px; -fx-border-color: #14b8a6; -fx-border-radius: 6px; -fx-background-insets: 0;" text="Log in" textFill="#f0f9ff" />
+                  <TextField fx:id="txtUsername" prefHeight="26.0" prefWidth="250.0" promptText="Admin username" style="-fx-border-radius: 6px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff; -fx-background-radius: 6px;">
+                     <font>
+                        <Font size="15.0" />
+                     </font></TextField>
+                  <PasswordField fx:id="txtPassword" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff;">
+                     <font>
+                        <Font size="15.0" />
+                     </font></PasswordField>
+                  <Button fx:id="btnLogin" mnemonicParsing="false" onMouseClicked="#handleLoginAdminClick" prefWidth="100.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 7px; -fx-border-color: #14b8a6; -fx-border-radius: 6px; -fx-background-insets: 0;" text="Log in" textFill="#f0f9ff">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
                </children>
             </VBox>
          </children>

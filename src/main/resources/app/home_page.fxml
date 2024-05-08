@@ -16,7 +16,7 @@
          <children>
             <VBox alignment="CENTER" spacing="8.0">
                <children>
-                  <ImageView fitHeight="86.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/up_logo.png" />
                      </image>
@@ -26,27 +26,33 @@
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="University of Prishtina Scholarships" textAlignment="CENTER">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="20.0" />
                      </font>
                   </Text>
                   <Text fill="#555555" strokeType="OUTSIDE" strokeWidth="0.0" text="Apply for a scholarship or manage applied ones">
                      <font>
-                        <Font size="10.0" />
+                        <Font size="12.0" />
                      </font>
                   </Text>
                </children>
             </VBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="600.0" spacing="32.0">
                <children>
-                  <Button fx:id="btnStudent" alignment="CENTER" mnemonicParsing="false" style="-fx-background-radius: 5; -fx-background-color: #2dd4bf; -fx-border-color: #14b8a6; -fx-border-radius: 5; -fx-background-insets: 0;" text="Student" textAlignment="CENTER" textFill="#f0f9ff">
+                  <Button fx:id="btnStudent" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#handleStudentClick" style="-fx-background-radius: 5; -fx-background-color: #2dd4bf; -fx-border-color: #14b8a6; -fx-border-radius: 5; -fx-background-insets: 0;" text="Student" textAlignment="CENTER" textFill="#f0f9ff">
                      <padding>
                         <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
                      </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </Button>
-                  <Button fx:id="btnAdmin" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #c4b5fd; -fx-background-radius: 5; -fx-border-color: #a78bfa; -fx-border-radius: 5; -fx-background-insets: 0;" text="Admin" textAlignment="CENTER" textFill="#fef2f2">
+                  <Button fx:id="btnAdmin" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#handleAdminClick" style="-fx-background-color: #c4b5fd; -fx-background-radius: 5; -fx-border-color: #a78bfa; -fx-border-radius: 5; -fx-background-insets: 0;" text="Admin" textAlignment="CENTER" textFill="#fef2f2">
                      <padding>
                         <Insets bottom="4.0" left="16.0" right="16.0" top="4.0" />
                      </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </Button>
                </children>
             </HBox>

@@ -12,7 +12,7 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="400.0" prefWidth="150.0" style="-fx-background-color: #ffffff;">
+      <VBox prefHeight="400.0" prefWidth="170.0" style="-fx-background-color: #ffffff;">
          <children>
             <HBox alignment="CENTER_LEFT" spacing="6.0" style="-fx-background-radius: 5px;">
                <children>
@@ -37,11 +37,7 @@
                   <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1;">
                      <children>
                         <FontAwesomeIconView fill="#115e59" />
-                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Text>
+                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
                      </children>
                      <padding>
                         <Insets bottom="6.0" left="8.0" right="8.0" top="6.0" />
@@ -50,11 +46,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
                         <FontAwesomeIconView />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applied">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applied" />
                      </children>
                      <padding>
                         <Insets bottom="6.0" left="8.0" right="8.0" top="6.0" />
@@ -63,11 +55,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
                         <FontAwesomeIconView />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
                      </children>
                      <padding>
                         <Insets bottom="6.0" left="8.0" right="8.0" top="6.0" />
@@ -76,11 +64,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
                         <FontAwesomeIconView />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Help" />
                      </children>
                      <padding>
                         <Insets bottom="6.0" left="8.0" right="8.0" top="6.0" />
@@ -88,15 +72,11 @@
                   </HBox>
                </children>
             </VBox>
-            <Pane layoutX="16.0" layoutY="49.0" prefHeight="148.0" prefWidth="130.0" />
+            <Pane layoutX="16.0" layoutY="49.0" prefHeight="148.0" prefWidth="150.0" />
             <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-radius: 5px;">
                <children>
                   <FontAwesomeIconView />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out" />
                </children>
                <padding>
                   <Insets bottom="6.0" left="8.0" right="8.0" top="6.0" />
