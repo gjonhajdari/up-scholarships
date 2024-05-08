@@ -10,9 +10,9 @@ import java.io.IOException;
 
 public class Navigator {
   public final static String HOME_PAGE = "home_page.fxml";
-  public final static String LOGIN_PAGE_USER = "login_page_user.fxml";
+  public final static String LOGIN_PAGE_STUDENT = "login_page_user.fxml";
   public final static String LOGIN_PAGE_ADMIN = "login_page_admin.fxml";
-  public final static String DASHBOARD_USER = "dashboard_user.fxml";
+  public final static String DASHBOARD_STUDENT = "dashboard_user.fxml";
   public final static String DASHBOARD_ADMIN = "dashboard_admin.fxml";
 
   public static void navigate(Event event, String path) {
@@ -24,14 +24,14 @@ public class Navigator {
   }
 
   public static void navigate(Stage stage, String path) {
-    FXMLLoader loader = new FXMLLoader(Navigator.class.getResource(path));
+    FXMLLoader loader = new FXMLLoader(Navigator.class.getResource("/app/" + path));
 
     try {
       Scene newScene = new Scene(loader.load());
       stage.setScene(newScene);
       stage.show();
     } catch (IOException ioe) {
-
+      System.out.println("Error: " + ioe.getMessage());
     }
   }
 }

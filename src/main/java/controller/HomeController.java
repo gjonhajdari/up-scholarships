@@ -13,7 +13,7 @@ public class HomeController {
 
   @FXML
   private void handleStudentClick(MouseEvent me) {
-    Navigator.navigate(me, Navigator.LOGIN_PAGE_USER);
+    Navigator.navigate(me, Navigator.LOGIN_PAGE_STUDENT);
   }
 
   @FXML
