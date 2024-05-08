@@ -31,7 +31,7 @@ public class Navigator {
       stage.setScene(newScene);
       stage.show();
     } catch (IOException ioe) {
-      System.out.println("Error: " + ioe.getMessage());
+      ioe.printStackTrace();
     }
   }
 }

@@ -6,6 +6,7 @@ module org.example.knk_projekti {
   requires java.sql;
 
   opens app to javafx.fxml;
+  opens controller to javafx.fxml;
 
   exports app;
 }
