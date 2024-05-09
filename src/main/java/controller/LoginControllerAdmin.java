@@ -28,9 +28,11 @@ public class LoginControllerAdmin {
 
     if (!isLogin) {
       System.out.println("Login failed");
+    }else {
+      System.out.println("Login successful");
+     Navigator.navigate(me, Navigator.DASHBOARD_ADMIN);
     }
 
-    System.out.println("Login successful");
-    // Navigator.navigate(me, Navigator.DASHBOARD_ADMIN);
+
   }
 }
