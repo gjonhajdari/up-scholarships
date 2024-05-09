@@ -1,12 +1,23 @@
 package app;
 
 import service.ConnectionUtil;
+import service.PasswordHasher;
 
 import java.sql.*;
 
 public class Test {
   public static void main(String[] args) throws SQLException {
-    printUser();
+//    printUser();
+    // Hash passwords for 6 test users
+    for (int i = 0; i <= 5 ; i++) {
+      String salt = PasswordHasher.generateSalt();
+      String hashedPassword = PasswordHasher.generateSaltedHash("12345", salt);
+
+      System.out.println("User " + (i + 1));
+      System.out.println("Salt: " + salt);
+      System.out.println("Hashed Password: " + hashedPassword);
+      System.out.println("--------------------");
+    }
   }
 
   public static void printUser() throws SQLException {
