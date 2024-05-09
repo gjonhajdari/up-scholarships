@@ -30,9 +30,7 @@ public class LoginControllerAdmin {
       System.out.println("Login failed");
     }else {
       System.out.println("Login successful");
-     Navigator.navigate(me, Navigator.DASHBOARD_ADMIN);
+      Navigator.navigate(me, Navigator.DASHBOARD_ADMIN);
     }
-
-
   }
 }

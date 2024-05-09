@@ -52,7 +52,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
 <!--                        <FontAwesomeIconView />-->
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applied">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create">
                            <font>
                               <Font size="20.0" />
                            </font></Text>
@@ -64,7 +64,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
 <!--                        <FontAwesomeIconView />-->
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vouchers">
                            <font>
                               <Font size="20.0" />
                            </font></Text>
@@ -76,7 +76,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
 <!--                        <FontAwesomeIconView />-->
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
                            <font>
                               <Font size="20.0" />
                            </font></Text>

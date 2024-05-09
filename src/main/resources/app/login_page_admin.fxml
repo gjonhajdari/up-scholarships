@@ -11,13 +11,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginControllerAdmin">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginControllerAdmin">
    <children>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="24.0">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="32.0">
          <children>
             <VBox alignment="CENTER" spacing="8.0">
                <children>
-                  <ImageView fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/up_logo.png" />
                      </image>
@@ -27,30 +27,39 @@
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="University of Prishtina Scholarships" textAlignment="CENTER">
                      <font>
-                        <Font size="20.0" />
+                        <Font size="32.0" />
                      </font>
                   </Text>
                   <Text fill="#555555" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back">
                      <font>
-                        <Font size="12.0" />
+                        <Font size="18.0" />
                      </font>
                   </Text>
                </children>
             </VBox>
-            <VBox alignment="CENTER" fillWidth="false" spacing="10.0">
+            <VBox alignment="CENTER" fillWidth="false" spacing="16.0">
                <children>
-                  <TextField fx:id="txtUsername" prefHeight="26.0" prefWidth="250.0" promptText="Admin username" style="-fx-border-radius: 6px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff; -fx-background-radius: 6px;">
+                  <TextField fx:id="txtUsername" prefWidth="350.0" promptText="Admin username" style="-fx-border-radius: 8px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff; -fx-background-radius: 8px;">
                      <font>
-                        <Font size="15.0" />
-                     </font></TextField>
-                  <PasswordField fx:id="pwdPassword" prefWidth="250.0" promptText="Password" style="-fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff;">
+                        <Font size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="16.0" right="16.0" top="10.0" />
+                     </padding></TextField>
+                  <PasswordField fx:id="pwdPassword" prefWidth="350.0" promptText="Password" style="-fx-background-radius: 8px; -fx-border-radius: 8px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff;">
                      <font>
-                        <Font size="15.0" />
-                     </font></PasswordField>
-                  <Button fx:id="btnLogin" mnemonicParsing="false" onMouseClicked="#handleLoginAdminClick" prefWidth="100.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 7px; -fx-border-color: #14b8a6; -fx-border-radius: 6px; -fx-background-insets: 0;" text="Log in" textFill="#f0f9ff">
+                        <Font size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="16.0" right="16.0" top="10.0" />
+                     </padding></PasswordField>
+                  <Button fx:id="btnLogin" mnemonicParsing="false" onMouseClicked="#handleLoginAdminClick" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0;" text="Log in" textFill="#f0f9ff">
                      <font>
-                        <Font size="14.0" />
-                     </font></Button>
+                        <Font size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="6.0" left="32.0" right="32.0" top="6.0" />
+                     </padding></Button>
                </children>
             </VBox>
          </children>
