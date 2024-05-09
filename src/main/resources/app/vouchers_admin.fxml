@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>-->
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardAdminController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VouchersAdminController">
    <children>
       <VBox prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -19,7 +17,7 @@
                <children>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/up_logo.png" />
+                        <Image url="@../Images/up_logo.png" />
                      </image>
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="UP Scholarships">
@@ -35,37 +33,37 @@
             <Pane prefHeight="118.0" prefWidth="230.0" />
             <VBox spacing="16.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1;">
-                     <children>
-<!--                        <FontAwesomeIconView fill="#115e59" />-->
-                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
-                           <font>
-                              <Font size="20.0" />
-                           </font></Text>
-                     </children>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#handleDashboardClick" spacing="12.0" style="-fx-background-radius: 5px;">
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleCreateClick" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
-<!--                        <FontAwesomeIconView />-->
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create">
                            <font>
                               <Font size="20.0" />
-                           </font></Text>
+                           </font>
+                        </Text>
                      </children>
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" onMouseClicked="#handleVouchersClick" spacing="12.0" style="-fx-background-radius: 5px;">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1;">
                      <children>
-<!--                        <FontAwesomeIconView />-->
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vouchers">
+                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Vouchers">
                            <font>
                               <Font size="20.0" />
-                           </font></Text>
+                           </font>
+                        </Text>
                      </children>
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
@@ -73,11 +71,11 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" onMouseClicked="#handleProfileClick" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
-<!--                        <FontAwesomeIconView />-->
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
                            <font>
                               <Font size="20.0" />
-                           </font></Text>
+                           </font>
+                        </Text>
                      </children>
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
@@ -88,11 +86,11 @@
             <Pane layoutX="16.0" layoutY="49.0" prefHeight="376.0" prefWidth="230.0" />
             <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-radius: 5px;">
                <children>
-<!--                  <FontAwesomeIconView />-->
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
                      <font>
                         <Font size="20.0" />
-                     </font></Text>
+                     </font>
+                  </Text>
                </children>
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
@@ -108,7 +106,7 @@
             <Insets bottom="24.0" left="32.0" right="32.0" top="24.0" />
          </padding>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vouchers">
                <font>
                   <Font size="32.0" />
                </font>

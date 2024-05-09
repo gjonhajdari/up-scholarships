@@ -115,14 +115,14 @@
                   <Font size="32.0" />
                </font>
             </Text>
-            <TableView fx:id="tableDashboardStudent" prefHeight="235.0" prefWidth="398.0" style="-fx-background-radius: 5px;" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tableDashboardStudent" minWidth="300.0" prefHeight="562.0" prefWidth="695.0" style="-fx-background-radius: 5px;" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="colTitle" minWidth="250.0" prefWidth="-1.0" style="-fx-background-color: #ccfbf1;" text="Title" />
-                <TableColumn fx:id="colAmount" prefWidth="75.0" style="-fx-background-color: #ccfbf1;" text="Amount" />
-                  <TableColumn fx:id="colDate" prefWidth="75.0" style="-fx-background-color: #ccfbf1;" text="Due date" />
+                <TableColumn fx:id="colTitle" maxWidth="-1.0" minWidth="400.0" prefWidth="-1.0" style="-fx-background-color: #ccfbf1;" text="Title" />
+                <TableColumn fx:id="colAmount" minWidth="150.0" prefWidth="75.0" style="-fx-background-color: #ccfbf1;" text="Amount" />
+                  <TableColumn fx:id="colDate" minWidth="150.0" prefWidth="75.0" style="-fx-background-color: #ccfbf1;" text="Due date" />
               </columns>
                <VBox.margin>
-                  <Insets top="60.0" />
+                  <Insets top="150.0" />
                </VBox.margin>
             </TableView>
          </children>
