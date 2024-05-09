@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>-->
-
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -13,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardStudentController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AppliedStudentController">
    <children>
       <VBox prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -37,25 +33,25 @@
             <Pane prefHeight="118.0" prefWidth="230.0" />
             <VBox spacing="16.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1;">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#handleDashboardClick" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
-<!--                        <FontAwesomeIconView fill="#115e59" />-->
-                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+                        <Text onMouseClicked="#handleDashboardClick" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
                            <font>
                               <Font size="20.0" />
-                           </font></Text>
+                           </font>
+                        </Text>
                      </children>
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleAppliedClick" spacing="12.0" style="-fx-background-radius: 5px;">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1;">
                      <children>
-<!--                        <FontAwesomeIconView />-->
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applied">
+                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Applied">
                            <font>
                               <Font size="20.0" />
-                           </font></Text>
+                           </font>
+                        </Text>
                      </children>
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
@@ -63,11 +59,11 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" onMouseClicked="#handleProfileClick" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
-<!--                        <FontAwesomeIconView />-->
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
                            <font>
                               <Font size="20.0" />
-                           </font></Text>
+                           </font>
+                        </Text>
                      </children>
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
@@ -75,11 +71,11 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" onMouseClicked="#handleHelpClick" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
-<!--                        <FontAwesomeIconView />-->
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
                            <font>
                               <Font size="20.0" />
-                           </font></Text>
+                           </font>
+                        </Text>
                      </children>
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
@@ -90,11 +86,11 @@
             <Pane layoutX="16.0" layoutY="49.0" prefHeight="376.0" prefWidth="230.0" />
             <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-radius: 5px;">
                <children>
-<!--                  <FontAwesomeIconView />-->
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
                      <font>
                         <Font size="20.0" />
-                     </font></Text>
+                     </font>
+                  </Text>
                </children>
                <padding>
                   <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
@@ -110,21 +106,11 @@
             <Insets bottom="24.0" left="32.0" right="32.0" top="24.0" />
          </padding>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applied">
                <font>
                   <Font size="32.0" />
                </font>
             </Text>
-            <TableView fx:id="tableDashboardStudent" minWidth="300.0" prefHeight="562.0" prefWidth="695.0" style="-fx-background-radius: 5px;" VBox.vgrow="ALWAYS">
-              <columns>
-                <TableColumn fx:id="colTitle" maxWidth="-1.0" minWidth="400.0" prefWidth="-1.0" style="-fx-background-color: #ccfbf1;" text="Title" />
-                <TableColumn fx:id="colAmount" minWidth="150.0" prefWidth="75.0" style="-fx-background-color: #ccfbf1;" text="Amount" />
-                  <TableColumn fx:id="colDate" minWidth="150.0" prefWidth="75.0" style="-fx-background-color: #ccfbf1;" text="Due date" />
-              </columns>
-               <VBox.margin>
-                  <Insets top="150.0" />
-               </VBox.margin>
-            </TableView>
          </children>
       </VBox>
    </children>
