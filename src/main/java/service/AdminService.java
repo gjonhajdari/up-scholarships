@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class AdminService {
   public static boolean login(LoginUserDto loginData) throws SQLException {
-    Admin admin = AdminRepository.getByUsername(loginData.getUsername());
+    Admin admin = AdminRepository.getByUsername(loginData.getStudentId());
 
     if (admin == null) {
       return false;

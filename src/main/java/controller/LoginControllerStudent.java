@@ -12,13 +12,13 @@ public class LoginControllerStudent {
   @FXML
   private TextField txtStudentId;
   @FXML
-  private PasswordField txtPassword;
+  private PasswordField pwdPassword;
 
   @FXML
   private void handleLoginStudentClick(MouseEvent me) {
     LoginUserDto loginUserDto = new LoginUserDto(
             this.txtStudentId.getText(),
-            this.txtPassword.getText()
+            this.pwdPassword.getText()
     );
 
     boolean isLogin = UserService.login(loginUserDto);
@@ -30,7 +30,5 @@ public class LoginControllerStudent {
       System.out.println("Login successful");
       Navigator.navigate(me, Navigator.DASHBOARD_STUDENT);
     }
-
-
   }
 }

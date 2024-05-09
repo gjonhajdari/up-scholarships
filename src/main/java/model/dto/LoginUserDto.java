@@ -1,16 +1,16 @@
 package model.dto;
 
 public class LoginUserDto {
-  private String username;
+  private String studentId;
   private String password;
 
   public LoginUserDto(String username, String password) {
-    this.username = username;
+    this.studentId = username;
     this.password = password;
   }
 
-  public String getUsername() {
-    return username;
+  public String getStudentId() {
+    return studentId;
   }
 
   public String getPassword() {

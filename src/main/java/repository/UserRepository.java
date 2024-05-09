@@ -8,8 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserRepository {
-
-
     public static User getByUsername(String username){
         String query = "SELECT * FROM student WHERE student_id = ? LIMIT 1";
         try{
@@ -17,6 +15,7 @@ public class UserRepository {
             PreparedStatement pst = connection.prepareStatement(query);
             pst.setString(1, username);
             ResultSet result = pst.executeQuery();
+
             if(result.next()){
                 return getFromResultSet(result);
             }
@@ -34,9 +33,8 @@ public class UserRepository {
             String email = result.getString("email");
             String salt = result.getString("salt");
             String hashedPassword = result.getString("password");
-            return new User(
-                    id, firstName, lastName, email, salt, hashedPassword
-            );
+
+            return new User(id, firstName, lastName, email, salt, hashedPassword);
         }catch (Exception e){
             return null;
         }
