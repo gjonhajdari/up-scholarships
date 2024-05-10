@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import model.dto.LoginUserDto;
 import service.Navigator;
 import service.UserService;
@@ -13,9 +14,16 @@ public class LoginControllerStudent {
   private TextField txtStudentId;
   @FXML
   private PasswordField pwdPassword;
+  @FXML
+  private Text txtErrorMessage;
 
   @FXML
   private void handleLoginStudentClick(MouseEvent me) {
+    if (txtStudentId.getText().isEmpty() || pwdPassword.getText().isEmpty()) {
+      txtErrorMessage.setText("Please fill in all fields");
+      return;
+    }
+
     LoginUserDto loginUserDto = new LoginUserDto(
             this.txtStudentId.getText(),
             this.pwdPassword.getText()
@@ -23,12 +31,11 @@ public class LoginControllerStudent {
 
     boolean isLogin = UserService.login(loginUserDto);
 
-    if(!isLogin){
-      System.out.println("Login failed");
+    if(!isLogin) {
+      txtErrorMessage.setText("Username or password is incorrect");
+      return;
     }
-    else{
-      System.out.println("Login successful");
-      Navigator.navigate(me, Navigator.DASHBOARD_STUDENT);
-    }
+
+    Navigator.navigate(me, Navigator.DASHBOARD_STUDENT);
   }
 }
