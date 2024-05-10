@@ -9,28 +9,22 @@ import service.Navigator;
 
 public class ProfileAdminController {
     @FXML
-    private PasswordField txtPassword11;
+    private PasswordField pwdOldPassword;
     @FXML
-    private PasswordField txtPassword1;
+    private PasswordField pwdNewPassword;
     @FXML
-    private PasswordField  txtPassword;
+    private PasswordField pwdConfirmPassword;
     @FXML
     private ToggleGroup Language;
     @FXML
     private Button btnLogin;
 
     @FXML
-    private void handleDashboardClick(MouseEvent me){
-        Navigator.navigate( me, Navigator.DASHBOARD_ADMIN);
-    }
+    private void handleDashboardClick(MouseEvent me) { Navigator.navigate( me, Navigator.DASHBOARD_ADMIN); }
     @FXML
-    private void handleVouchersClick(MouseEvent me){
-        Navigator.navigate( me, Navigator.VOUCHERS_ADMIN);
-    }
-
+    private void handleVouchersClick(MouseEvent me) { Navigator.navigate( me, Navigator.VOUCHERS_ADMIN); }
     @FXML
-    private void handleCreateClick(MouseEvent me){
-        Navigator.navigate( me, Navigator.CREATE_VOUCHER);
-    }
-
+    private void handleCreateClick(MouseEvent me) { Navigator.navigate( me, Navigator.CREATE_VOUCHER); }
+    @FXML
+    private void handleLogoutClick(MouseEvent me) { Navigator.navigate( me, Navigator.HOME_PAGE); }
 }

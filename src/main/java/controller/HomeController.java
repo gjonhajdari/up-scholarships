@@ -12,12 +12,7 @@ public class HomeController {
   private Button btnAdmin;
 
   @FXML
-  private void handleStudentClick(MouseEvent me) {
-    Navigator.navigate(me, Navigator.LOGIN_PAGE_STUDENT);
-  }
-
+  private void handleStudentClick(MouseEvent me) { Navigator.navigate(me, Navigator.LOGIN_PAGE_STUDENT); }
   @FXML
-  private void handleAdminClick(MouseEvent me) {
-    Navigator.navigate(me, Navigator.LOGIN_PAGE_ADMIN);
-  }
+  private void handleAdminClick(MouseEvent me) { Navigator.navigate(me, Navigator.LOGIN_PAGE_ADMIN); }
 }

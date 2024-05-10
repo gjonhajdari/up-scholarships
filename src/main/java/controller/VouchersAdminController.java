@@ -6,17 +6,11 @@ import service.Navigator;
 
 public class VouchersAdminController {
     @FXML
-    private void handleDashboardClick(MouseEvent me){
-        Navigator.navigate( me, Navigator.DASHBOARD_ADMIN);
-    }
-
-
+    private void handleDashboardClick(MouseEvent me) { Navigator.navigate( me, Navigator.DASHBOARD_ADMIN); }
     @FXML
-    private void handleCreateClick(MouseEvent me){
-        Navigator.navigate( me, Navigator.CREATE_VOUCHER);
-    }
+    private void handleCreateClick(MouseEvent me) { Navigator.navigate( me, Navigator.CREATE_VOUCHER); }
     @FXML
-    private void handleProfileClick(MouseEvent me){
-        Navigator.navigate( me, Navigator.PROFILE_ADMIN);
-    }
+    private void handleProfileClick(MouseEvent me) { Navigator.navigate( me, Navigator.PROFILE_ADMIN); }
+    @FXML
+    private void handleLogoutClick(MouseEvent me) { Navigator.navigate( me, Navigator.LOGIN_PAGE_ADMIN); }
 }
