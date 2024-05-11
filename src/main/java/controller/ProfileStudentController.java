@@ -1,16 +1,63 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
 import javafx.scene.input.MouseEvent;
-import service.Navigator;
+import javafx.scene.text.Text;
+import model.dto.StudentChangePasswordDto;
+import service.*;
+
+import java.sql.SQLException;
 
 public class ProfileStudentController {
     @FXML
-    private void handleAppliedClick(MouseEvent me) { Navigator.navigate( me, Navigator.APPLIED_STUDENT); }
+    private PasswordField pwdOldPassword;
     @FXML
-    private void handleDashboardClick(MouseEvent me) { Navigator.navigate( me, Navigator.DASHBOARD_STUDENT); }
+    private PasswordField pwdNewPassword;
     @FXML
-    private void handleHelpClick(MouseEvent me) { Navigator.navigate( me, Navigator.HELP_STUDENT); }
+    private PasswordField pwdConfirmPassword;
     @FXML
-    private void handleLogoutClick(MouseEvent me) { Navigator.navigate( me, Navigator.LOGIN_PAGE_STUDENT); }
+    private Text txtErrorMessage;
+    @FXML
+    private Text txtSuccessMessage;
+
+    @FXML
+    private void handleSaveClick(MouseEvent me) throws SQLException {
+        if (Validator.isEmpty(pwdOldPassword.getText(), pwdNewPassword.getText(), pwdConfirmPassword.getText())) {
+            txtErrorMessage.setText("Please fill in all fields.");
+            return;
+        }
+
+        if (!pwdNewPassword.getText().equals(pwdConfirmPassword.getText())) {
+            txtErrorMessage.setText("Passwords do not match.");
+            return;
+        }
+
+        StudentChangePasswordDto studentSaveDto = new StudentChangePasswordDto(
+                pwdOldPassword.getText(),
+                pwdNewPassword.getText()
+        );
+
+        boolean isSaved = UserService.updatePassword(studentSaveDto);
+
+        if (!isSaved) {
+            txtErrorMessage.setText("Password is incorrect.");
+            return;
+        }
+
+        txtSuccessMessage.setText("Password changed successfully");
+        txtErrorMessage.setText("");
+    }
+
+    @FXML
+    private void handleAppliedClick(MouseEvent me) { Navigator.navigate(me, Navigator.APPLIED_STUDENT); }
+    @FXML
+    private void handleDashboardClick(MouseEvent me) { Navigator.navigate(me, Navigator.DASHBOARD_STUDENT); }
+    @FXML
+    private void handleHelpClick(MouseEvent me) { Navigator.navigate(me, Navigator.HELP_STUDENT); }
+    @FXML
+    private void handleLogoutClick(MouseEvent me) {
+        UserSession.getInstance(null).cleanUserSession();
+        Navigator.navigate( me, Navigator.LOGIN_PAGE_STUDENT);
+    }
 }

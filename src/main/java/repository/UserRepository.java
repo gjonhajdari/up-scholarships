@@ -8,20 +8,36 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserRepository {
-    public static User getByUsername(String username){
+    public static User getById(String id){
         String query = "SELECT * FROM student WHERE student_id = ? LIMIT 1";
-        try{
+        try {
             Connection connection = ConnectionUtil.getConnection();
             PreparedStatement pst = connection.prepareStatement(query);
-            pst.setString(1, username);
+            pst.setString(1, id);
             ResultSet result = pst.executeQuery();
 
             if(result.next()){
                 return getFromResultSet(result);
             }
             return null;
-        }catch (Exception e){
+        } catch (Exception e){
             return null;
+        }
+    }
+
+    public static boolean updatePassword(String id, String password, String salt){
+        String query = "UPDATE student SET salt = ?, password = ? WHERE student_id = ?";
+
+        try {
+            Connection connection = ConnectionUtil.getConnection();
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, salt);
+            pst.setString(2, password);
+            pst.setString(3, id);
+
+            return pst.executeUpdate() > 0;
+        } catch (Exception e){
+            return false;
         }
     }
 
