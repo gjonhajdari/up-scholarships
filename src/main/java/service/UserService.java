@@ -7,7 +7,7 @@ import repository.UserRepository;
 
 public class UserService {
 
-    public static boolean login(LoginUserDto loginData){
+    public static boolean login(LoginUserDto loginData) {
         User user = UserRepository.getById(loginData.getStudentId());
 
         if(user == null){
@@ -26,7 +26,7 @@ public class UserService {
         return true;
     }
 
-    public static boolean updatePassword(StudentChangePasswordDto saveData){
+    public static boolean updatePassword(StudentChangePasswordDto saveData) {
         String studentId = UserSession.getInstance(null).getId();
         User user = UserRepository.getById(studentId);
 

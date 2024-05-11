@@ -8,7 +8,7 @@ import repository.AdminRepository;
 import java.sql.SQLException;
 
 public class AdminService {
-  public static boolean login(LoginUserDto loginData) throws SQLException {
+  public static boolean login(LoginUserDto loginData) {
     Admin admin = AdminRepository.getByUsername(loginData.getStudentId());
 
     if (admin == null) {
@@ -27,7 +27,7 @@ public class AdminService {
     return true;
   }
 
-  public static boolean updatePassword(AdminChangePasswordDto saveData) throws SQLException {
+  public static boolean updatePassword(AdminChangePasswordDto saveData) {
     String username = AdminSession.getInstance(null).getUsername();
     Admin admin = AdminRepository.getByUsername(username);
 
