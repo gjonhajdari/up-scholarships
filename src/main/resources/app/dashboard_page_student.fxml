@@ -12,6 +12,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import org.kordamp.ikonli.javafx.FontIcon?>
+
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardStudentController">
    <children>
       <VBox prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
@@ -119,11 +120,11 @@
                   <Font size="32.0" />
                </font>
             </Text>
-            <TableView fx:id="tableDashboardStudent" minWidth="300.0" prefHeight="562.0" prefWidth="695.0" style="-fx-background-radius: 5px;" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tblDashboardStudent" minWidth="300.0" stylesheets="@../styles/tableStyle.css" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="colTitle" maxWidth="-1.0" minWidth="400.0" prefWidth="-1.0" style="-fx-background-color: #ccfbf1;" text="Title" />
-                <TableColumn fx:id="colAmount" minWidth="150.0" prefWidth="75.0" style="-fx-background-color: #ccfbf1;" text="Amount" />
-                  <TableColumn fx:id="colDate" minWidth="150.0" prefWidth="75.0" style="-fx-background-color: #ccfbf1;" text="Due date" />
+                <TableColumn fx:id="colTitle" maxWidth="398.1690979003906" minWidth="358.50506591796875" prefWidth="398.1690979003906" text="Title" />
+                <TableColumn fx:id="colAmount" minWidth="150.0" prefWidth="151.8309326171875" text="Amount" />
+                  <TableColumn fx:id="colDeadline" minWidth="131.47564697265625" prefWidth="131.47564697265625" text="Deadline" />
               </columns>
                <VBox.margin>
                   <Insets top="150.0" />
