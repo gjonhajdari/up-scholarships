@@ -19,11 +19,17 @@ public class AdminService {
     String salt = admin.getSalt();
     String hashedPassword = admin.getHashedPassword();
 
-    return PasswordHasher.compareSaltedHash(password, salt, hashedPassword);
+    if (!PasswordHasher.compareSaltedHash(password, salt, hashedPassword)) {
+      return false;
+    }
+
+    AdminSession.getInstance(admin);
+    return true;
   }
 
   public static boolean updatePassword(AdminChangePasswordDto saveData) throws SQLException {
-    Admin admin = AdminRepository.getByUsername("admin");
+    String username = AdminSession.getInstance(null).getUsername();
+    Admin admin = AdminRepository.getByUsername(username);
 
     if (admin == null) {
       return false;
