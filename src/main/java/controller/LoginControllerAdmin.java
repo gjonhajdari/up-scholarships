@@ -8,6 +8,7 @@ import javafx.scene.text.Text;
 import model.dto.LoginUserDto;
 import service.AdminService;
 import service.Navigator;
+import service.Validator;
 
 import java.sql.SQLException;
 
@@ -21,7 +22,7 @@ public class LoginControllerAdmin {
 
   @FXML
   private void handleLoginAdminClick(MouseEvent me) throws SQLException {
-    if (txtUsername.getText().isEmpty() || pwdPassword.getText().isEmpty()) {
+    if (Validator.isEmpty(txtUsername.getText(), pwdPassword.getText())) {
       txtErrorMessage.setText("Please fill in all fields");
       return;
     }

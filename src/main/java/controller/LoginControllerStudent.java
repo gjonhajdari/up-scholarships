@@ -8,6 +8,7 @@ import javafx.scene.text.Text;
 import model.dto.LoginUserDto;
 import service.Navigator;
 import service.UserService;
+import service.Validator;
 
 public class LoginControllerStudent {
   @FXML
@@ -19,7 +20,7 @@ public class LoginControllerStudent {
 
   @FXML
   private void handleLoginStudentClick(MouseEvent me) {
-    if (txtStudentId.getText().isEmpty() || pwdPassword.getText().isEmpty()) {
+    if (Validator.isEmpty(txtStudentId.getText(), pwdPassword.getText())) {
       txtErrorMessage.setText("Please fill in all fields");
       return;
     }
