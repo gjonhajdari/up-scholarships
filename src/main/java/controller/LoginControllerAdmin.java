@@ -28,8 +28,8 @@ public class LoginControllerAdmin {
     }
 
     LoginUserDto loginUserDto = new LoginUserDto(
-      this.txtUsername.getText(),
-      this.pwdPassword.getText()
+            Validator.clearSpaces(this.txtUsername.getText()),
+            Validator.clearSpaces(this.pwdPassword.getText())
     );
 
     boolean isLogin = AdminService.login(loginUserDto);
