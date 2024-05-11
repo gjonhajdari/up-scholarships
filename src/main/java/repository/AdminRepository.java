@@ -14,17 +14,17 @@ public class AdminRepository {
     String query = "SELECT * FROM admin WHERE username = ?";
     Connection connection = ConnectionUtil.getConnection();
 
-    try{
+    try {
       PreparedStatement pst = connection.prepareStatement(query);
       pst.setString(1, username);
       ResultSet result = pst.executeQuery();
 
-      if(result.next()) {
+      if (result.next()) {
         return getFromResultSet(result);
       }
 
       return null;
-    }catch (Exception e){
+    } catch (Exception e){
       return null;
     }
   }
@@ -33,14 +33,14 @@ public class AdminRepository {
     String query = "UPDATE admin SET salt = ?, password = ? WHERE admin_id = ?";
     Connection connection = ConnectionUtil.getConnection();
 
-    try{
+    try {
       PreparedStatement pst = connection.prepareStatement(query);
       pst.setString(1, salt);
       pst.setString(2, password);
       pst.setInt(3, id);
 
       return pst.executeUpdate() > 0;
-    }catch (Exception e){
+    } catch (Exception e){
       return false;
     }
 
