@@ -31,9 +31,3 @@ Alternatively you can open the scripts and run them in your favorite MySQL GUI.
 ## Contributors
 
 University team project for the Human-Computer Interaction course at the [University of Prishtina](https://fiek.uni-pr.edu).
-
-<a href="https://github.com/gjonhajdari/up-scholarships/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=gjonhajdari/up-scholarships" />
-</a>
-
-Made with [contrib.rocks](https://contrib.rocks).
