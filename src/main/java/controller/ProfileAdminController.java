@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import model.dto.AdminChangePasswordDto;
 import service.AdminService;
+import service.AdminSession;
 import service.Navigator;
 import service.Validator;
 
@@ -56,11 +57,14 @@ public class ProfileAdminController {
     }
 
     @FXML
-    private void handleDashboardClick(MouseEvent me) { Navigator.navigate( me, Navigator.DASHBOARD_ADMIN); }
+    private void handleDashboardClick(MouseEvent me) { Navigator.navigate(me, Navigator.DASHBOARD_ADMIN); }
     @FXML
-    private void handleVouchersClick(MouseEvent me) { Navigator.navigate( me, Navigator.VOUCHERS_ADMIN); }
+    private void handleVouchersClick(MouseEvent me) { Navigator.navigate(me, Navigator.VOUCHERS_ADMIN); }
     @FXML
-    private void handleCreateClick(MouseEvent me) { Navigator.navigate( me, Navigator.CREATE_VOUCHER); }
+    private void handleCreateClick(MouseEvent me) { Navigator.navigate(me, Navigator.CREATE_VOUCHER); }
     @FXML
-    private void handleLogoutClick(MouseEvent me) { Navigator.navigate( me, Navigator.HOME_PAGE); }
+    private void handleLogoutClick(MouseEvent me) {
+        AdminSession.getInstance(null).cleanAdminSession();
+        Navigator.navigate(me, Navigator.LOGIN_PAGE_ADMIN);
+    }
 }
