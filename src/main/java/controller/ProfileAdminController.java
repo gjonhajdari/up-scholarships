@@ -9,6 +9,7 @@ import javafx.scene.text.Text;
 import model.dto.AdminChangePasswordDto;
 import service.AdminService;
 import service.Navigator;
+import service.Validator;
 
 import java.sql.SQLException;
 
@@ -28,7 +29,7 @@ public class ProfileAdminController {
 
     @FXML
     private void handleSaveClick(MouseEvent me) throws SQLException {
-        if (pwdOldPassword.getText().isEmpty() || pwdNewPassword.getText().isEmpty() || pwdConfirmPassword.getText().isEmpty()) {
+        if (Validator.isEmpty(pwdOldPassword.getText(), pwdNewPassword.getText(), pwdConfirmPassword.getText())) {
             txtErrorMessage.setText("Please fill in all fields.");
             return;
         }
