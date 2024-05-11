@@ -39,7 +39,6 @@
                <children>
                   <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1;">
                      <children>
-<!--                        <FontAwesomeIconView fill="#115e59" />-->
                         <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
                            <font>
                               <Font size="20.0" />
@@ -51,7 +50,6 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleAppliedClick" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
-<!--                        <FontAwesomeIconView />-->
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applied">
                            <font>
                               <Font size="20.0" />
@@ -63,7 +61,6 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" onMouseClicked="#handleProfileClick" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
-<!--                        <FontAwesomeIconView />-->
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
                            <font>
                               <Font size="20.0" />
@@ -75,7 +72,6 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" onMouseClicked="#handleHelpClick" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
-<!--                        <FontAwesomeIconView />-->
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
                            <font>
                               <Font size="20.0" />
@@ -90,7 +86,6 @@
             <Pane layoutX="16.0" layoutY="49.0" prefHeight="376.0" prefWidth="230.0" />
             <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px;">
                <children>
-<!--                  <FontAwesomeIconView />-->
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
                      <font>
                         <Font size="20.0" />
@@ -110,7 +105,7 @@
             <Insets bottom="24.0" left="32.0" right="32.0" top="24.0" />
          </padding>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+            <Text fx:id="txtWelcomeMessage" strokeType="OUTSIDE" strokeWidth="0.0">
                <font>
                   <Font size="32.0" />
                </font>
