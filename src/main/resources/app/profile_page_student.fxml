@@ -37,9 +37,9 @@
                </padding>
             </HBox>
             <Pane prefHeight="118.0" prefWidth="230.0" />
-            <VBox spacing="16.0">
+            <VBox spacing="20.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#handleDashboardClick" spacing="12.0" style="-fx-background-radius: 5px;">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#handleDashboardClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <padding>
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
@@ -52,7 +52,7 @@
                         </Text>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleAppliedClick" spacing="12.0" style="-fx-background-radius: 5px;">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleAppliedClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-folder-fill" iconSize="24" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applied">
@@ -65,7 +65,7 @@
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1;">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-person-fill" iconSize="24" iconColor="#115e59" />
                         <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
@@ -78,7 +78,7 @@
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" onMouseClicked="#handleHelpClick" spacing="12.0" style="-fx-background-radius: 5px;">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" onMouseClicked="#handleHelpClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-info-circle-fill" iconSize="24" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
@@ -94,7 +94,7 @@
                </children>
             </VBox>
             <Pane layoutX="16.0" layoutY="49.0" prefHeight="376.0" prefWidth="230.0" />
-            <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px;">
+            <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                <children>
                   <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
@@ -191,7 +191,7 @@
                         </Text>
                      </children>
                   </VBox>
-                  <Button mnemonicParsing="false" onMouseClicked="#handleSaveClick" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 7px; -fx-border-color: #14b8a6; -fx-border-radius: 6px; -fx-background-insets: 0;" text="Save changes" textFill="#ccfbf1">
+                  <Button mnemonicParsing="false" onMouseClicked="#handleSaveClick" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="Save changes" textFill="#ccfbf1">
                      <padding>
                         <Insets bottom="5.0" left="16.0" right="16.0" top="5.0" />
                      </padding>

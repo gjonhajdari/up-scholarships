@@ -32,9 +32,9 @@
                </padding>
             </HBox>
             <Pane prefHeight="118.0" prefWidth="230.0" />
-            <VBox spacing="16.0">
+            <VBox spacing="20.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#handleDashboardClick" spacing="12.0" style="-fx-background-radius: 5px;">
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#handleDashboardClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-grid-1x2-fill" iconSize="24" />
                         <Text onMouseClicked="#handleDashboardClick" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
@@ -47,7 +47,7 @@
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1;">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-folder-fill" iconSize="24" iconColor="#115e59" />
                         <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Applied">
@@ -60,7 +60,7 @@
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" onMouseClicked="#handleProfileClick" spacing="12.0" style="-fx-background-radius: 5px;">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" onMouseClicked="#handleProfileClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-person-fill" iconSize="24" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
@@ -73,7 +73,7 @@
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" onMouseClicked="#handleHelpClick" spacing="12.0" style="-fx-background-radius: 5px;">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" onMouseClicked="#handleHelpClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-info-circle-fill" iconSize="24" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
@@ -89,10 +89,10 @@
                </children>
             </VBox>
             <Pane layoutX="16.0" layoutY="49.0" prefHeight="376.0" prefWidth="230.0" />
-            <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px;">
+            <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                <children>
+                  <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
-                     <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />
                      <font>
                         <Font size="20.0" />
                      </font>
