@@ -14,6 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileStudentController">
    <children>
       <VBox prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
@@ -22,7 +23,7 @@
                <children>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/up_logo.png" />
+                        <Image url="@../images/up_logo.png" />
                      </image>
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="UP Scholarships">
@@ -43,6 +44,7 @@
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
                      <children>
+                        <FontIcon iconLiteral="bi-grid-1x2-fill" iconSize="24"  />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
                            <font>
                               <Font size="20.0" />
@@ -52,6 +54,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleAppliedClick" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
+                        <FontIcon iconLiteral="bi-folder-fill" iconSize="24" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applied">
                            <font>
                               <Font size="20.0" />
@@ -64,6 +67,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1;">
                      <children>
+                        <FontIcon iconLiteral="bi-person-fill" iconSize="24" iconColor="#115e59" />
                         <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
                            <font>
                               <Font size="20.0" />
@@ -76,6 +80,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" onMouseClicked="#handleHelpClick" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
+                        <FontIcon iconLiteral="bi-info-circle-fill" iconSize="24" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
                            <font>
                               <Font size="20.0" />
@@ -91,6 +96,7 @@
             <Pane layoutX="16.0" layoutY="49.0" prefHeight="376.0" prefWidth="230.0" />
             <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px;">
                <children>
+                  <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
                      <font>
                         <Font size="20.0" />
