@@ -3,6 +3,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import model.dto.LoginUserDto;
@@ -21,7 +22,30 @@ public class LoginControllerAdmin {
   private Text txtErrorMessage;
 
   @FXML
-  private void handleLoginAdminClick(MouseEvent me) throws SQLException {
+  private void initialize() {
+    pwdPassword.setOnKeyPressed(event -> {
+      if (event.getCode() == KeyCode.ENTER) {
+        try {
+          handleLoginAdmin();
+          if (txtErrorMessage.getText().isEmpty()) {
+            Navigator.navigate(event, Navigator.DASHBOARD_ADMIN);
+          }
+        } catch (SQLException sqle) {
+          sqle.printStackTrace();
+        }
+      }
+    });
+  }
+
+  @FXML
+  private void handleLoginAdminClick(MouseEvent event) throws SQLException {
+      handleLoginAdmin();
+      if (txtErrorMessage.getText().isEmpty()) {
+        Navigator.navigate(event, Navigator.DASHBOARD_ADMIN);
+      }
+  }
+
+  private void handleLoginAdmin() throws SQLException {
     if (Validator.isEmpty(txtUsername.getText(), pwdPassword.getText())) {
       txtErrorMessage.setText("Please fill in all fields");
       return;
@@ -39,6 +63,6 @@ public class LoginControllerAdmin {
       return;
     }
 
-    Navigator.navigate(me, Navigator.DASHBOARD_ADMIN);
+    txtErrorMessage.setText("");
   }
 }
