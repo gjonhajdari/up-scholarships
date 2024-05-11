@@ -6,8 +6,12 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import model.dto.CreateVoucherDto;
 import service.AdminSession;
 import service.Navigator;
+import service.Validator;
+import service.VoucherService;
 
 public class CreateVoucherController {
     @FXML
@@ -20,10 +24,35 @@ public class CreateVoucherController {
     private ComboBox<String> cmbCategory;
     @FXML
     private TextArea txtDescription;
+    @FXML
+    private Text txtErrorMessage;
+    @FXML
+    private Text txtSuccessMessage;
 
     @FXML
     private void handleCreateClick(MouseEvent me) {
+        if (Validator.isEmpty(txtTitle.getText(), txtAmount.getText(), txtDescription.getText()) || Validator.isEmpty(dtpDeadline.getValue(), cmbCategory.getValue())) {
+            txtErrorMessage.setText("Please fill in all fields.");
+            txtSuccessMessage.setText("");
+            return;
+        }
 
+        boolean isCreated = VoucherService.createVoucher(
+                txtTitle.getText(),
+                txtAmount.getText(),
+                dtpDeadline.getValue().toString(),
+                cmbCategory.getValue(),
+                txtDescription.getText()
+        );
+
+        if (!isCreated) {
+            txtErrorMessage.setText("Failed to create voucher.");
+            txtSuccessMessage.setText("");
+            return;
+        }
+
+        txtSuccessMessage.setText("Voucher created successfully.");
+        txtErrorMessage.setText("");
     }
 
     @FXML

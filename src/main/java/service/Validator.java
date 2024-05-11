@@ -10,6 +10,15 @@ public class Validator {
     return false;
   }
 
+  public static boolean isEmpty(Object... fields) {
+    for (Object field : fields) {
+      if (field == null) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public static String clearSpaces(String str) {
     return str.trim();
   }

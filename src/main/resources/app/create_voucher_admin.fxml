@@ -192,7 +192,7 @@
                                     <Insets left="4.0" right="4.0" />
                                  </padding>
                               </Label>
-                              <ComboBox fx:id="cmbType" editable="true" prefHeight="48.0" prefWidth="200.0" promptText="UNIVERSITY" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 8px; -fx-border-radius: 8px;" visibleRowCount="3">
+                              <ComboBox fx:id="cmbCategory" editable="true" prefHeight="48.0" prefWidth="200.0" promptText="UNIVERSITY" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 8px; -fx-border-radius: 8px;" visibleRowCount="3">
                                     <items>
                                        <FXCollections fx:factory="observableArrayList">
                                           <String fx:value="UNIVERSITY" />
@@ -215,11 +215,21 @@
                               <Insets left="4.0" right="4.0" />
                            </padding>
                         </Label>
-                        <TextArea fx:id="txtDescription" prefHeight="200.0" prefWidth="200.0" promptText="Voucher description" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 8px; -fx-border-radius: 8px;">
+                        <TextArea fx:id="txtDescription" prefHeight="150.0" prefWidth="200.0" promptText="Voucher description" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 8px; -fx-border-radius: 8px;">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </TextArea>
+                        <Text fx:id="txtErrorMessage" fill="#fc4e4e" strokeType="OUTSIDE" strokeWidth="0.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txtSuccessMessage" fill="#0d9488" strokeType="OUTSIDE" strokeWidth="0.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
                      </children>
                   </VBox>
                   <Button mnemonicParsing="false" onMouseClicked="#handleCreateClick" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 7px; -fx-border-color: #14b8a6; -fx-border-radius: 6px; -fx-background-insets: 0;" text="Create voucher" textFill="#ccfbf1">
