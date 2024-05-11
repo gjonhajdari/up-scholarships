@@ -29,6 +29,23 @@ public class AdminRepository {
     }
   }
 
+  public static boolean updatePassword(int id, String password, String salt) throws SQLException {
+    String query = "UPDATE admin SET salt = ?, password = ? WHERE admin_id = ?";
+    Connection connection = ConnectionUtil.getConnection();
+
+    try{
+      PreparedStatement pst = connection.prepareStatement(query);
+      pst.setString(1, salt);
+      pst.setString(2, password);
+      pst.setInt(3, id);
+
+      return pst.executeUpdate() > 0;
+    }catch (Exception e){
+      return false;
+    }
+
+  }
+
   private static Admin getFromResultSet(ResultSet result){
     try{
       int id = result.getInt("admin_id");

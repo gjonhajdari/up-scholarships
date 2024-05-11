@@ -5,7 +5,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import model.dto.AdminChangePasswordDto;
+import service.AdminService;
 import service.Navigator;
+
+import java.sql.SQLException;
 
 public class ProfileAdminController {
     @FXML
@@ -17,7 +22,37 @@ public class ProfileAdminController {
     @FXML
     private ToggleGroup Language;
     @FXML
-    private Button btnLogin;
+    private Text txtErrorMessage;
+    @FXML
+    private Text txtSuccessMessage;
+
+    @FXML
+    private void handleSaveClick(MouseEvent me) throws SQLException {
+        if (pwdOldPassword.getText().isEmpty() || pwdNewPassword.getText().isEmpty() || pwdConfirmPassword.getText().isEmpty()) {
+            txtErrorMessage.setText("Please fill in all fields.");
+            return;
+        }
+
+        if (!pwdNewPassword.getText().equals(pwdConfirmPassword.getText())) {
+            txtErrorMessage.setText("Passwords do not match.");
+            return;
+        }
+
+        AdminChangePasswordDto adminSaveDto = new AdminChangePasswordDto(
+                pwdOldPassword.getText(),
+                pwdNewPassword.getText()
+        );
+
+        boolean isSaved = AdminService.updatePassword(adminSaveDto);
+
+        if (!isSaved) {
+            txtErrorMessage.setText("Password is incorrect.");
+            return;
+        }
+
+        txtSuccessMessage.setText("Password changed successfully");
+        txtErrorMessage.setText("");
+    }
 
     @FXML
     private void handleDashboardClick(MouseEvent me) { Navigator.navigate( me, Navigator.DASHBOARD_ADMIN); }

@@ -22,7 +22,7 @@
                <children>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/up_logo.png" />
+                        <Image url="@../images/up_logo.png" />
                      </image>
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="UP Scholarships">
@@ -116,7 +116,7 @@
                   <Font size="32.0" />
                </font>
             </Text>
-            <VBox prefHeight="727.0" prefWidth="821.0" spacing="40.0">
+            <VBox prefHeight="727.0" prefWidth="821.0" spacing="64.0">
                <children>
                   <VBox spacing="16.0">
                      <children>
@@ -154,6 +154,11 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
+                        <Text fx:id="txtErrorMessage" fill="#fc4e4e" strokeType="OUTSIDE" strokeWidth="0.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
                         <VBox spacing="16.0">
                            <children>
                               <PasswordField fx:id="pwdOldPassword" maxWidth="320.0" prefHeight="41.0" prefWidth="317.0" promptText="Old password" style="-fx-background-radius: 6px; -fx-border-radius: 6px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff;">
@@ -173,9 +178,14 @@
                               </PasswordField>
                            </children>
                         </VBox>
+                        <Text fx:id="txtSuccessMessage" fill="#0d9488" strokeType="OUTSIDE" strokeWidth="0.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
                      </children>
                   </VBox>
-                  <Button fx:id="btnLogin" mnemonicParsing="false" onMouseClicked="#handleSaveClick" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 7px; -fx-border-color: #14b8a6; -fx-border-radius: 6px; -fx-background-insets: 0;" text="Save changes" textFill="#ccfbf1">
+                  <Button fx:id="btnSave" mnemonicParsing="false" onMouseClicked="#handleSaveClick" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 7px; -fx-border-color: #14b8a6; -fx-border-radius: 6px; -fx-background-insets: 0;" text="Save changes" textFill="#ccfbf1">
                      <padding>
                         <Insets bottom="5.0" left="16.0" right="16.0" top="5.0" />
                      </padding>
