@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 public class UserRepository {
     public static User getById(String id){
         String query = "SELECT * FROM student WHERE student_id = ? LIMIT 1";
+
         try {
             Connection connection = ConnectionUtil.getConnection();
             PreparedStatement pst = connection.prepareStatement(query);
@@ -22,6 +23,12 @@ public class UserRepository {
             return null;
         } catch (Exception e){
             return null;
+        } finally {
+            try {
+                ConnectionUtil.getConnection().close();
+            } catch (Exception e){
+                System.out.println("Error: " + e.getMessage());
+            }
         }
     }
 
@@ -38,11 +45,17 @@ public class UserRepository {
             return pst.executeUpdate() > 0;
         } catch (Exception e){
             return false;
+        } finally {
+            try {
+                ConnectionUtil.getConnection().close();
+            } catch (Exception e){
+                System.out.println("Error: " + e.getMessage());
+            }
         }
     }
 
     private static User getFromResultSet(ResultSet result){
-        try{
+        try {
             String id = result.getString("student_id");
             String firstName = result.getString("first_name");
             String lastName = result.getString("last_name");
@@ -51,7 +64,7 @@ public class UserRepository {
             String hashedPassword = result.getString("password");
 
             return new User(id, firstName, lastName, email, salt, hashedPassword);
-        }catch (Exception e){
+        } catch (Exception e){
             return null;
         }
     }
