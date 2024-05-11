@@ -1,9 +1,11 @@
 package service;
 
+import model.Voucher;
 import model.dto.CreateVoucherDto;
 import repository.VoucherRepository;
 
 import java.sql.Date;
+import java.util.List;
 
 public class VoucherService {
   public static boolean createVoucher(String title, String amount, String deadline, String category, String description) {
@@ -30,5 +32,9 @@ public class VoucherService {
     );
 
     return VoucherRepository.create(validatedVoucherData);
+  }
+
+  public static List<Voucher> getAllVouchers() {
+    return VoucherRepository.getAll();
   }
 }

@@ -7,6 +7,7 @@ module org.example.knk_projekti {
 
   opens app to javafx.fxml;
   opens controller to javafx.fxml;
+  opens model to javafx.base;
 
   exports app;
 }
