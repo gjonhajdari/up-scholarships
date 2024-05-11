@@ -2,8 +2,8 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
+import service.AdminSession;
 import service.Navigator;
-import service.UserSession;
 
 public class DashboardAdminController {
     @FXML
@@ -14,7 +14,7 @@ public class DashboardAdminController {
     private void handleProfileClick(MouseEvent me) { Navigator.navigate(me, Navigator.PROFILE_ADMIN); }
     @FXML
     private void handleLogoutClick(MouseEvent me) {
-        UserSession.getInstance(null).cleanUserSession();
-        Navigator.navigate(me, Navigator.LOGIN_PAGE_STUDENT);
+        AdminSession.getInstance(null).cleanAdminSession();
+        Navigator.navigate(me, Navigator.LOGIN_PAGE_ADMIN);
     }
 }
