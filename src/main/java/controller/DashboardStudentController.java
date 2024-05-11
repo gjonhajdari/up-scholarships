@@ -2,10 +2,19 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import service.Navigator;
 import service.UserSession;
 
 public class DashboardStudentController {
+    @FXML
+    private Text txtWelcomeMessage;
+
+    public void initialize() {
+        String firstName = UserSession.getInstance(null).getFirstName();
+        txtWelcomeMessage.setText("Welcome back, " + firstName);
+    }
+
     @FXML
     private void handleAppliedClick(MouseEvent me) { Navigator.navigate(me, Navigator.APPLIED_STUDENT); }
     @FXML
