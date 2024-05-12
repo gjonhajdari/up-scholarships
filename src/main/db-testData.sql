@@ -13,7 +13,7 @@ values
 ("220757100075", "Blerton", "Ismaili", "blerton.ismaili@student.uni-pr.edu", "/X8VPAnu3Z64VR7+vKyllirYdT8/tCXIkVwTGyXOORQ=", "2f58385650416e75335a36345652372b764b796c6c6972596454382f744358496b5677544779584f4f52513da18e804b01ddc6d3a2e2dc0735083632c03b99aee03bb1afe8d373cb5116fd1e"),
 ("220756100109", "Gent", "Podvorica", "gent.podvorica@student.uni-pr.edu", "w+5S+8jXsvNBSbHzfOfcfN4UAGbHDN+gYBLZ2qbzhYU=", "772b35532b386a5873764e425362487a664f6663664e345541476248444e2b6759424c5a3271627a6859553dd36d42d36028078067df9a7982c30cc17d28c9e980b7554e2bb2aa00ed3ef06b");
 
-insert into scholarships.voucher(title, amount, deadline)
+insert into scholarships.voucher(title, amount, category, description, deadline)
 values
 ("Scholarship 1", 800.00, "UNIVERSITY", "Scholarship description with criteria", "2024-08-30"),
 ("Scholarship 2", 2000.00, "OTHER", "Scholarship description with criteria", "2024-07-21"),
@@ -21,17 +21,11 @@ values
 ("Scholarship 4", 500.00, "STEM", "Scholarship description with criteria", "2024-05-30"),
 ("Scholarship 5", 1000.00, "UNIVERSITY", "Scholarship description with criteria", "2024-09-03");
 
-insert into scholarships.application(student_id, voucher_id, application_date)
+insert into scholarships.application(student_id, voucher_id, status, application_date)
 values 
-("210756100052", 1, "2024-04-20"),
-("220756100031", 1, "2024-04-22"),
-("220756100004", 2, "2024-01-22");
-
-insert into scholarships.awardees(student_id, voucher_id, award_date)
-values
-("210756100052", 1, "2024-04-30"),
-("220756100031", 1, "2024-05-02"),
-("220756100004", 2, "2024-02-02");
+("210756100052", 1, "PENDING", "2024-04-20"),
+("220756100031", 1, "PENDING", "2024-04-22"),
+("220756100004", 2, "PENDING", "2024-01-22");
 
 insert into scholarships.admin(username, salt, password)
 values ("admin", "RaNRgxXvgtymZ6TPTPKF871q5dDHz04s4Hj4Rw58tIg=", "52614e52677858766774796d5a36545054504b4638373171356444487a30347334486a34527735387449673dc6f5894fa231d762bd4426c3fdbe59620593a003e4338b0d982b7c4a0f28298f");
