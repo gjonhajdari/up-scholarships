@@ -20,6 +20,8 @@ public class VoucherStudentController {
   @FXML
   private Text txtDeadline;
   @FXML
+  private Text txtCategory;
+  @FXML
   private Text txtDescription;
   @FXML
   private Text txtSuccessMessage;
@@ -39,6 +41,7 @@ public class VoucherStudentController {
     txtTitle.setText(voucher.getTitle());
     txtAmount.setText(Formatter.formatCurrency(voucher.getAmount()) + " EUR");
     txtDeadline.setText(Formatter.formatDate(voucher.getDeadline()));
+    txtCategory.setText(voucher.getCategory());
     txtDescription.setText(voucher.getDescription());
   }
 
