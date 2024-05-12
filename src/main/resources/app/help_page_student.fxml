@@ -75,7 +75,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1; -fx-cursor: hand;">
                      <children>
-                        <FontIcon iconLiteral="bi-question-circle-fill" iconSize="24" iconColor="#115e59" />
+                        <FontIcon iconLiteral="bi-info-circle-fill" iconSize="24" iconColor="#115e59" />
                         <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
                            <font>
                               <Font size="20.0" />
