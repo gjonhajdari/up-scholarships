@@ -39,29 +39,19 @@ public class VoucherRepository {
 
   public static List<Voucher> getAll() {
     String query = "SELECT * FROM voucher";
-    List<Voucher> vouchers = new ArrayList<>();
+    return getVouchers(query);
+  }
 
-    try {
-      Connection connection = ConnectionUtil.getConnection();
-      Statement st = connection.createStatement();
+  
+  public static List<Voucher> getAllValid() {
+    String query = """
+            SELECT * FROM
+            voucher JOIN application ON voucher.voucher_id = application.voucher_id
+            WHERE application.student_id IS NULL
+            AND deadline <= CURDATE()
+            """;
 
-      ResultSet resultSet = st.executeQuery(query);
-
-      while (resultSet.next()) {
-        vouchers.add(getFromResultSet(resultSet));
-      }
-
-    } catch (SQLException e) {
-      System.out.println("Error: " + e.getMessage());
-    } finally {
-      try {
-        ConnectionUtil.getConnection().close();
-      } catch (SQLException e) {
-        System.out.println("Error: " + e.getMessage());
-      }
-    }
-
-    return vouchers;
+    return getVouchers(query);
   }
 
 
@@ -115,6 +105,33 @@ public class VoucherRepository {
         System.out.println("Error: " + e.getMessage());
       }
     }
+  }
+
+
+  private static List<Voucher> getVouchers(String query) {
+    List<Voucher> vouchers = new ArrayList<>();
+
+    try {
+      Connection connection = ConnectionUtil.getConnection();
+      Statement st = connection.createStatement();
+
+      ResultSet resultSet = st.executeQuery(query);
+
+      while (resultSet.next()) {
+        vouchers.add(getFromResultSet(resultSet));
+      }
+
+    } catch (SQLException e) {
+      System.out.println("Error: " + e.getMessage());
+    } finally {
+      try {
+        ConnectionUtil.getConnection().close();
+      } catch (SQLException e) {
+        System.out.println("Error: " + e.getMessage());
+      }
+    }
+
+    return vouchers;
   }
   
 
