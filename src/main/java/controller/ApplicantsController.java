@@ -106,6 +106,7 @@ public class ApplicantsController implements InitialisableController {
         }
       };
       colButtonAccept.setCellFactory(cellFactoryAccept);
+      colButtonAccept.setPrefWidth(95);
       tblApplicationsAdmin.getColumns().add(colButtonAccept);
 
       // Add a new column for the Reject button
@@ -144,6 +145,7 @@ public class ApplicantsController implements InitialisableController {
         }
       };
       colButtonReject.setCellFactory(cellFactoryReject);
+      colButtonReject.setPrefWidth(95);
       tblApplicationsAdmin.getColumns().add(colButtonReject);
     }
 
