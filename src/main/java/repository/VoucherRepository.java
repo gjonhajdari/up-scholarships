@@ -1,5 +1,6 @@
 package repository;
 
+import model.ApplicantWithData;
 import model.Voucher;
 import model.dto.CreateVoucherDto;
 import service.ConnectionUtil;
@@ -81,14 +82,16 @@ public class VoucherRepository {
   }
 
 
-  private static List<Voucher> getApplicants(int voucherId) {
+  public static List<ApplicantWithData> getApplicantsFromVoucherId(int voucherId) {
     String query = """
-            SELECT * FROM voucher
+            SELECT student.student_id, student.first_name, student.last_name, application.application_date, application.status 
+            FROM voucher
             JOIN application ON voucher.voucher_id = application.voucher_id
+            JOIN student ON application.student_id = student.student_id
             WHERE voucher.voucher_id = ?
             """;
 
-    return getVouchers(query, voucherId);
+    return getApplicants(query, voucherId);
   }
 
 
@@ -117,7 +120,7 @@ public class VoucherRepository {
       ResultSet rs = pst.executeQuery();
 
       while (rs.next())
-        vouchers.add(getFromResultSet(rs));
+        vouchers.add(getVoucherFromResultSet(rs));
 
     } catch (SQLException e) {
       System.out.println("Error: " + e.getMessage());
@@ -139,7 +142,43 @@ public class VoucherRepository {
   }
 
 
-  private static Voucher getFromResultSet(ResultSet resultSet) throws SQLException {
+  private static List<ApplicantWithData> getApplicants(String query, Object... params) {
+    List<ApplicantWithData> applicants = new ArrayList<>();
+
+    try {
+      Connection connection = ConnectionUtil.getConnection();
+      PreparedStatement pst;
+
+      if (params.length > 0) {
+        pst = connection.prepareStatement(query);
+        for (int i = 0; i < params.length; i++) {
+          pst.setObject(i + 1, params[i]);
+        }
+      } else {
+        pst = connection.prepareStatement(query);
+      }
+
+      ResultSet rs = pst.executeQuery();
+
+      while (rs.next())
+        applicants.add(getApplicantFromResultSet(rs));
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        ConnectionUtil.getConnection().close();
+      } catch (SQLException e) {
+        System.out.println("Error: " + e.getMessage());
+      }
+    }
+
+    return applicants;
+
+  }
+
+
+  private static Voucher getVoucherFromResultSet(ResultSet resultSet) throws SQLException {
     int id = resultSet.getInt("voucher_id");
     String title = resultSet.getString("title");
     Float amount = resultSet.getFloat("amount");
@@ -154,6 +193,22 @@ public class VoucherRepository {
         category,
         description,
         Formatter.convertFromDate(deadline)
+    );
+  }
+
+  private static ApplicantWithData getApplicantFromResultSet(ResultSet resultSet) throws SQLException {
+    String id = resultSet.getString("student_id");
+    String firstName = resultSet.getString("first_name");
+    String lastName = resultSet.getString("last_name");
+    String status = resultSet.getString("status");
+    Date applicationDate = resultSet.getDate("application_date");
+
+    return new ApplicantWithData(
+        id,
+        firstName,
+        lastName,
+        status,
+        Formatter.convertFromDate(applicationDate)
     );
   }
 }

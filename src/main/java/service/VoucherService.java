@@ -1,5 +1,6 @@
 package service;
 
+import model.ApplicantWithData;
 import model.Voucher;
 import model.dto.CreateVoucherDto;
 import repository.VoucherRepository;
@@ -49,5 +50,9 @@ public class VoucherService {
 
   public static boolean apply(int voucherId, String id) {
     return VoucherRepository.apply(voucherId, id);
+  }
+
+  public static List<ApplicantWithData> getApplicants(int voucherId) {
+    return VoucherRepository.getApplicantsFromVoucherId(voucherId);
   }
 }
