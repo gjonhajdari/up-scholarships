@@ -84,7 +84,7 @@ public class VoucherRepository {
 
   public static List<ApplicantWithData> getApplicantsFromVoucherId(int voucherId) {
     String query = """
-            SELECT student.student_id, student.first_name, student.last_name, application.application_date, application.status 
+            SELECT application.application_id, student.student_id, student.first_name, student.last_name, application.application_date, application.status 
             FROM voucher
             JOIN application ON voucher.voucher_id = application.voucher_id
             JOIN student ON application.student_id = student.student_id
@@ -197,7 +197,8 @@ public class VoucherRepository {
   }
 
   private static ApplicantWithData getApplicantFromResultSet(ResultSet resultSet) throws SQLException {
-    String id = resultSet.getString("student_id");
+    int id = resultSet.getInt("application_id");
+    String studentId = resultSet.getString("student_id");
     String firstName = resultSet.getString("first_name");
     String lastName = resultSet.getString("last_name");
     String status = resultSet.getString("status");
@@ -205,6 +206,7 @@ public class VoucherRepository {
 
     return new ApplicantWithData(
         id,
+        studentId,
         firstName,
         lastName,
         status,
