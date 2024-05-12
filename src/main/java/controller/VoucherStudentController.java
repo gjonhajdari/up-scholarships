@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import model.Voucher;
@@ -24,6 +25,8 @@ public class VoucherStudentController {
   private Text txtSuccessMessage;
   @FXML
   private Text txtErrorMessage;
+  @FXML
+  private Button btnApply;
 
   private int voucherId;
 
@@ -49,6 +52,9 @@ public class VoucherStudentController {
 
     txtSuccessMessage.setText("Successfully applied for voucher");
     txtErrorMessage.setText("");
+
+    btnApply.setDisable(true);
+    btnApply.setText("Applied");
   }
 
   @FXML
