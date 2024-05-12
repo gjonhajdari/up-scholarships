@@ -15,8 +15,11 @@ values
 
 insert into scholarships.voucher(title, amount, deadline)
 values
-("Scholarship 1", 1000.00, "2024-04-30"),
-("Scholarship 2", 2000.00, "2024-02-21");
+("Scholarship 1", 800.00, "UNIVERSITY", "Scholarship description with criteria", "2024-08-30"),
+("Scholarship 2", 2000.00, "OTHER", "Scholarship description with criteria", "2024-07-21"),
+("Scholarship 3", 150.00, "OTHER", "Scholarship description with criteria", "2024-06-12"),
+("Scholarship 4", 500.00, "STEM", "Scholarship description with criteria", "2024-05-30"),
+("Scholarship 5", 1000.00, "UNIVERSITY", "Scholarship description with criteria", "2024-09-03");
 
 insert into scholarships.application(student_id, voucher_id, application_date)
 values 
