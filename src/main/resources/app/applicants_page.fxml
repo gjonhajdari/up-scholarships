@@ -14,7 +14,7 @@
 
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicantsController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicantsController">
    <children>
       <VBox prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -189,13 +189,13 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <TableView fx:id="tblApplicationsAdmin" minWidth="300.0" prefHeight="390.0" prefWidth="686.0" stylesheets="@../styles/tableStyle.css">
+                        <TableView fx:id="tblApplicationsAdmin" minWidth="300.0" prefHeight="390.0" prefWidth="700.0" stylesheets="@../styles/tableStyle.css">
                            <columns>
-                              <TableColumn fx:id="colStudentId" maxWidth="398.1690979003906" minWidth="96.0" prefWidth="134.0" text="ID" />
-                              <TableColumn fx:id="colFirstName" minWidth="92.0" prefWidth="138.0" text="First name" />
-                              <TableColumn fx:id="colLastName" minWidth="92.0" prefWidth="138.0" text="Last name" />
-                              <TableColumn fx:id="colStatus" prefWidth="125.43426513671875" text="Status" />
-                              <TableColumn fx:id="colDateApplied" maxWidth="500.0" prefWidth="143.56573486328125" text="Date applied" />
+                              <TableColumn fx:id="colStudentId" maxWidth="398.1690979003906" minWidth="96.0" prefWidth="160.0" text="ID" />
+                              <TableColumn fx:id="colFirstName" minWidth="100.0" prefWidth="150.0" text="First name" />
+                              <TableColumn fx:id="colLastName" minWidth="100.0" prefWidth="150.0" text="Last name" />
+                              <TableColumn fx:id="colStatus" prefWidth="130.0" text="Status" />
+                              <TableColumn fx:id="colDateApplied" maxWidth="500.0" prefWidth="140.0" text="Date applied" />
                            </columns>
                         </TableView>
                      </children>
