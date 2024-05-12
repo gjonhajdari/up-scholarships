@@ -31,7 +31,7 @@ create table if not exists scholarships.application(
   student_id char(12) not null,
   voucher_id int not null,
   application_date datetime not null default current_timestamp,
-  status nvarchar(30) not null, -- PENDING, APPROVED, REJECTED
+  status nvarchar(30), -- PENDING, APPROVED, REJECTED
   primary key (application_id),
   foreign key (student_id) references student(student_id),
   foreign key (voucher_id) references voucher(voucher_id)
@@ -69,6 +69,20 @@ BEGIN
         SIGNAL SQLSTATE "45000"
         SET MESSAGE_TEXT = "Application deadline has passed. Cannot apply for scholarship.";
     END IF;
+END;
+//
+
+DELIMITER ;
+
+-- Makes the status PENDING for each new added application
+
+DELIMITER //
+
+CREATE TRIGGER set_status_pending
+BEFORE INSERT ON scholarships.application
+FOR EACH ROW
+BEGIN
+   SET NEW.status = 'PENDING';
 END;
 //
 

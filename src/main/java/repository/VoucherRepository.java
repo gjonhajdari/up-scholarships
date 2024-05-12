@@ -38,14 +38,13 @@ public class VoucherRepository {
 
 
   public static boolean apply(int voucherId, String studentId) {
-    String query = "INSERT INTO application (voucher_id, student_id, status) VALUES (?, ?, ?)";
+    String query = "INSERT INTO application (voucher_id, student_id) VALUES (?, ?)";
 
     try {
       Connection connection = ConnectionUtil.getConnection();
       PreparedStatement pst = connection.prepareStatement(query);
       pst.setInt(1, voucherId);
       pst.setString(2, studentId);
-      pst.setString(3, "PENDING");
       pst.execute();
 
       return true;
