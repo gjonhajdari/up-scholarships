@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Stack;
 
 public class Navigator {
   public final static String HOME_PAGE          = "home_page.fxml";
@@ -22,6 +23,8 @@ public class Navigator {
   public final static String APPLIED_STUDENT    = "applied_page_student.fxml";
   public final static String HELP_STUDENT       = "help_page_student.fxml";
   public final static String VOUCHER_STUDENT    = "voucher_page_student.fxml";
+
+  private static Stack<String> history = new Stack<>();
 
   public static void navigate(Event event, String path) {
     // Navigate -> event -> from current scene to new scene
@@ -38,6 +41,11 @@ public class Navigator {
       Scene newScene = new Scene(loader.load());
       stage.setScene(newScene);
       stage.show();
+
+      // Adding the navigated page to the history stack
+      if (history.isEmpty() || !history.peek().equals(path)) {
+        history.push(path);
+      }
     } catch (IOException ioe) {
       ioe.printStackTrace();
     }
@@ -60,8 +68,27 @@ public class Navigator {
 
       VoucherStudentController controller = loader.getController();
       controller.initData(id);
+
+      // Adding the navigated page to the history stack
+      if (history.isEmpty() || !history.peek().equals(path)) {
+        history.push(path);
+      }
     } catch (IOException ioe) {
       ioe.printStackTrace();
+    }
+  }
+
+  public static void back(Event event) {
+    Node eventNode = (Node) event.getSource();
+    Stage stage = (Stage) eventNode.getScene().getWindow();
+
+    if (!history.isEmpty()) {
+      history.pop();
+
+      if (!history.isEmpty()) {
+        String previousPath = history.peek();
+        navigate(stage, previousPath);
+      }
     }
   }
 }
