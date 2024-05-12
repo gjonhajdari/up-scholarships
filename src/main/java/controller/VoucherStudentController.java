@@ -1,5 +1,6 @@
 package controller;
 
+import controller.interfaces.InitialisableController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -10,7 +11,7 @@ import service.Navigator;
 import service.UserSession;
 import service.VoucherService;
 
-public class VoucherStudentController {
+public class VoucherStudentController implements InitialisableController {
   @FXML
   private Text txtVoucherId;
   @FXML
