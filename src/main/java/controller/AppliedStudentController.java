@@ -14,7 +14,7 @@ public class AppliedStudentController {
     private void handleHelpClick(MouseEvent me) { Navigator.navigate( me, Navigator.HELP_STUDENT); }
     @FXML
     private void handleLogoutClick(MouseEvent me) {
-        UserSession.getInstance(null).cleanUserSession();
-        Navigator.navigate(me, Navigator.LOGIN_PAGE_STUDENT);
+      UserSession.getInstance(null).cleanUserSession();
+      Navigator.navigate(me, Navigator.LOGIN_PAGE_STUDENT);
     }
 }

@@ -188,7 +188,7 @@
                               <Font size="16.0" />
                            </font>
                         </Text>
-                        <Button mnemonicParsing="false" onMouseClicked="#handleApplyClick" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="Apply" textFill="#f0f9ff">
+                        <Button fx:id="btnApply" mnemonicParsing="false" onMouseClicked="#handleApplyClick" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="Apply" textFill="#f0f9ff">
                            <font>
                               <Font size="20.0" />
                            </font>

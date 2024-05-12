@@ -31,30 +31,30 @@ public class DashboardStudentController {
     private TableColumn<Voucher, LocalDate> colDeadline;
 
     public void initialize() {
-        String firstName = UserSession.getInstance(null).getFirstName();
-        txtWelcomeMessage.setText("Welcome back, " + firstName);
+      String firstName = UserSession.getInstance(null).getFirstName();
+      txtWelcomeMessage.setText("Welcome back, " + firstName);
 
-        colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-        colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-        colDeadline.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+      colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+      colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+      colDeadline.setCellValueFactory(new PropertyValueFactory<>("deadline"));
 
-        List<Voucher> vouchers = VoucherService.getAllVouchers();
-        ObservableList<Voucher> observableVouchers = FXCollections.observableArrayList(vouchers);
-        tblDashboardStudent.setItems(observableVouchers);
+      List<Voucher> vouchers = VoucherService.getAllVouchers();
+      ObservableList<Voucher> observableVouchers = FXCollections.observableArrayList(vouchers);
+      tblDashboardStudent.setItems(observableVouchers);
 
-        // Listening for a click on a row to navigate to the dynamic voucher page
-        tblDashboardStudent.setRowFactory(tv -> {
-            TableRow<Voucher> row = new TableRow<>();
+      // Listening for a click on a row to navigate to the dynamic voucher page
+      tblDashboardStudent.setRowFactory(tv -> {
+        TableRow<Voucher> row = new TableRow<>();
 
-            row.setOnMouseClicked(event -> {
-                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
-                    Voucher clickedRow = row.getItem();
-                    Navigator.navigate(event, Navigator.VOUCHER_STUDENT, clickedRow.getId());
-                }
-            });
-
-          return row;
+        row.setOnMouseClicked(event -> {
+          if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
+            Voucher clickedRow = row.getItem();
+            Navigator.navigate(event, Navigator.VOUCHER_STUDENT, clickedRow.getId());
+          }
         });
+
+        return row;
+      });
     }
 
     @FXML
@@ -65,7 +65,7 @@ public class DashboardStudentController {
     private void handleHelpClick(MouseEvent me) { Navigator.navigate(me, Navigator.HELP_STUDENT); }
     @FXML
     private void handleLogoutClick(MouseEvent me) {
-        UserSession.getInstance(null).cleanUserSession();
-        Navigator.navigate(me, Navigator.LOGIN_PAGE_STUDENT);
+      UserSession.getInstance(null).cleanUserSession();
+      Navigator.navigate(me, Navigator.LOGIN_PAGE_STUDENT);
     }
 }

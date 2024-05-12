@@ -27,6 +27,7 @@ public class Navigator {
 
   private static Stack<String> history = new Stack<>();
 
+
   public static void navigate(Event event, String path) {
     // Navigate -> event -> from current scene to new scene
     Node eventNode = (Node) event.getSource();
@@ -34,6 +35,7 @@ public class Navigator {
 
     navigate(stage, path);
   }
+
 
   public static void navigate(Stage stage, String path) {
     FXMLLoader loader = new FXMLLoader(Navigator.class.getResource("/app/" + path));
@@ -52,12 +54,14 @@ public class Navigator {
     }
   }
 
+
   public static void navigate(Event event, String path, int id) {
     Node eventNode = (Node) event.getSource();
     Stage stage = (Stage) eventNode.getScene().getWindow();
 
     navigate(stage, path, id);
   }
+
 
   public static void navigate(Stage stage, String path, int id) {
     FXMLLoader loader = new FXMLLoader(Navigator.class.getResource("/app/" + path));
@@ -78,6 +82,7 @@ public class Navigator {
       ioe.printStackTrace();
     }
   }
+  
 
 
 

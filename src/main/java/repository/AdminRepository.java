@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AdminRepository {
-
   public static Admin getByUsername(String username) {
     String query = "SELECT * FROM admin WHERE username = ?";
 
@@ -38,6 +37,7 @@ public class AdminRepository {
     }
   }
 
+
   public static boolean updatePassword(int id, String password, String salt) {
     String query = "UPDATE admin SET salt = ?, password = ? WHERE admin_id = ?";
 
@@ -59,6 +59,7 @@ public class AdminRepository {
       }
     }
   }
+  
 
   private static Admin getFromResultSet(ResultSet result){
     try {
