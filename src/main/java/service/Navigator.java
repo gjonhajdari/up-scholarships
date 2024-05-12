@@ -23,6 +23,7 @@ public class Navigator {
   public final static String APPLIED_STUDENT    = "applied_page_student.fxml";
   public final static String HELP_STUDENT       = "help_page_student.fxml";
   public final static String VOUCHER_STUDENT    = "voucher_page_student.fxml";
+  public final static String APPLICATIONS_PER_VOUCHER ="voucher_applicants_admin.fxml";
 
   private static Stack<String> history = new Stack<>();
 
@@ -77,6 +78,8 @@ public class Navigator {
       ioe.printStackTrace();
     }
   }
+
+
 
   public static void back(Event event) {
     Node eventNode = (Node) event.getSource();
