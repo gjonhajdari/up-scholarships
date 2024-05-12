@@ -95,29 +95,7 @@ public class VoucherRepository {
 
   public static Voucher getById(int id) {
     String query = "SELECT * FROM voucher WHERE voucher_id = ?";
-    Voucher voucher = null;
-
-    try {
-      Connection connection = ConnectionUtil.getConnection();
-      PreparedStatement pst = connection.prepareStatement(query);
-      pst.setInt(1, id);
-
-      ResultSet resultSet = pst.executeQuery();
-
-      if (resultSet.next()) {
-        voucher = getFromResultSet(resultSet);
-      }
-    } catch (SQLException e) {
-      System.out.println("Error: " + e.getMessage());
-    } finally {
-      try {
-        ConnectionUtil.getConnection().close();
-      } catch (SQLException e) {
-        System.out.println("Error: " + e.getMessage());
-      }
-    }
-
-    return voucher;
+    return getVoucher(query, id);
   }
 
 
@@ -153,6 +131,12 @@ public class VoucherRepository {
     }
 
     return vouchers;
+  }
+
+
+  private static Voucher getVoucher(String query, Object... params) {
+    List<Voucher> vouchers = getVouchers(query, params);
+    return vouchers.isEmpty() ? null : vouchers.get(0);
   }
 
 
