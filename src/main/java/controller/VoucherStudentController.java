@@ -52,6 +52,9 @@ public class VoucherStudentController {
   }
 
   @FXML
+  private void handleBackClick(MouseEvent me) { Navigator.back(me); }
+
+  @FXML
   private void handleDashboardClick(MouseEvent me) { Navigator.navigate(me, Navigator.DASHBOARD_STUDENT); }
   @FXML
   private void handleAppliedClick(MouseEvent me) { Navigator.navigate(me, Navigator.APPLIED_STUDENT); }
