@@ -37,4 +37,12 @@ public class VoucherService {
   public static List<Voucher> getAllVouchers() {
     return VoucherRepository.getAll();
   }
+
+  public static Voucher getVoucherById(int id) {
+    return VoucherRepository.getById(id);
+  }
+
+  public static boolean apply(int voucherId, String id) {
+    return VoucherRepository.apply(voucherId, id);
+  }
 }

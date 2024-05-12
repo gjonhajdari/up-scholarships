@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<!--<?import org.kordamp.ikonli.javafx.FontIcon?>-->
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VoucherStudentController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-radius: 5px;">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/up_logo.png" />
+                     </image>
+                  </ImageView>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="UP Scholarships">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="6.0" left="8.0" right="8.0" top="6.0" />
+               </padding>
+            </HBox>
+            <Pane prefHeight="118.0" prefWidth="230.0" />
+            <VBox spacing="20.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#handleDashboardClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1; -fx-cursor: hand;">
+                     <children>
+<!--                        <FontIcon iconLiteral="bi-grid-1x2-fill" iconSize="24" iconColor="#115e59" />-->
+                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleAppliedClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
+                     <children>
+<!--                        <FontIcon iconLiteral="bi-folder-fill" iconSize="24" />-->
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applied">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" onMouseClicked="#handleProfileClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
+                     <children>
+<!--                        <FontIcon iconLiteral="bi-person-fill" iconSize="24" />-->
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" onMouseClicked="#handleHelpClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
+                     <children>
+<!--                        <FontIcon iconLiteral="bi-info-circle-fill" iconSize="24" />-->
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <Pane layoutX="16.0" layoutY="49.0" prefHeight="376.0" prefWidth="230.0" />
+            <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
+               <children>
+<!--                  <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />-->
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="16.0" left="10.0" right="10.0" top="16.0" />
+         </padding>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="64.0" HBox.hgrow="ALWAYS">
+         <padding>
+            <Insets bottom="24.0" left="32.0" right="32.0" top="24.0" />
+         </padding>
+         <children>
+            <Text fx:id="txtVoucherId" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Text>
+            <VBox spacing="64.0">
+               <children>
+                  <VBox>
+                     <children>
+                        <Text fx:id="txtErrorMessage" fill="#fc4e4e" strokeType="OUTSIDE" strokeWidth="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <VBox spacing="16.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Text fx:id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="txtAmount" fill="#0d9488" layoutX="10.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" spacing="16.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Text fx:id="txtDeadline" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="txtCategory" layoutX="10.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Text fx:id="txtDescription" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <VBox spacing="16.0">
+                     <children>
+                        <Text fx:id="txtSuccessMessage" fill="#0d9488" strokeType="OUTSIDE" strokeWidth="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <Button mnemonicParsing="false" onMouseClicked="#handleApplyClick" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="Apply" textFill="#f0f9ff">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="6.0" left="32.0" right="32.0" top="6.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>
