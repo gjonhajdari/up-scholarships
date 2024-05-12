@@ -122,9 +122,9 @@
             </Text>
             <TableView fx:id="tblDashboardStudent" minWidth="300.0" stylesheets="@../styles/tableStyle.css" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="colTitle" maxWidth="398.1690979003906" minWidth="358.50506591796875" prefWidth="398.1690979003906" text="Title" />
+                <TableColumn fx:id="colTitle" minWidth="350" prefWidth="398.1690979003906" text="Title" />
                 <TableColumn fx:id="colAmount" minWidth="150.0" prefWidth="151.8309326171875" text="Amount" />
-                  <TableColumn fx:id="colDeadline" minWidth="131.47564697265625" prefWidth="131.47564697265625" text="Deadline" />
+                <TableColumn fx:id="colDeadline" minWidth="130.0" prefWidth="130.0" text="Deadline" />
               </columns>
                <VBox.margin>
                   <Insets top="150.0" />

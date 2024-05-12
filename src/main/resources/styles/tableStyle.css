@@ -34,8 +34,9 @@
 
 .table-view .column-header {
     -fx-padding: 8px;
-    -fx-background-color: -fx-light-grey-color;
-    -fx-border-color: -fx-grey-color;
+    -fx-background-color: #0d9488;
+    -fx-border-color: transparent;
+    -fx-text-fill: white !important;
 }
 
 .table-view .column-header .label{
@@ -45,12 +46,13 @@
 
 .table-row-cell {
     -fx-cursor: hand;
+    -fx-background-color: #ffffff;
 }
 
 /* This is just magic */
 .table-row-cell:filled {
     -fx-background-color: transparent;
-    -fx-border-color: transparent -fx-lightest-grey-color -fx-lightest-grey-color -fx-lightest-grey-color, transparent;
+    -fx-border-color: transparent #dbdbdb #dbdbdb #dbdbdb, transparent;
     -fx-border-insets: 0, 1;
 }
 
@@ -59,11 +61,11 @@
 }
 
 .table-row-cell:filled:hover {
-    -fx-background-color: -fx-light-grey-color;
+    -fx-background-color: #ccfbf1;
 }
 
 .table-row-cell:filled:selected:hover {
-    -fx-background-color: -fx-light-grey-color;
+    -fx-background-color: #ccfbf1;
 }
 
 .table-row-cell:filled:selected {
