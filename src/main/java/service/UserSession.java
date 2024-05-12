@@ -24,12 +24,12 @@ public final class UserSession {
   public static UserSession getInstance(User user) {
     if (instance == null) {
       instance = new UserSession(
-              user.getId(),
-              user.getFirstName(),
-              user.getLastName(),
-              user.getEmail(),
-              user.getSalt(),
-              user.getHashedPassword()
+        user.getId(),
+        user.getFirstName(),
+        user.getLastName(),
+        user.getEmail(),
+        user.getSalt(),
+        user.getHashedPassword()
       );
     }
 

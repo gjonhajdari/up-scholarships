@@ -39,10 +39,10 @@ public class LoginControllerAdmin {
 
   @FXML
   private void handleLoginAdminClick(MouseEvent event) throws SQLException {
-      handleLoginAdmin();
-      if (txtErrorMessage.getText().isEmpty()) {
-        Navigator.navigate(event, Navigator.DASHBOARD_ADMIN);
-      }
+    handleLoginAdmin();
+    if (txtErrorMessage.getText().isEmpty()) {
+      Navigator.navigate(event, Navigator.DASHBOARD_ADMIN);
+    }
   }
 
   private void handleLoginAdmin() throws SQLException {
@@ -52,8 +52,8 @@ public class LoginControllerAdmin {
     }
 
     LoginUserDto loginUserDto = new LoginUserDto(
-            Validator.clearSpaces(this.txtUsername.getText()),
-            Validator.clearSpaces(this.pwdPassword.getText())
+      Validator.clearSpaces(this.txtUsername.getText()),
+      Validator.clearSpaces(this.pwdPassword.getText())
     );
 
     boolean isLogin = AdminService.login(loginUserDto);

@@ -31,28 +31,28 @@ public class CreateVoucherController {
 
     @FXML
     private void handleCreateClick(MouseEvent me) {
-        if (Validator.isEmpty(txtTitle.getText(), txtAmount.getText(), txtDescription.getText()) || Validator.isEmpty(dtpDeadline.getValue(), cmbCategory.getValue())) {
-            txtErrorMessage.setText("Please fill in all fields.");
-            txtSuccessMessage.setText("");
-            return;
-        }
+      if (Validator.isEmpty(txtTitle.getText(), txtAmount.getText(), txtDescription.getText()) || Validator.isEmpty(dtpDeadline.getValue(), cmbCategory.getValue())) {
+        txtErrorMessage.setText("Please fill in all fields.");
+        txtSuccessMessage.setText("");
+        return;
+      }
 
-        boolean isCreated = VoucherService.createVoucher(
-                txtTitle.getText(),
-                txtAmount.getText(),
-                dtpDeadline.getValue().toString(),
-                cmbCategory.getValue(),
-                txtDescription.getText()
-        );
+      boolean isCreated = VoucherService.createVoucher(
+        txtTitle.getText(),
+        txtAmount.getText(),
+        dtpDeadline.getValue().toString(),
+        cmbCategory.getValue(),
+        txtDescription.getText()
+      );
 
-        if (!isCreated) {
-            txtErrorMessage.setText("Failed to create voucher.");
-            txtSuccessMessage.setText("");
-            return;
-        }
+      if (!isCreated) {
+        txtErrorMessage.setText("Failed to create voucher.");
+        txtSuccessMessage.setText("");
+        return;
+      }
 
-        txtSuccessMessage.setText("Voucher created successfully.");
-        txtErrorMessage.setText("");
+      txtSuccessMessage.setText("Voucher created successfully.");
+      txtErrorMessage.setText("");
     }
 
     @FXML
@@ -63,7 +63,7 @@ public class CreateVoucherController {
     private void handleProfileClick(MouseEvent me) { Navigator.navigate(me, Navigator.PROFILE_ADMIN); }
     @FXML
     private void handleLogoutClick(MouseEvent me) {
-        AdminSession.getInstance(null).cleanAdminSession();
-        Navigator.navigate(me, Navigator.LOGIN_PAGE_ADMIN);
+      AdminSession.getInstance(null).cleanAdminSession();
+      Navigator.navigate(me, Navigator.LOGIN_PAGE_ADMIN);
     }
 }

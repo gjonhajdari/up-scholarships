@@ -14,7 +14,7 @@ public class VouchersAdminController {
     private void handleProfileClick(MouseEvent me) { Navigator.navigate(me, Navigator.PROFILE_ADMIN); }
     @FXML
     private void handleLogoutClick(MouseEvent me) {
-        AdminSession.getInstance(null).cleanAdminSession();
-        Navigator.navigate(me, Navigator.LOGIN_PAGE_ADMIN);
+      AdminSession.getInstance(null).cleanAdminSession();
+      Navigator.navigate(me, Navigator.LOGIN_PAGE_ADMIN);
     }
 }

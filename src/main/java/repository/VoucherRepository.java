@@ -11,57 +11,59 @@ import java.util.Date;
 import java.util.List;
 
 public class VoucherRepository {
-    public static boolean create(CreateVoucherDto voucherData) {
-      String query = "INSERT INTO voucher (title, amount, deadline, category, description) VALUES (?, ?, ?, ?, ?)";
+  public static boolean create(CreateVoucherDto voucherData) {
+    String query = "INSERT INTO voucher (title, amount, deadline, category, description) VALUES (?, ?, ?, ?, ?)";
 
+    try {
+      Connection connection = ConnectionUtil.getConnection();
+      PreparedStatement pst = connection.prepareStatement(query);
+      pst.setString(1, voucherData.getTitle());
+      pst.setFloat(2, voucherData.getAmount());
+      pst.setDate(3, voucherData.getDeadline());
+      pst.setString(4, voucherData.getCategory());
+      pst.setString(5, voucherData.getDescription());
+      pst.execute();
+
+      return true;
+    } catch (Exception e) {
+      return false;
+    } finally {
       try {
-        Connection connection = ConnectionUtil.getConnection();
-        PreparedStatement pst = connection.prepareStatement(query);
-        pst.setString(1, voucherData.getTitle());
-        pst.setFloat(2, voucherData.getAmount());
-        pst.setDate(3, voucherData.getDeadline());
-        pst.setString(4, voucherData.getCategory());
-        pst.setString(5, voucherData.getDescription());
-        pst.execute();
-
-        return true;
-      } catch (Exception e) {
-        return false;
-      } finally {
-        try {
-          ConnectionUtil.getConnection().close();
-        } catch (SQLException e) {
-          System.out.println("Error: " + e.getMessage());
-        }
-      }
-    }
-
-    public static List<Voucher> getAll() {
-      String query = "SELECT * FROM voucher";
-      List<Voucher> vouchers = new ArrayList<>();
-
-      try {
-        Connection connection = ConnectionUtil.getConnection();
-        Statement st = connection.createStatement();
-
-        ResultSet resultSet = st.executeQuery(query);
-
-        while (resultSet.next()) {
-          vouchers.add(getFromResultSet(resultSet));
-        }
-
+        ConnectionUtil.getConnection().close();
       } catch (SQLException e) {
         System.out.println("Error: " + e.getMessage());
-      } finally {
-        try {
-          ConnectionUtil.getConnection().close();
-        } catch (SQLException e) {
-          System.out.println("Error: " + e.getMessage());
-        }
+      }
+    }
+  }
+
+
+  public static List<Voucher> getAll() {
+    String query = "SELECT * FROM voucher";
+    List<Voucher> vouchers = new ArrayList<>();
+
+    try {
+      Connection connection = ConnectionUtil.getConnection();
+      Statement st = connection.createStatement();
+
+      ResultSet resultSet = st.executeQuery(query);
+
+      while (resultSet.next()) {
+        vouchers.add(getFromResultSet(resultSet));
       }
 
-      return vouchers;
+    } catch (SQLException e) {
+      System.out.println("Error: " + e.getMessage());
+    } finally {
+      try {
+        ConnectionUtil.getConnection().close();
+      } catch (SQLException e) {
+        System.out.println("Error: " + e.getMessage());
+      }
     }
+
+    return vouchers;
+  }
+
 
   public static Voucher getById(int id) {
     String query = "SELECT * FROM voucher WHERE voucher_id = ?";
@@ -90,6 +92,7 @@ public class VoucherRepository {
     return voucher;
   }
 
+
   public static boolean apply(int voucherId, String studentId) {
     String query = "INSERT INTO application (voucher_id, student_id, status) VALUES (?, ?, ?)";
 
@@ -113,6 +116,7 @@ public class VoucherRepository {
       }
     }
   }
+  
 
   private static Voucher getFromResultSet(ResultSet resultSet) throws SQLException {
     int id = resultSet.getInt("voucher_id");

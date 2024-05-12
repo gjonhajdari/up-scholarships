@@ -53,8 +53,8 @@ public class LoginControllerStudent {
     }
 
     LoginUserDto loginUserDto = new LoginUserDto(
-            Validator.clearSpaces(this.txtStudentId.getText()),
-            Validator.clearSpaces(this.pwdPassword.getText())
+      Validator.clearSpaces(this.txtStudentId.getText()),
+      Validator.clearSpaces(this.pwdPassword.getText())
     );
 
     boolean isLogin = UserService.login(loginUserDto);
