@@ -20,7 +20,7 @@ public class Navigator {
   public final static String HELP_STUDENT       = "help_page_student.fxml";
   public final static String LOGIN_PAGE_ADMIN   = "login_page_admin.fxml";
   public final static String DASHBOARD_ADMIN    = "dashboard_page_admin.fxml";
-  public final static String VOUCHERS_ADMIN     = "vouchers_page.fxml";
+  public final static String VOUCHERS_ADMIN     = "vouchers_page_admin.fxml";
   public final static String CREATE_VOUCHER     = "create_voucher_admin.fxml";
   public final static String PROFILE_ADMIN      = "profile_page_admin.fxml";
   public final static String APPLICANTS_PAGE    = "applicants_page.fxml";
