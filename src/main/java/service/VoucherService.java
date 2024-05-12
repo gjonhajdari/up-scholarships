@@ -38,6 +38,11 @@ public class VoucherService {
     return VoucherRepository.getAll();
   }
 
+  public static List<Voucher> getAllValidVouchers() {
+    String studentId = UserSession.getInstance(null).getId();
+    return VoucherRepository.getAllValid(studentId);
+  }
+
   public static Voucher getVoucherById(int id) {
     return VoucherRepository.getById(id);
   }
