@@ -4,8 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import model.Voucher;
@@ -39,6 +41,20 @@ public class DashboardStudentController {
         List<Voucher> vouchers = VoucherService.getAllVouchers();
         ObservableList<Voucher> observableVouchers = FXCollections.observableArrayList(vouchers);
         tblDashboardStudent.setItems(observableVouchers);
+
+        // Listening for a click on a row to navigate to the dynamic voucher page
+        tblDashboardStudent.setRowFactory(tv -> {
+            TableRow<Voucher> row = new TableRow<>();
+
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
+                    Voucher clickedRow = row.getItem();
+                    Navigator.navigate(event, Navigator.VOUCHER_STUDENT, clickedRow.getId());
+                }
+            });
+
+          return row;
+        });
     }
 
     @FXML
