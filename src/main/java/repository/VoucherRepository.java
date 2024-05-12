@@ -43,15 +43,17 @@ public class VoucherRepository {
   }
 
   
-  public static List<Voucher> getAllValid() {
+  public static List<Voucher> getAllValid(String studentId) {
     String query = """
-            SELECT * FROM
-            voucher JOIN application ON voucher.voucher_id = application.voucher_id
-            WHERE application.student_id IS NULL
-            AND deadline <= CURDATE()
+            SELECT * FROM voucher
+            WHERE voucher.voucher_id NOT IN (
+                SELECT application.voucher_id FROM application
+                WHERE application.student_id = ?
+              )
+            AND deadline > CURDATE();
             """;
 
-    return getVouchers(query);
+    return getVouchersFromStudent(query, studentId);
   }
 
 
@@ -116,6 +118,34 @@ public class VoucherRepository {
       Statement st = connection.createStatement();
 
       ResultSet resultSet = st.executeQuery(query);
+
+      while (resultSet.next()) {
+        vouchers.add(getFromResultSet(resultSet));
+      }
+
+    } catch (SQLException e) {
+      System.out.println("Error: " + e.getMessage());
+    } finally {
+      try {
+        ConnectionUtil.getConnection().close();
+      } catch (SQLException e) {
+        System.out.println("Error: " + e.getMessage());
+      }
+    }
+
+    return vouchers;
+  }
+
+
+  private static List<Voucher> getVouchersFromStudent(String query, String studentId) {
+    List<Voucher> vouchers = new ArrayList<>();
+
+    try {
+      Connection connection = ConnectionUtil.getConnection();
+      PreparedStatement pst = connection.prepareStatement(query);
+      pst.setString(1, studentId);
+
+      ResultSet resultSet = pst.executeQuery();
 
       while (resultSet.next()) {
         vouchers.add(getFromResultSet(resultSet));
