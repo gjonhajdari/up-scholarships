@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -11,7 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VouchersApplicantsAdminController">
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicantsController">
    <children>
       <VBox prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -40,6 +43,7 @@
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
                      <children>
+                     <FontIcon iconLiteral="bi-grid-1x2-fill" iconSize="24" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
                            <font>
                               <Font size="20.0" />
@@ -49,6 +53,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleCreateClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
+                     <FontIcon iconLiteral="bi-file-earmark-plus-fill" iconSize="24" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create">
                            <font>
                               <Font size="20.0" />
@@ -61,6 +66,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1; -fx-cursor: hand;">
                      <children>
+                     <FontIcon iconLiteral="bi-folder-fill" iconSize="24" iconColor="#115e59"/>
                         <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Vouchers">
                            <font>
                               <Font size="20.0" />
@@ -73,6 +79,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" onMouseClicked="#handleProfileClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
+                     <FontIcon iconLiteral="bi-person-fill" iconSize="24" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
                            <font>
                               <Font size="20.0" />
@@ -88,6 +95,7 @@
             <Pane layoutX="16.0" layoutY="49.0" prefHeight="376.0" prefWidth="230.0" />
             <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                <children>
+               <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
                      <font>
                         <Font size="20.0" />
@@ -103,20 +111,18 @@
             <Insets bottom="16.0" left="10.0" right="10.0" top="16.0" />
          </padding>
       </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-         <padding>
-            <Insets bottom="24.0" left="32.0" right="32.0" top="24.0" />
-         </padding>
-         <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="40.0">
+      <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" HBox.hgrow="ALWAYS">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="32.0">
                <padding>
                   <Insets bottom="24.0" left="32.0" right="32.0" top="24.0" />
                </padding>
                <children>
                   <VBox fillWidth="false" spacing="8.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" onMouseClicked="#handleBackClick" spacing="6.0" style="-fx-cursor: hand;" VBox.vgrow="NEVER">
+                        <HBox alignment="CENTER_LEFT" onMouseClicked="#handleBackClick" spacing="4.0" style="-fx-cursor: hand;" VBox.vgrow="NEVER">
                            <children>
+                           <FontIcon iconLiteral="bi-arrow-left-short" iconSize="20" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
                                  <font>
                                     <Font size="14.0" />
@@ -131,7 +137,7 @@
                         </Text>
                      </children>
                   </VBox>
-                  <VBox spacing="64.0">
+                  <VBox spacing="32.0">
                      <children>
                         <VBox>
                            <children>
@@ -176,26 +182,27 @@
                         </Text>
                      </children>
                   </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="16.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applicants">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <TableView fx:id="tblApplicationsAdmin" minWidth="300.0" prefHeight="390.0" prefWidth="686.0" stylesheets="@../styles/tableStyle.css">
+                           <columns>
+                              <TableColumn fx:id="colStudentId" maxWidth="398.1690979003906" minWidth="96.0" prefWidth="134.0" text="ID" />
+                              <TableColumn fx:id="colFirstName" minWidth="92.0" prefWidth="138.0" text="First name" />
+                              <TableColumn fx:id="colLastName" minWidth="92.0" prefWidth="138.0" text="Last name" />
+                              <TableColumn fx:id="colStatus" prefWidth="125.43426513671875" text="Status" />
+                              <TableColumn fx:id="colDateApplied" maxWidth="500.0" prefWidth="143.56573486328125" text="Date applied" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
                </children>
             </VBox>
-            <HBox prefHeight="69.0" prefWidth="686.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applicants:">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
-            <TableView fx:id="tblApplicationsAdmin" minWidth="300.0" prefHeight="390.0" prefWidth="686.0" stylesheets="@../styles/tableStyle.css">
-               <columns>
-                  <TableColumn fx:id="colId" maxWidth="398.1690979003906" minWidth="96.0" prefWidth="134.0" text="ID" />
-                  <TableColumn fx:id="colName" minWidth="92.0" prefWidth="138.0" text="Name" />
-                  <TableColumn fx:id="colDateApplied" minWidth="91.0" prefWidth="164.0" text="Date applied" />
-                  <TableColumn fx:id="colDeadline" prefWidth="248.0" text="Deadline" />
-               </columns>
-            </TableView>
-         </children>
-      </VBox>
+         </content>
+      </ScrollPane>
    </children>
 </HBox>

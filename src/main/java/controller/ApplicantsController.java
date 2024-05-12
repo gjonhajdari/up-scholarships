@@ -1,16 +1,15 @@
 package controller;
 
+import controller.interfaces.InitialisableController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import model.Application;
+import model.ApplicantWithData;
 import model.Voucher;
 import service.AdminSession;
 import service.Formatter;
@@ -20,7 +19,7 @@ import service.VoucherService;
 import java.time.LocalDate;
 import java.util.List;
 
-public class VouchersApplicantsAdminController {
+public class ApplicantsController implements InitialisableController {
     @FXML
     private Text txtVoucherId;
     @FXML
@@ -33,15 +32,17 @@ public class VouchersApplicantsAdminController {
     private Text txtDescription;
 
     @FXML
-    private TableView<Application> tblApplicationsAdmin;
+    private TableView<ApplicantWithData> tblApplicationsAdmin;
     @FXML
-    private TableColumn<Application, Integer> colId;
+    private TableColumn<ApplicantWithData, String> colStudentId;
     @FXML
-    private TableColumn<Application,String> colName;
+    private TableColumn<ApplicantWithData, String> colFirstName;
     @FXML
-    private TableColumn<Application, LocalDate> colDateApplied;
+    private TableColumn<ApplicantWithData, String> colLastName;
     @FXML
-    private TableColumn<Application,LocalDate> colDeadline;
+    private TableColumn<ApplicantWithData, String> colStatus;
+    @FXML
+    private TableColumn<ApplicantWithData, LocalDate> colDateApplied;
 
     private int voucherId;
 
@@ -55,34 +56,19 @@ public class VouchersApplicantsAdminController {
         txtAmount.setText(Formatter.formatCurrency(voucher.getAmount()) + " EUR");
         txtDeadline.setText(Formatter.formatDate(voucher.getDeadline()));
         txtDescription.setText(voucher.getDescription());
+
+        List<ApplicantWithData> applications = VoucherService.getApplicants(voucherId);
+        ObservableList<ApplicantWithData> observableApplicants = FXCollections.observableArrayList(applications);
+        tblApplicationsAdmin.setItems(observableApplicants);
     }
 
-//    public void initialize() {
-//
-//
-//        colId.setCellValueFactory(new PropertyValueFactory<>("application_id"));
-//        colName.setCellValueFactory(new PropertyValueFactory<>("student_id"));
-//        colDeadline.setCellValueFactory(new PropertyValueFactory<>("deadline"));
-//
-//        List<Voucher> vouchers = VoucherService.getAllVouchers();
-//        ObservableList<Voucher> observableVouchers = FXCollections.observableArrayList(vouchers);
-//        tblDashboardStudent.setItems(observableVouchers);
-//
-//        // Listening for a click on a row to navigate to the dynamic voucher page
-//        tblDashboardStudent.setRowFactory(tv -> {
-//            TableRow<Voucher> row = new TableRow<>();
-//
-//            row.setOnMouseClicked(event -> {
-//                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
-//                    Voucher clickedRow = row.getItem();
-//                    Navigator.navigate(event, Navigator.VOUCHER_STUDENT, clickedRow.getId());
-//                }
-//            });
-//
-//            return row;
-//        });
-//    }
-
+    public void initialize() {
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        colDateApplied.setCellValueFactory(new PropertyValueFactory<>("applicationDate"));
+    }
 
     @FXML
     private void handleBackClick(MouseEvent me) { Navigator.back(me); }
