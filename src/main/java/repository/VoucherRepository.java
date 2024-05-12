@@ -37,6 +37,31 @@ public class VoucherRepository {
   }
 
 
+  public static boolean apply(int voucherId, String studentId) {
+    String query = "INSERT INTO application (voucher_id, student_id, status) VALUES (?, ?, ?)";
+
+    try {
+      Connection connection = ConnectionUtil.getConnection();
+      PreparedStatement pst = connection.prepareStatement(query);
+      pst.setInt(1, voucherId);
+      pst.setString(2, studentId);
+      pst.setString(3, "PENDING");
+      pst.execute();
+
+      return true;
+    } catch (SQLException e) {
+      System.out.println("Error: " + e.getMessage());
+      return false;
+    } finally {
+      try {
+        ConnectionUtil.getConnection().close();
+      } catch (SQLException e) {
+        System.out.println("Error: " + e.getMessage());
+      }
+    }
+  }
+
+
   public static List<Voucher> getAll() {
     String query = "SELECT * FROM voucher";
     return getVouchers(query);
@@ -53,7 +78,18 @@ public class VoucherRepository {
             AND deadline > CURDATE();
             """;
 
-    return getVouchersFromStudent(query, studentId);
+    return getVouchers(query, studentId);
+  }
+
+
+  private static List<Voucher> getApplicants(int voucherId) {
+    String query = """
+            SELECT * FROM voucher
+            JOIN application ON voucher.voucher_id = application.voucher_id
+            WHERE voucher.voucher_id = ?
+            """;
+
+    return getVouchers(query, voucherId);
   }
 
 
@@ -85,43 +121,26 @@ public class VoucherRepository {
   }
 
 
-  public static boolean apply(int voucherId, String studentId) {
-    String query = "INSERT INTO application (voucher_id, student_id, status) VALUES (?, ?, ?)";
-
-    try {
-      Connection connection = ConnectionUtil.getConnection();
-      PreparedStatement pst = connection.prepareStatement(query);
-      pst.setInt(1, voucherId);
-      pst.setString(2, studentId);
-      pst.setString(3, "PENDING");
-      pst.execute();
-
-      return true;
-    } catch (SQLException e) {
-      System.out.println("Error: " + e.getMessage());
-      return false;
-    } finally {
-      try {
-        ConnectionUtil.getConnection().close();
-      } catch (SQLException e) {
-        System.out.println("Error: " + e.getMessage());
-      }
-    }
-  }
-
-
-  private static List<Voucher> getVouchers(String query) {
+  private static List<Voucher> getVouchers(String query, Object... params) {
     List<Voucher> vouchers = new ArrayList<>();
 
     try {
       Connection connection = ConnectionUtil.getConnection();
-      Statement st = connection.createStatement();
+      PreparedStatement pst;
 
-      ResultSet resultSet = st.executeQuery(query);
-
-      while (resultSet.next()) {
-        vouchers.add(getFromResultSet(resultSet));
+      if (params.length > 0) {
+        pst = connection.prepareStatement(query);
+        for (int i = 0; i < params.length; i++) {
+          pst.setObject(i + 1, params[i]);
+        }
+      } else {
+        pst = connection.prepareStatement(query);
       }
+
+      ResultSet rs = pst.executeQuery();
+
+      while (rs.next())
+        vouchers.add(getFromResultSet(rs));
 
     } catch (SQLException e) {
       System.out.println("Error: " + e.getMessage());
@@ -136,34 +155,6 @@ public class VoucherRepository {
     return vouchers;
   }
 
-
-  private static List<Voucher> getVouchersFromStudent(String query, String studentId) {
-    List<Voucher> vouchers = new ArrayList<>();
-
-    try {
-      Connection connection = ConnectionUtil.getConnection();
-      PreparedStatement pst = connection.prepareStatement(query);
-      pst.setString(1, studentId);
-
-      ResultSet resultSet = pst.executeQuery();
-
-      while (resultSet.next()) {
-        vouchers.add(getFromResultSet(resultSet));
-      }
-
-    } catch (SQLException e) {
-      System.out.println("Error: " + e.getMessage());
-    } finally {
-      try {
-        ConnectionUtil.getConnection().close();
-      } catch (SQLException e) {
-        System.out.println("Error: " + e.getMessage());
-      }
-    }
-
-    return vouchers;
-  }
-  
 
   private static Voucher getFromResultSet(ResultSet resultSet) throws SQLException {
     int id = resultSet.getInt("voucher_id");
