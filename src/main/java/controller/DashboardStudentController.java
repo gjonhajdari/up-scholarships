@@ -38,7 +38,7 @@ public class DashboardStudentController {
       colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
       colDeadline.setCellValueFactory(new PropertyValueFactory<>("deadline"));
 
-      List<Voucher> vouchers = VoucherService.getAllVouchers();
+      List<Voucher> vouchers = VoucherService.getAllValidVouchers();
       ObservableList<Voucher> observableVouchers = FXCollections.observableArrayList(vouchers);
       tblDashboardStudent.setItems(observableVouchers);
 
