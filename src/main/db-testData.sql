@@ -13,7 +13,7 @@ values
 ("220757100075", "Blerton", "Ismaili", "blerton.ismaili@student.uni-pr.edu", "/X8VPAnu3Z64VR7+vKyllirYdT8/tCXIkVwTGyXOORQ=", "2f58385650416e75335a36345652372b764b796c6c6972596454382f744358496b5677544779584f4f52513da18e804b01ddc6d3a2e2dc0735083632c03b99aee03bb1afe8d373cb5116fd1e"),
 ("220756100109", "Gent", "Podvorica", "gent.podvorica@student.uni-pr.edu", "w+5S+8jXsvNBSbHzfOfcfN4UAGbHDN+gYBLZ2qbzhYU=", "772b35532b386a5873764e425362487a664f6663664e345541476248444e2b6759424c5a3271627a6859553dd36d42d36028078067df9a7982c30cc17d28c9e980b7554e2bb2aa00ed3ef06b");
 
-insert into scholarships.voucher(title, amount,category,description, deadline)
+insert into scholarships.voucher(title, amount, category, description, deadline)
 values
 ("Scholarship 1", 800.00, "UNIVERSITY", "Scholarship description with criteria", "2024-08-30"),
 ("Scholarship 2", 2000.00, "OTHER", "Scholarship description with criteria", "2024-07-21"),
