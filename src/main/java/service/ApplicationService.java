@@ -1,11 +1,9 @@
-//package service;
-//
-//import java.time.LocalDate;
-//
-//public class ApplicationService {
-//
-//    public static boolean createApplication(String name, LocalDate dateApplied, LocalDate deadLine){
-//
-//    }
-//
-//}
+package service;
+
+import repository.ApplicationRepository;
+
+public class ApplicationService {
+  public static boolean updateStatus(int applicationId, String status) {
+    return ApplicationRepository.updateStatus(applicationId, status);
+  }
+}
