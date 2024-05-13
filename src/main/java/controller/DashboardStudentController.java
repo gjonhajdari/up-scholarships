@@ -20,53 +20,53 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class DashboardStudentController {
-    @FXML
-    private Text txtWelcomeMessage;
-    @FXML
-    private TableView<Voucher> tblDashboardStudent;
-    @FXML
-    private TableColumn<Voucher, String> colTitle;
-    @FXML
-    private TableColumn<Voucher, Float> colAmount;
-    @FXML
-    private TableColumn<Voucher, LocalDate> colDeadline;
+  @FXML
+  private Text txtWelcomeMessage;
+  @FXML
+  private TableView<Voucher> tblDashboardStudent;
+  @FXML
+  private TableColumn<Voucher, String> colTitle;
+  @FXML
+  private TableColumn<Voucher, Float> colAmount;
+  @FXML
+  private TableColumn<Voucher, LocalDate> colDeadline;
 
-    public void initialize() {
-      String firstName = UserSession.getInstance(null).getFirstName();
-      txtWelcomeMessage.setText("Welcome back, " + firstName);
+  public void initialize() {
+    String firstName = UserSession.getInstance(null).getFirstName();
+    txtWelcomeMessage.setText("Welcome back, " + firstName);
 
-      colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-      colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-      colDeadline.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+    colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+    colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+    colDeadline.setCellValueFactory(new PropertyValueFactory<>("deadline"));
 
-      List<Voucher> vouchers = VoucherService.getAllValidVouchers();
-      ObservableList<Voucher> observableVouchers = FXCollections.observableArrayList(vouchers);
-      tblDashboardStudent.setItems(observableVouchers);
+    List<Voucher> vouchers = VoucherService.getAllValidVouchers();
+    ObservableList<Voucher> observableVouchers = FXCollections.observableArrayList(vouchers);
+    tblDashboardStudent.setItems(observableVouchers);
 
-      // Listening for a click on a row to navigate to the dynamic voucher page
-      tblDashboardStudent.setRowFactory(tv -> {
-        TableRow<Voucher> row = new TableRow<>();
+    // Listening for a click on a row to navigate to the dynamic voucher page
+    tblDashboardStudent.setRowFactory(tv -> {
+      TableRow<Voucher> row = new TableRow<>();
 
-        row.setOnMouseClicked(event -> {
-          if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
-            Voucher clickedRow = row.getItem();
-            Navigator.navigate(event, Navigator.VOUCHER_STUDENT, clickedRow.getId());
-          }
-        });
-
-        return row;
+      row.setOnMouseClicked(event -> {
+        if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
+          Voucher clickedRow = row.getItem();
+          Navigator.navigate(event, Navigator.VOUCHER_STUDENT, clickedRow.getId());
+        }
       });
-    }
 
-    @FXML
-    private void handleAppliedClick(MouseEvent me) { Navigator.navigate(me, Navigator.APPLIED_STUDENT); }
-    @FXML
-    private void handleProfileClick(MouseEvent me) { Navigator.navigate(me, Navigator.PROFILE_STUDENT); }
-    @FXML
-    private void handleHelpClick(MouseEvent me) { Navigator.navigate(me, Navigator.HELP_STUDENT); }
-    @FXML
-    private void handleLogoutClick(MouseEvent me) {
-        UserSession.getInstance(null).cleanUserSession();
-        Navigator.navigate(me, Navigator.HOME_PAGE);
-    }
+      return row;
+    });
+  }
+
+  @FXML
+  private void handleAppliedClick(MouseEvent me) { Navigator.navigate(me, Navigator.APPLIED_STUDENT); }
+  @FXML
+  private void handleProfileClick(MouseEvent me) { Navigator.navigate(me, Navigator.PROFILE_STUDENT); }
+  @FXML
+  private void handleHelpClick(MouseEvent me) { Navigator.navigate(me, Navigator.HELP_STUDENT); }
+  @FXML
+  private void handleLogoutClick(MouseEvent me) {
+      UserSession.getInstance(null).cleanUserSession();
+      Navigator.navigate(me, Navigator.HOME_PAGE);
+  }
 }

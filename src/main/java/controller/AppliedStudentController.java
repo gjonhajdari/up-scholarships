@@ -1,7 +1,5 @@
 package controller;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,52 +7,46 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import model.Voucher;
 import model.VoucherApplied;
-import repository.VoucherRepository;
-import service.AdminSession;
 import service.Navigator;
 import service.UserSession;
 import service.VoucherService;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class AppliedStudentController {
+  @FXML
+  private TableView<VoucherApplied> tblAppliedStudent;
+  @FXML
+  private TableColumn<VoucherApplied, String> colTitle;
+  @FXML
+  private TableColumn<VoucherApplied, Float> colAmount;
+  @FXML
+  private TableColumn<VoucherApplied, LocalDate> colDeadline;
+  @FXML
+  private TableColumn<VoucherApplied, String> colStatus;
 
-    @FXML
-    private TableView<VoucherApplied> tblAppliedStudent;
-    @FXML
-    private TableColumn<VoucherApplied, String> colTitle;
-    @FXML
-    private TableColumn<VoucherApplied, Float> colAmount;
-    @FXML
-    private TableColumn<VoucherApplied, LocalDate> colDeadline;
-    @FXML
-    private TableColumn<VoucherApplied, String> colStatus;
+  public void initialize(){
+    colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+    colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+    colDeadline.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+    colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
+    List<VoucherApplied> appliedVouchers = VoucherService.getApplied();
+    ObservableList<VoucherApplied> observableVouchers = FXCollections.observableArrayList(appliedVouchers);
+    tblAppliedStudent.setItems(observableVouchers);
+  }
 
-    public void initialize(){
-        colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-        colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-        colDeadline.setCellValueFactory(new PropertyValueFactory<>("deadline"));
-        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-
-        List<VoucherApplied> appliedVouchers = VoucherService.getApplied();
-        ObservableList<VoucherApplied> observableVouchers = FXCollections.observableArrayList(appliedVouchers);
-        tblAppliedStudent.setItems(observableVouchers);
-    }
-
-    @FXML
-    private void handleDashboardClick(MouseEvent me) { Navigator.navigate( me, Navigator.DASHBOARD_STUDENT); }
-    @FXML
-    private void handleProfileClick(MouseEvent me) { Navigator.navigate( me, Navigator.PROFILE_STUDENT); }
-    @FXML
-    private void handleHelpClick(MouseEvent me) { Navigator.navigate( me, Navigator.HELP_STUDENT); }
-    @FXML
-    private void handleLogoutClick(MouseEvent me) {
-        UserSession.getInstance(null).cleanUserSession();
-        Navigator.navigate(me, Navigator.HOME_PAGE);
-    }
+  @FXML
+  private void handleDashboardClick(MouseEvent me) { Navigator.navigate( me, Navigator.DASHBOARD_STUDENT); }
+  @FXML
+  private void handleProfileClick(MouseEvent me) { Navigator.navigate( me, Navigator.PROFILE_STUDENT); }
+  @FXML
+  private void handleHelpClick(MouseEvent me) { Navigator.navigate( me, Navigator.HELP_STUDENT); }
+  @FXML
+  private void handleLogoutClick(MouseEvent me) {
+    UserSession.getInstance(null).cleanUserSession();
+    Navigator.navigate(me, Navigator.HOME_PAGE);
+  }
 }
