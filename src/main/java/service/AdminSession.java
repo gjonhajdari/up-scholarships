@@ -39,5 +39,6 @@ public final class AdminSession {
     this.username = "";
     this.salt = "";
     this.hashedPassword = "";
+    instance = null;
   }
 }

@@ -67,5 +67,6 @@ public final class UserSession {
     this.email = "";
     this.salt = "";
     this.hashedPassword = "";
+    instance = null;
   }
 }
