@@ -160,7 +160,7 @@ public class ApplicantsController implements InitialisableController {
 
     @FXML
     private void handleLogoutClick(MouseEvent me) {
-        UserSession.getInstance(null).cleanUserSession();
+        AdminSession.getInstance(null).cleanAdminSession();
         Navigator.navigate(me, Navigator.HOME_PAGE);
     }
 
