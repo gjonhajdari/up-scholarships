@@ -9,7 +9,7 @@ import javafx.scene.text.Text;
 import model.dto.LoginUserDto;
 import service.AdminService;
 import service.Navigator;
-import service.Validator;
+import utils.Validator;
 
 import java.sql.SQLException;
 

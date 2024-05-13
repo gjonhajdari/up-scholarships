@@ -1,4 +1,4 @@
-package service;
+package utils;
 
 public class Validator {
   public static boolean isEmpty(String... fields) {

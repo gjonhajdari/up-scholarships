@@ -16,6 +16,7 @@ import javafx.util.Callback;
 import model.ApplicantWithData;
 import model.Voucher;
 import service.*;
+import utils.Formatter;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -2,7 +2,7 @@ package repository;
 
 import model.Application;
 import service.ConnectionUtil;
-import service.Formatter;
+import utils.Formatter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

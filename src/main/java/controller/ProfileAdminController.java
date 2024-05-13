@@ -1,7 +1,6 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
@@ -10,7 +9,7 @@ import model.dto.AdminChangePasswordDto;
 import service.AdminService;
 import service.AdminSession;
 import service.Navigator;
-import service.Validator;
+import utils.Validator;
 
 import java.sql.SQLException;
 

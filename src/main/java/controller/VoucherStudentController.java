@@ -7,6 +7,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import model.Voucher;
 import service.*;
+import utils.Formatter;
 
 public class VoucherStudentController implements InitialisableController {
   @FXML

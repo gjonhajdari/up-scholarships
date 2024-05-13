@@ -7,10 +7,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import model.dto.CreateVoucherDto;
 import service.AdminSession;
 import service.Navigator;
-import service.Validator;
+import utils.Validator;
 import service.VoucherService;
 
 public class CreateVoucherController {
