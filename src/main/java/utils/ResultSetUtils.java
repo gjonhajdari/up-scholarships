@@ -8,21 +8,25 @@ import java.util.Date;
 
 public class ResultSetUtils {
   public static Voucher VoucherResultSet(ResultSet resultSet) {
-    int id = resultSet.getInt("voucher_id");
-    String title = resultSet.getString("title");
-    Float amount = resultSet.getFloat("amount");
-    String category = resultSet.getString("category");
-    String description = resultSet.getString("description");
-    Date deadline = resultSet.getDate("deadline");
+    try {
+      int id = resultSet.getInt("voucher_id");
+      String title = resultSet.getString("title");
+      Float amount = resultSet.getFloat("amount");
+      String category = resultSet.getString("category");
+      String description = resultSet.getString("description");
+      Date deadline = resultSet.getDate("deadline");
 
-    return new Voucher(
-      id,
-      title,
-      amount,
-      category,
-      description,
-      Formatter.convertFromDate(deadline)
-    );
+      return new Voucher(
+        id,
+        title,
+        amount,
+        category,
+        description,
+        Formatter.convertFromDate(deadline)
+      );
+    } catch (SQLException e) {
+      return null;
+    }
   }
 
   public static VoucherApplied VoucherAppliedResultSet(ResultSet resultSet) {
