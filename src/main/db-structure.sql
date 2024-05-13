@@ -71,19 +71,3 @@ BEGIN
     END IF;
 END;
 //
-
-DELIMITER ;
-
--- Makes the status PENDING for each new added application
-
-DELIMITER //
-
-CREATE TRIGGER set_status_pending
-BEFORE INSERT ON scholarships.application
-FOR EACH ROW
-BEGIN
-   SET NEW.status = 'PENDING';
-END;
-//
-
-DELIMITER ;
