@@ -64,6 +64,6 @@ public class VouchersAdminController {
     @FXML
     private void handleLogoutClick(MouseEvent me) {
       AdminSession.getInstance(null).cleanAdminSession();
-      Navigator.navigate(me, Navigator.LOGIN_PAGE_ADMIN);
+      Navigator.navigate(me, Navigator.HOME_PAGE);
     }
 }

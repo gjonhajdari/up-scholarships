@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
+import service.AdminSession;
 import service.Navigator;
 import service.UserSession;
 
@@ -14,7 +15,7 @@ public class HelpStudentController {
     private void handleAppliedClick(MouseEvent me) { Navigator.navigate( me, Navigator.APPLIED_STUDENT); }
     @FXML
     private void handleLogoutClick(MouseEvent me) {
-      UserSession.getInstance(null).cleanUserSession();
-      Navigator.navigate(me, Navigator.LOGIN_PAGE_STUDENT);
+        AdminSession.getInstance(null).cleanAdminSession();
+        Navigator.navigate(me, Navigator.HOME_PAGE);
     }
 }

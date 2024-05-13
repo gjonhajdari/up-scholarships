@@ -72,6 +72,6 @@ public class VoucherStudentController implements InitialisableController {
   @FXML
   private void handleLogoutClick(MouseEvent me) {
     UserSession.getInstance(null).cleanUserSession();
-    Navigator.navigate(me, Navigator.LOGIN_PAGE_STUDENT);
+    Navigator.navigate(me, Navigator.HOME_PAGE);
   }
 }
