@@ -2,8 +2,10 @@ package service;
 
 import model.ApplicantWithData;
 import model.Voucher;
+import model.VoucherApplied;
 import model.dto.CreateVoucherDto;
 import repository.VoucherRepository;
+import utils.Validator;
 
 import java.sql.Date;
 import java.util.List;
@@ -42,6 +44,11 @@ public class VoucherService {
   public static List<Voucher> getAllValidVouchers() {
     String studentId = UserSession.getInstance(null).getId();
     return VoucherRepository.getAllValid(studentId);
+  }
+
+  public static List<VoucherApplied> getApplied() {
+    String studentId = UserSession.getInstance(null).getId();
+    return VoucherRepository.getApplied(studentId);
   }
 
   public static Voucher getVoucherById(int id) {
