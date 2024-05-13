@@ -191,9 +191,9 @@
                         </Text>
                         <TableView fx:id="tblApplicationsAdmin" minWidth="300.0" prefHeight="390.0" prefWidth="700.0" stylesheets="@../styles/tableStyle.css">
                            <columns>
-                              <TableColumn fx:id="colStudentId" maxWidth="398.1690979003906" minWidth="96.0" prefWidth="140.0" text="ID" />
-                              <TableColumn fx:id="colFirstName" minWidth="100.0" prefWidth="160.0" text="First name" />
-                              <TableColumn fx:id="colLastName" minWidth="100.0" prefWidth="150.0" text="Last name" />
+                              <TableColumn fx:id="colStudentId" maxWidth="398.1690979003906" minWidth="96.0" prefWidth="150.0" text="ID" />
+                              <TableColumn fx:id="colFirstName" minWidth="100.0" prefWidth="140.0" text="First name" />
+                              <TableColumn fx:id="colLastName" minWidth="100.0" prefWidth="140.0" text="Last name" />
                               <TableColumn fx:id="colStatus" prefWidth="113.0" text="Status" />
                               <TableColumn fx:id="colDateApplied" maxWidth="500.0" prefWidth="132.0" text="Date applied" />
                            </columns>
