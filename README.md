@@ -10,6 +10,8 @@ git clone https://www.github.com/gjonhajdari/up-scholarships
 cd up-scholarships
 ```
 
+### Set Up the Database
+
 Open your terminal and access the MySQL CLI to run the database scripts
 
 ```bash
@@ -20,6 +22,21 @@ mysql -u root -p < src/main/db-testData.sql
 Replace `root` with your MySQL username if you have it configured differently. You will be prompted to enter your password (if you don't have one just hit enter).
 
 Alternatively you can open the scripts and run them in your favorite MySQL GUI.
+
+### Configure Database Connection
+
+If your MySQL environment is configured differently, you can change the connection details in the `ConnectionUtil.java` file. If it isn't, you can skip this step.
+```java
+// File: ConnectionUtil.java
+
+public class ConnectionUtil {
+  // ...
+  private static String URL = "jdbc:mysql://localhost:[port]/scholarships";
+  private static String USER = [username];
+  private static String PASSWORD = [password];
+  // ...
+}
+```
 
 ## Dependencies
 
