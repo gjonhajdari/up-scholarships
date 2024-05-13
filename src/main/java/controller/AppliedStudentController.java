@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import model.Voucher;
+import model.VoucherApplied;
 import repository.VoucherRepository;
 import service.AdminSession;
 import service.Navigator;
@@ -23,44 +24,26 @@ import java.util.List;
 public class AppliedStudentController {
 
     @FXML
-    private TableView<Voucher> tblAppliedStudent;
+    private TableView<VoucherApplied> tblAppliedStudent;
     @FXML
-    private TableColumn<Voucher, String> colTitle;
+    private TableColumn<VoucherApplied, String> colTitle;
     @FXML
-    private TableColumn<Voucher, Float> colAmount;
+    private TableColumn<VoucherApplied, Float> colAmount;
     @FXML
-    private TableColumn<Voucher, LocalDate> colDeadline;
+    private TableColumn<VoucherApplied, LocalDate> colDeadline;
     @FXML
-    private TableColumn<Voucher, String> colStatus;
+    private TableColumn<VoucherApplied, String> colStatus;
 
 
     public void initialize(){
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
         colDeadline.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        // Using a custom Callback to fetch status dynamically
-        colStatus.setCellValueFactory(cellData -> {
-            Voucher voucher = cellData.getValue();
-            StringProperty statusProperty = new SimpleStringProperty();
-            // Assuming you have a method to fetch status by voucherId in your VoucherService
-            String status = VoucherRepository.getStatusByVoucherId(voucher.getId());
-            statusProperty.set(status);
-            return statusProperty;
-        });
-
-        // Fetch vouchers only if they are in the application table
-        List<Voucher> vouchersInApplication = new ArrayList<>();
-        List<Voucher> allVouchers = VoucherService.getAllVouchers();
-        for (Voucher voucher : allVouchers) {
-            if (VoucherRepository.isVoucherInApplication(voucher.getId())) {
-                vouchersInApplication.add(voucher);
-            }
-        }
-
-        ObservableList<Voucher> observableVouchers = FXCollections.observableArrayList(vouchersInApplication);
+        List<VoucherApplied> appliedVouchers = VoucherService.getApplied();
+        ObservableList<VoucherApplied> observableVouchers = FXCollections.observableArrayList(appliedVouchers);
         tblAppliedStudent.setItems(observableVouchers);
-
     }
 
     @FXML
