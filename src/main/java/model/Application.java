@@ -3,34 +3,37 @@ package model;
 import java.time.LocalDate;
 
 public class Application {
-
-    private int appId;
-    private int stdId;
+    private int id;
+    private String studentId;
     private int vouchId;
-    private LocalDate appDate;
     private String status;
+    private LocalDate appDate;
 
-    public Application(int appId, int stdId, int vouchId,String status){
-        this.appId=appId;
-        this.stdId=stdId;
-        this.vouchId=vouchId;
-        this.appDate= LocalDate.now();
-        this.status=status;
+    public Application(int id, String studentId, int vouchId, String status, LocalDate appDate) {
+        this.id = id;
+        this.studentId = studentId;
+        this.vouchId = vouchId;
+        this.status = status;
+        this.appDate = appDate;
     }
-    public int getAppId(){
-        return appId;
+
+    public int getId() {
+        return id;
     }
-    public int getStdId(){
-        return stdId;
+
+    public String getStudentId() {
+        return studentId;
     }
-    public int getVouchId(){
+
+    public int getVouchId() {
         return vouchId;
     }
-    public LocalDate getAppDate(){
-        return appDate;
+
+    public String getStatus() {
+        return status;
     }
 
-    public String getStatus(){
-        return status;
+    public LocalDate getAppDate() {
+        return appDate;
     }
 }
