@@ -16,6 +16,7 @@ public class Navigator {
   public final static String DASHBOARD_STUDENT  = "dashboard_page_student.fxml";
   public final static String VOUCHER_STUDENT    = "voucher_page_student.fxml";
   public final static String APPLIED_STUDENT    = "applied_page_student.fxml";
+  public final static String VOUCHER_APPLIED    = "applied_voucher_page_student.fxml";
   public final static String PROFILE_STUDENT    = "profile_page_student.fxml";
   public final static String HELP_STUDENT       = "help_page_student.fxml";
   public final static String LOGIN_PAGE_ADMIN   = "login_page_admin.fxml";

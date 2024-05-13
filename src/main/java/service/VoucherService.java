@@ -51,6 +51,10 @@ public class VoucherService {
     return VoucherRepository.getApplied(studentId);
   }
 
+  public static VoucherApplied getAppliedById(int id) {
+    return VoucherRepository.getAppliedById(id);
+  }
+
   public static Voucher getVoucherById(int id) {
     return VoucherRepository.getById(id);
   }

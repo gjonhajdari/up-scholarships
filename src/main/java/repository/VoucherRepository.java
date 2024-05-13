@@ -11,8 +11,6 @@ import java.sql.*;
 import java.util.List;
 
 public class VoucherRepository {
-
-
   public static boolean create(CreateVoucherDto voucherData) {
     String query = "INSERT INTO voucher (title, amount, deadline, category, description) VALUES (?, ?, ?, ?, ?)";
 
@@ -74,6 +72,17 @@ public class VoucherRepository {
             """;
 
     return DatabaseUtils.executeSelect(query, ResultSetUtils::VoucherAppliedResultSet, studentId);
+  }
+
+  public static VoucherApplied getAppliedById(int id) {
+    String query = """
+            SELECT *
+            FROM voucher
+            JOIN application ON voucher.voucher_id = application.voucher_id
+            WHERE application.application_id = ?
+            """;
+
+    return getAppliedVoucher(query, id);
   }
 
 

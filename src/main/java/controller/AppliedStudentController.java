@@ -4,8 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import model.VoucherApplied;
 import service.Navigator;
@@ -36,6 +38,19 @@ public class AppliedStudentController {
     List<VoucherApplied> appliedVouchers = VoucherService.getApplied();
     ObservableList<VoucherApplied> observableVouchers = FXCollections.observableArrayList(appliedVouchers);
     tblAppliedStudent.setItems(observableVouchers);
+
+    tblAppliedStudent.setRowFactory(tv -> {
+      TableRow<VoucherApplied> row = new TableRow<>();
+
+      row.setOnMouseClicked(event -> {
+        if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
+          VoucherApplied clickedRow = row.getItem();
+          Navigator.navigate(event, Navigator.VOUCHER_APPLIED, clickedRow.getApplicationId());
+        }
+      });
+
+      return row;
+    });
   }
 
   @FXML
