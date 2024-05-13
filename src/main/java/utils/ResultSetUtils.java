@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class ResultSetUtils {
-  public static Voucher VoucherResultSet(ResultSet resultSet) throws SQLException {
+  public static Voucher VoucherResultSet(ResultSet resultSet) {
     int id = resultSet.getInt("voucher_id");
     String title = resultSet.getString("title");
     Float amount = resultSet.getFloat("amount");
@@ -73,7 +73,7 @@ public class ResultSetUtils {
     }
   }
 
-  public static User UserResultSet(ResultSet result){
+  public static User UserResultSet(ResultSet result) {
     try {
       String id = result.getString("student_id");
       String firstName = result.getString("first_name");
@@ -115,7 +115,7 @@ public class ResultSetUtils {
     }
   }
 
-  public static Admin AdminResultSet(ResultSet result){
+  public static Admin AdminResultSet(ResultSet result) {
     try {
       int id = result.getInt("admin_id");
       String username = result.getString("username");
