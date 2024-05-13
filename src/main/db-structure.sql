@@ -31,7 +31,7 @@ create table if not exists scholarships.application(
   student_id char(12) not null,
   voucher_id int not null,
   application_date datetime not null default current_timestamp,
-  status nvarchar(30), -- PENDING, APPROVED, REJECTED
+  status nvarchar(30) DEFAULT 'PENDING', -- PENDING, APPROVED, REJECTED
   primary key (application_id),
   foreign key (student_id) references student(student_id),
   foreign key (voucher_id) references voucher(voucher_id)

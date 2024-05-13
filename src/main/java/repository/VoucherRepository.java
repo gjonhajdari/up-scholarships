@@ -54,6 +54,7 @@ public class VoucherRepository {
       return false;
     } finally {
       try {
+        if(ConnectionUtil.getConnection() !=null)
         ConnectionUtil.getConnection().close();
       } catch (SQLException e) {
         System.out.println("Error: " + e.getMessage());
