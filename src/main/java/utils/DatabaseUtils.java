@@ -72,7 +72,7 @@ public class DatabaseUtils {
   }
 
 
-  public static <T> T getFirstItem(String query, ResultHandler<T> handler, Object... params) {
+  public static <T> T getOne(String query, ResultHandler<T> handler, Object... params) {
     List<T> items = executeSelect(query, handler, params);
     return items.isEmpty() ? null : items.getFirst();
   }
