@@ -37,6 +37,7 @@ public class ResultSetUtils {
       String category = resultSet.getString("category");
       String description = resultSet.getString("description");
       Date deadline = resultSet.getDate("deadline");
+      int applicationId = resultSet.getInt("application_id");
       String status = resultSet.getString("status");
       Date applicationDate = resultSet.getDate("application_date");
 
@@ -47,6 +48,7 @@ public class ResultSetUtils {
         category,
         description,
         Formatter.convertFromDate(deadline),
+        applicationId,
         status,
         Formatter.convertFromDate(applicationDate)
       );
