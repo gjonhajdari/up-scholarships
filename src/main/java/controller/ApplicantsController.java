@@ -72,22 +72,22 @@ public class ApplicantsController implements InitialisableController {
     colDateApplied.setCellValueFactory(new PropertyValueFactory<>("applicationDate"));
 
 
-    TableColumn<ApplicantWithData, Void> colButtonAccept = new TableColumn<>("Accept");
+    TableColumn<ApplicantWithData, Void> colButtonApprove = new TableColumn<>("Approve");
     Callback<TableColumn<ApplicantWithData, Void>, TableCell<ApplicantWithData, Void>> cellFactoryAccept = new Callback<>() {
       @Override
       public TableCell<ApplicantWithData, Void> call(final TableColumn<ApplicantWithData, Void> param) {
         final TableCell<ApplicantWithData, Void> cell = new TableCell<>() {
-          private final Button btn = new Button("Accept");
+          private final Button btn = new Button("Approve");
 
           {
             btn.setStyle("-fx-background-color: #2dd4bf; -fx-border-color: #14b8a6; -fx-text-fill: #ffffff; -fx-border-radius: 6px; -fx-background-radius: 6px");
             btn.setOnAction((ActionEvent event) -> {
               ApplicantWithData data = getTableView().getItems().get(getIndex());
-              // Call the service to update the status to ACCEPTED
-              boolean updated = ApplicationService.updateStatus(data.getId(), "ACCEPTED");
+              // Call the service to update the status to APPROVED
+              boolean updated = ApplicationService.updateStatus(data.getId(), "APPROVED");
 
               if (updated) {
-                data.setStatus("ACCEPTED");
+                data.setStatus("APPROVED");
                 tblApplicationsAdmin.refresh();
               }
             });
@@ -106,9 +106,9 @@ public class ApplicantsController implements InitialisableController {
         return cell;
       }
     };
-    colButtonAccept.setCellFactory(cellFactoryAccept);
-    colButtonAccept.setPrefWidth(95);
-    tblApplicationsAdmin.getColumns().add(colButtonAccept);
+    colButtonApprove.setCellFactory(cellFactoryAccept);
+    colButtonApprove.setPrefWidth(110);
+    tblApplicationsAdmin.getColumns().add(colButtonApprove);
 
     // Add a new column for the Reject button
     TableColumn<ApplicantWithData, Void> colButtonReject = new TableColumn<>("Reject");
