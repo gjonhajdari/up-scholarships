@@ -61,7 +61,45 @@ public class VoucherRepository {
       }
     }
   }
+  public static String getStatusByVoucherId(int voucherId) {
+    String status = "UNKNOWN"; // Default status if not found or error occurs
 
+    // Your database query to fetch status based on voucherId
+    String query = "SELECT status FROM scholarships.application WHERE voucher_id = ?";
+
+    try (Connection connection = ConnectionUtil.getConnection();
+         PreparedStatement pst = connection.prepareStatement(query)) {
+      pst.setInt(1, voucherId);
+      ResultSet rs = pst.executeQuery();
+      if (rs.next()) {
+        status = rs.getString("status");
+      }
+    } catch (SQLException e) {
+      e.printStackTrace(); // Log or handle the exception as needed
+    }
+
+    return status;
+  }
+
+  public static boolean isVoucherInApplication(int voucherId) {
+    boolean isInApplication = false;
+
+    String query = "SELECT COUNT(*) FROM scholarships.application WHERE voucher_id = ?";
+
+    try (Connection connection = ConnectionUtil.getConnection();
+         PreparedStatement pst = connection.prepareStatement(query)) {
+      pst.setInt(1, voucherId);
+      ResultSet rs = pst.executeQuery();
+      if (rs.next()) {
+        int count = rs.getInt(1);
+        isInApplication = count > 0;
+      }
+    } catch (SQLException e) {
+      e.printStackTrace(); // Log or handle the exception as needed
+    }
+
+    return isInApplication;
+  }
 
   public static List<Voucher> getAll() {
     String query = "SELECT * FROM voucher";

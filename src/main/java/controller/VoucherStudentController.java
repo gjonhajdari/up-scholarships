@@ -6,10 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import model.Voucher;
-import service.Formatter;
-import service.Navigator;
-import service.UserSession;
-import service.VoucherService;
+import service.*;
 
 public class VoucherStudentController implements InitialisableController {
   @FXML

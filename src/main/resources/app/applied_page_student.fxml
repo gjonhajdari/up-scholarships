@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -10,6 +12,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import org.kordamp.ikonli.javafx.FontIcon?>
+
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AppliedStudentController">
    <children>
       <VBox prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
@@ -117,6 +120,17 @@
                   <Font size="32.0" />
                </font>
             </Text>
+            <TableView fx:id="tblAppliedStudent" minWidth="300.0" stylesheets="@../styles/tableStyle.css">
+               <columns>
+                  <TableColumn fx:id="colTitle" minWidth="360" prefWidth="445.0" text="Title" />
+                  <TableColumn fx:id="colAmount" minWidth="108.0" prefWidth="138.0" text="Amount" />
+                  <TableColumn fx:id="colDeadline" minWidth="114.0" prefWidth="132.0" text="Deadline" />
+                  <TableColumn fx:id="colStatus" prefWidth="169.0" text="Status" />
+               </columns>
+               <VBox.margin>
+                  <Insets top="150.0" />
+               </VBox.margin>
+            </TableView>
          </children>
       </VBox>
    </children>
