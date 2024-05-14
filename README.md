@@ -1,6 +1,6 @@
 # UP Scholarships
 
-Desktop app for applying for and managing scholarships for the University of Prishtina. Project project build with JavaFX and MySQL.
+Desktop app for applying for and managing scholarships for the University of Prishtina. Project build with JavaFX and MySQL.
 
 ## Getting Started
 
