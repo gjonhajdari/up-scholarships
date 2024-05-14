@@ -7,7 +7,7 @@ Desktop app for applying for and managing scholarships for the University of Pri
 Clone the repository
 ```bash
 git clone https://www.github.com/gjonhajdari/up-scholarships
-cd up-scholarships
+cd up-scholarships/src
 ```
 
 ### Set Up the Database
