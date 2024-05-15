@@ -4,8 +4,9 @@ module org.example.knk_projekti {
 
   requires org.kordamp.ikonli.javafx;
   requires java.sql;
+    requires java.desktop;
 
-  opens app to javafx.fxml;
+    opens app to javafx.fxml;
   opens controller to javafx.fxml;
   opens model to javafx.base;
 

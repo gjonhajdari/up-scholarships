@@ -140,7 +140,7 @@
                <children>
                   <VBox prefHeight="190.0" prefWidth="324.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You wan't to see avaible scholarships ?">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You wan't to see official UP website?">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -148,7 +148,7 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You wan't to see scholarships you have applied?">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You wan't to see official MASHT website?">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -156,7 +156,7 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You wan't to check your profile settings?">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You wan't to see official Kosovo government website?">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -164,7 +164,7 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ktu se di qa me shkru ??">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You wan't to go to official MFPT website?">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -176,20 +176,48 @@
                   </VBox>
                   <VBox prefHeight="190.0" prefWidth="457.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Dashboard" />
-                        <Button mnemonicParsing="false" text="Applied">
+                        <Button mnemonicParsing="false" onMouseClicked="#handleUPExternalButtonClick" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="UP Website" textFill="#ccfbf1">
+                           <padding>
+                              <Insets bottom="1.0" left="16.0" right="16.0" top="1.0" />
+                           </padding>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                            <VBox.margin>
-                              <Insets top="16.0" />
+                              <Insets bottom="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Profile">
+                        <Button mnemonicParsing="false" onMouseClicked="#handleMASHTExternalButton" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="MASHT Website" textFill="#ccfbf1">
+                           <padding>
+                              <Insets bottom="1.0" left="16.0" right="16.0" top="1.0" />
+                           </padding>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                            <VBox.margin>
-                              <Insets top="16.0" />
+                              <Insets bottom="5.0" top="3.0" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Dikun">
+                        <Button mnemonicParsing="false" onMouseClicked="#handleKosovoGovernmentButton" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="Gov. Website" textFill="#ccfbf1">
+                           <padding>
+                              <Insets bottom="1.0" left="16.0" right="16.0" top="1.0" />
+                           </padding>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                            <VBox.margin>
-                              <Insets top="16.0" />
+                              <Insets bottom="5.0" top="3.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onMouseClicked="#handleMFPTButtonClick" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="MFPT Website" textFill="#ccfbf1">
+                           <padding>
+                              <Insets bottom="1.0" left="16.0" right="16.0" top="1.0" />
+                           </padding>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="3.0" />
                            </VBox.margin>
                         </Button>
                      </children>
@@ -204,47 +232,6 @@
                <VBox.margin>
                   <Insets top="21.0" />
                </VBox.margin>
-            </HBox>
-            <HBox prefHeight="0.0" prefWidth="885.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <VBox>
-                     <children>
-                        <HBox>
-                           <children>
-                              <FontIcon iconLiteral="bi-telephone-fill" iconSize="24" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" +38344351789">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </HBox>
-                        <HBox>
-                           <children>
-                              <FontIcon iconLiteral="bi-mailbox" iconSize="24" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" bursat@uni-pr.edu">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </HBox>
-                     </children>
-                  </VBox>
-               </children>
             </HBox>
 
 
@@ -262,6 +249,52 @@
                   <Font size="17.0" />
                </font>
             </Text>
+
+             <HBox prefHeight="0.0" prefWidth="885.0">
+                 <children>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us">
+                         <font>
+                             <Font size="22.0" />
+                         </font>
+                     </Text>
+                 </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+             </HBox>
+             <HBox prefHeight="100.0" prefWidth="200.0">
+                 <children>
+                     <VBox prefHeight="100.0" prefWidth="1.0" />
+                     <VBox prefHeight="100.0" prefWidth="197.0">
+                         <children>
+                             <HBox>
+                                 <children>
+                                                                   <FontIcon iconLiteral="bi-telephone-fill" iconSize="24" />
+                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" +38344351789">
+                                         <font>
+                                             <Font size="20.0" />
+                                         </font>
+                                     </Text>
+                                 </children>
+                             </HBox>
+                             <HBox>
+                                 <children>
+                                                                   <FontIcon iconLiteral="bi-mailbox" iconSize="24" />
+                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" bursat@uni-pr.edu">
+                                         <font>
+                                             <Font size="20.0" />
+                                         </font>
+                                     </Text>
+                                 </children>
+                                 <VBox.margin>
+                                     <Insets top="10.0" />
+                                 </VBox.margin>
+                             </HBox>
+                         </children>
+                     </VBox>
+                 </children>
+             </HBox>
+
          </children>
       </VBox>
    </children>

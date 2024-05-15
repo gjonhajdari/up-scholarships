@@ -13,6 +13,20 @@ public class HelpStudentController {
   private void handleProfileClick(MouseEvent me) { Navigator.navigate( me, Navigator.PROFILE_STUDENT); }
   @FXML
   private void handleAppliedClick(MouseEvent me) { Navigator.navigate( me, Navigator.APPLIED_STUDENT); }
+//  @FXML
+//  private void handleDashboardButtonClick(MouseEvent me) { Navigator.navigate(me,Navigator.DASHBOARD_STUDENT); }
+//  @FXML
+//  private void handleAppliedButtonClick(MouseEvent me) { Navigator.navigate(me, Navigator.APPLIED_STUDENT); }
+//  @FXML
+//  private void handleProfileButtonClick(MouseEvent me) {Navigator.navigate(me,Navigator.PROFILE_STUDENT);}
+  @FXML
+  private void handleKosovoGovernmentButton(MouseEvent me) {Navigator.navigate(me,Navigator.KosovoGovernment_EXTERNAL_PAGE);}
+  @FXML
+  private void handleMASHTExternalButton(MouseEvent me) {Navigator.navigate(me,Navigator.MASHT_EXTERNAL_PAGE);}
+  @FXML
+  private void handleMFPTButtonClick(MouseEvent me) {Navigator.navigate(me,Navigator.MFPT_EXTERNAL_PAGE);}
+  @FXML
+  private void handleUPExternalButtonClick(MouseEvent me) {Navigator.navigate(me,Navigator.UP_EXTERNAL_PAGE);}
   @FXML
   private void handleLogoutClick(MouseEvent me) {
       UserSession.getInstance(null).cleanUserSession();

@@ -25,16 +25,25 @@ public class Navigator {
   public final static String CREATE_VOUCHER     = "create_voucher_admin.fxml";
   public final static String PROFILE_ADMIN      = "profile_page_admin.fxml";
   public final static String APPLICANTS_PAGE    = "applicants_page.fxml";
+  public final static String UP_EXTERNAL_PAGE = "https://uni-pr.edu/";
+  public final static String MFPT_EXTERNAL_PAGE = "https://mfpt.rks-gov.net/";
+  public final static String MASHT_EXTERNAL_PAGE = "https://masht.rks-gov.net/";
+  public final static String KosovoGovernment_EXTERNAL_PAGE = "https://kryeministri.rks-gov.net/";
 
   private static Stack<String> history = new Stack<>();
 
 
   public static void navigate(Event event, String path) {
-    // Navigate -> event -> from current scene to new scene
-    Node eventNode = (Node) event.getSource();
-    Stage stage = (Stage) eventNode.getScene().getWindow();
+    // Check if the path is a web URL
+    if (path.startsWith("http://") || path.startsWith("https://")) {
+      navigateToExternalLink(path);
+    } else {
+      // Navigate -> event -> from current scene to new scene
+      Node eventNode = (Node) event.getSource();
+      Stage stage = (Stage) eventNode.getScene().getWindow();
 
-    navigate(stage, path);
+      navigate(stage, path);
+    }
   }
 
 
@@ -83,8 +92,15 @@ public class Navigator {
       ioe.printStackTrace();
     }
   }
-  
 
+
+  private static void navigateToExternalLink(String url) {
+    try {
+      java.awt.Desktop.getDesktop().browse(new java.net.URI(url));
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 
 
   public static void back(Event event) {
