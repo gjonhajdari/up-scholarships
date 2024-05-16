@@ -41,6 +41,10 @@ public class VoucherService {
     return VoucherRepository.getAll();
   }
 
+  public static List<VoucherApplied> getAllAppliedVouchers() {
+    return VoucherRepository.getAllApplied();
+  }
+
   public static List<Voucher> getAllValidVouchers() {
     String studentId = UserSession.getInstance(null).getId();
     return VoucherRepository.getAllValid(studentId);

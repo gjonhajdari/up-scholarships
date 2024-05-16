@@ -35,6 +35,17 @@ public class VoucherRepository {
     return getVouchers(query);
   }
 
+
+  public static List<VoucherApplied> getAllApplied() {
+    String query = """
+            SELECT *
+            FROM voucher
+            JOIN application ON voucher.voucher_id = application.voucher_id
+            """;
+
+    return DatabaseUtils.executeSelect(query, ResultSetUtils::VoucherAppliedResultSet);
+  }
+
   
   public static List<Voucher> getAllValid(String studentId) {
     String query = """
