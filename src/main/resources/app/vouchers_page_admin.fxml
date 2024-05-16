@@ -160,19 +160,6 @@
                    </TableView>
                </children>
             </VBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applicants">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </Text>
-            <TableView fx:id="tblApplicants" minWidth="300.0" stylesheets="@../styles/tableStyle.css" VBox.vgrow="ALWAYS">
-               <columns>
-                  <TableColumn fx:id="colStudentID" minWidth="100" prefWidth="100.0" text="ID" />
-                  <TableColumn fx:id="colStudentName" minWidth="200.0" prefWidth="200.0" text="Name" />
-                  <TableColumn fx:id="colDeadline1" minWidth="150.0" prefWidth="150.0" text="Deadline" />
-                  <TableColumn fx:id="colActions" minWidth="100.0" prefWidth="100.0" text="Actions" />
-               </columns>
-            </TableView>
          </children>
       </VBox>
    </children>
