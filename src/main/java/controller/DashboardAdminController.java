@@ -14,7 +14,11 @@ import java.util.List;
 
 public class DashboardAdminController {
   @FXML
-  private StackPane chartPane;
+  private StackPane barchartPane;
+  @FXML
+  private StackPane piechartPane;
+  @FXML
+  private StackPane linechartPane;
 
   private DynamicBarChart barChart;
   private List<VoucherApplied> vouchers;
@@ -22,7 +26,7 @@ public class DashboardAdminController {
 
   public void initialize() {
     barChart = new DynamicBarChart();
-    chartPane.getChildren().add(barChart);
+    barchartPane.getChildren().add(barChart);
 
     vouchers = VoucherService.getAllAppliedVouchers();
     updateChart(vouchers);
