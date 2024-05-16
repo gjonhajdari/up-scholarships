@@ -6,9 +6,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import jdk.internal.icu.text.UnicodeSet;
 import model.VoucherApplied;
-
 import java.util.List;
 
 public class DynamicBarChart extends BarChart<String, Number> {
