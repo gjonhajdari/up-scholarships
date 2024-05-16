@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.StackPane?>
 
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardAdminController">
@@ -84,7 +85,6 @@
                   </HBox>
                </children>
             </VBox>
-            <Pane layoutX="16.0" layoutY="49.0" prefHeight="376.0" prefWidth="230.0" />
             <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                <children>
                   <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />
@@ -112,6 +112,8 @@
                   <Font size="32.0" />
                </font>
             </Text>
+            <!-- StackPane containing the chart -->
+            <StackPane fx:id="chartPane" />
          </children>
       </VBox>
    </children>
