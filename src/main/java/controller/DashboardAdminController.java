@@ -8,7 +8,7 @@ import service.AdminSession;
 import service.FilterService;
 import service.Navigator;
 import service.VoucherService;
-import utils.DynamicBarChart;
+import model.DynamicBarChart;
 
 import java.util.List;
 
