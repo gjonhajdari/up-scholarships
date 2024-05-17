@@ -189,7 +189,7 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <TableView fx:id="tblApplicationsAdmin" minWidth="300.0" prefHeight="390.0" prefWidth="700.0" stylesheets="@../styles/tableStyle.css">
+                        <TableView fx:id="tblApplicationsAdmin" minWidth="300.0" prefHeight="390.0" prefWidth="700.0" stylesheets="@../styles/style.css">
                            <columns>
                               <TableColumn fx:id="colStudentId" maxWidth="398.1690979003906" minWidth="96.0" prefWidth="150.0" text="ID" />
                               <TableColumn fx:id="colFirstName" minWidth="100.0" prefWidth="140.0" text="First name" />

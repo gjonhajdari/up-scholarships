@@ -110,3 +110,10 @@
     -fx-pref-height: 0;
     -fx-max-height: 0;
 }
+
+/* Button styling */
+.button-active {
+    -fx-background-color: #2dd4bf !important;
+    -fx-text-fill: #115e59 !important;
+    -fx-border-width: 0;
+}

@@ -120,7 +120,7 @@
                   <Font size="32.0" />
                </font>
             </Text>
-            <TableView fx:id="tblDashboardStudent" minWidth="300.0" stylesheets="@../styles/tableStyle.css" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tblDashboardStudent" minWidth="300.0" stylesheets="@../styles/style.css" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="colTitle" minWidth="360" prefWidth="600.0" text="Title" />
                 <TableColumn fx:id="colAmount" minWidth="150.0" prefWidth="130.0" text="Amount" />

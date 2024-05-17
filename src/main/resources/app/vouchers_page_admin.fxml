@@ -148,7 +148,7 @@
                         </VBox>
                      </children>
                   </HBox>
-                   <TableView fx:id="tblVouchersAdmin" minWidth="300.0" stylesheets="@../styles/tableStyle.css" VBox.vgrow="ALWAYS">
+                   <TableView fx:id="tblVouchersAdmin" minWidth="300.0" stylesheets="@../styles/style.css" VBox.vgrow="ALWAYS">
                        <columns>
                            <TableColumn fx:id="colTitle" minWidth="350" prefWidth="600.0" text="Title" />
                            <TableColumn fx:id="colAmount" minWidth="150.0" prefWidth="130.0" text="Amount" />
