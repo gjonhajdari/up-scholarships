@@ -18,7 +18,7 @@ create table if not exists scholarships.student(
 
 create table if not exists scholarships.voucher(
   voucher_id int not null auto_increment,
-  title nvarchar(100) not null,
+  title nvarchar(255) not null,
   amount decimal(10, 2) not null,
   category nvarchar(30) not null, -- UNIVERSITY, STEM, OTHER
   description text not null,
@@ -71,3 +71,38 @@ BEGIN
     END IF;
 END;
 //
+
+
+-- --------------------
+-- Strored procedures
+-- --------------------
+
+
+DELIMITER //
+
+CREATE PROCEDURE insert_voucher_random(IN title NVARCHAR(255), IN amount DECIMAL(10,2), IN category NVARCHAR(30), IN description TEXT)
+BEGIN
+  DECLARE randomDateFuture DATETIME;
+  SET randomDateFuture = NOW() + INTERVAL FLOOR(RAND() * 180) DAY;
+
+  INSERT INTO scholarships.voucher(title, amount, category, description, deadline)
+  VALUES (title, amount, category, description, randomDateFuture);
+END//
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE insert_application_random(IN studentId CHAR(12), IN voucherId INT)
+BEGIN
+  DECLARE randomDatePast DATETIME;
+  DECLARE randomStatus ENUM('PENDING', 'APPROVED', 'REJECTED');
+  SET randomDatePast = NOW() - INTERVAL FLOOR(RAND() * 180) DAY;
+  SET randomStatus = ELT(1 + FLOOR(RAND() * 3), 'PENDING', 'APPROVED', 'REJECTED');
+
+  INSERT INTO scholarships.application(voucher_id, student_id, application_date, status)
+  VALUES (voucherId, studentId, randomDatePast, randomStatus);
+END//
+
+DELIMITER ;

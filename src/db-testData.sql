@@ -1,3 +1,6 @@
+SET @randomDateFuture = DATE_FORMAT(NOW() + INTERVAL FLOOR(RAND() * 180) DAY, "%Y-%m-%d %H:%i");
+SET @randomDatePast = DATE_FORMAT(NOW() - INTERVAL FLOOR(RAND() * 180) DAY, "%Y-%m-%d %H:%i");
+
 -- --------------------
 -- Test data insertion
 -- --------------------
@@ -13,19 +16,104 @@ values
 ("220757100075", "Blerton", "Ismaili", "blerton.ismaili@student.uni-pr.edu", "/X8VPAnu3Z64VR7+vKyllirYdT8/tCXIkVwTGyXOORQ=", "2f58385650416e75335a36345652372b764b796c6c6972596454382f744358496b5677544779584f4f52513da18e804b01ddc6d3a2e2dc0735083632c03b99aee03bb1afe8d373cb5116fd1e"),
 ("220756100109", "Gent", "Podvorica", "gent.podvorica@student.uni-pr.edu", "w+5S+8jXsvNBSbHzfOfcfN4UAGbHDN+gYBLZ2qbzhYU=", "772b35532b386a5873764e425362487a664f6663664e345541476248444e2b6759424c5a3271627a6859553dd36d42d36028078067df9a7982c30cc17d28c9e980b7554e2bb2aa00ed3ef06b");
 
-insert into scholarships.voucher(title, amount, category, description, deadline)
-values
-("Scholarship 1", 800.00, "UNIVERSITY", "Scholarship description with criteria", "2024-08-30"),
-("Scholarship 2", 2000.00, "OTHER", "Scholarship description with criteria", "2024-07-21"),
-("Scholarship 3", 150.00, "OTHER", "Scholarship description with criteria", "2024-06-12"),
-("Scholarship 4", 500.00, "STEM", "Scholarship description with criteria", "2024-05-30"),
-("Scholarship 5", 1000.00, "UNIVERSITY", "Scholarship description with criteria", "2024-09-03");
+-- insert into scholarships.voucher(title, amount, category, description, deadline)
+-- values
+-- ("Scholarship 1", 800.00, "UNIVERSITY", "Scholarship description with criteria", "2024-08-30"),
+-- ("Scholarship 2", 2000.00, "OTHER", "Scholarship description with criteria", "2024-07-21"),
+-- ("Scholarship 3", 150.00, "OTHER", "Scholarship description with criteria", "2024-06-12"),
+-- ("Scholarship 4", 500.00, "STEM", "Scholarship description with criteria", "2024-05-30"),
+-- ("Scholarship 5", 1000.00, "UNIVERSITY", "Scholarship description with criteria", "2024-09-03");
 
-insert into scholarships.application(student_id, voucher_id, application_date)
-values 
-("210756100052", 5, "2024-04-20"),
-("220756100031", 1, "2024-04-22"),
-("220756100004", 2, "2024-01-22");
+-- insert into scholarships.application(student_id, voucher_id, application_date)
+-- values 
+-- ("210756100052", 5, "2024-04-20"),
+-- ("220756100031", 1, "2024-04-22"),
+-- ("220756100004", 2, "2024-01-22");
+
+
+-- Data with random dates
+CALL insert_voucher_random("STEM Excellence Scholarship", 800.00, "UNIVERSITY", "Scholarship description with criteria");
+CALL insert_voucher_random("Community Service Award", 2000.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Arts & Humanities Grant", 150.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Women in Tech Scholarship", 500.00, "STEM", "Scholarship description with criteria");
+CALL insert_voucher_random("First Generation Student Grant", 1000.00, "UNIVERSITY", "Scholarship description with criteria");
+CALL insert_voucher_random("Entrepreneurship Award", 1200.00, "STEM", "Scholarship description with criteria");
+CALL insert_voucher_random("Environmental Studies Scholarship", 750.00, "UNIVERSITY", "Scholarship description with criteria");
+CALL insert_voucher_random("Health & Medicine Grant", 2500.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Social Sciences Award", 350.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Engineering Excellence Scholarship", 600.00, "STEM", "Scholarship description with criteria");
+CALL insert_voucher_random("Business & Finance Grant", 1100.00, "UNIVERSITY", "Scholarship description with criteria");
+CALL insert_voucher_random("Athletic Achievement Award", 2200.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Performing Arts Scholarship", 450.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Computer Science Grant", 700.00, "STEM", "Scholarship description with criteria");
+CALL insert_voucher_random("Leadership Excellence Award", 900.00, "UNIVERSITY", "Scholarship description with criteria");
+CALL insert_voucher_random("Veteran's Grant", 2300.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Human Rights Scholarship", 550.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Mathematics Excellence Scholarship", 800.00, "STEM", "Scholarship description with criteria");
+CALL insert_voucher_random("Journalism & Media Grant", 950.00, "UNIVERSITY", "Scholarship description with criteria");
+CALL insert_voucher_random("Culinary Arts Scholarship", 2400.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Graphic Design Scholarship", 1000.00, "ARTS", "Scholarship description with criteria");
+CALL insert_voucher_random("Music Excellence Award", 1200.00, "ARTS", "Scholarship description with criteria");
+CALL insert_voucher_random("Literature & Languages Grant", 800.00, "HUMANITIES", "Scholarship description with criteria");
+CALL insert_voucher_random("Physics Excellence Scholarship", 1500.00, "STEM", "Scholarship description with criteria");
+CALL insert_voucher_random("Chemistry Achievement Award", 2000.00, "STEM", "Scholarship description with criteria");
+CALL insert_voucher_random("Biology Research Grant", 1800.00, "STEM", "Scholarship description with criteria");
+CALL insert_voucher_random("History & Culture Scholarship", 900.00, "HUMANITIES", "Scholarship description with criteria");
+CALL insert_voucher_random("Philosophy Excellence Award", 1100.00, "HUMANITIES", "Scholarship description with criteria");
+CALL insert_voucher_random("Psychology Research Grant", 1300.00, "SOCIAL_SCIENCES", "Scholarship description with criteria");
+CALL insert_voucher_random("Sociology Achievement Scholarship", 1600.00, "SOCIAL_SCIENCES", "Scholarship description with criteria");
+
+
+CALL insert_application_random("210756100052", 1);
+CALL insert_application_random("220756100031", 2);
+CALL insert_application_random("220756100004", 3);
+CALL insert_application_random("210756100052", 4);
+CALL insert_application_random("220756100031", 5);
+CALL insert_application_random("220756100004", 6);
+CALL insert_application_random("210756100052", 7);
+CALL insert_application_random("220756100031", 8);
+CALL insert_application_random("220756100004", 9);
+CALL insert_application_random("210756100052", 10);
+CALL insert_application_random("220756100031", 11);
+CALL insert_application_random("220756100004", 12);
+CALL insert_application_random("210756100052", 13);
+CALL insert_application_random("220756100031", 14);
+CALL insert_application_random("220756100004", 15);
+CALL insert_application_random("210756100052", 16);
+CALL insert_application_random("220756100031", 17);
+CALL insert_application_random("220756100004", 18);
+CALL insert_application_random("210756100052", 19);
+CALL insert_application_random("220756100031", 20);
+CALL insert_application_random("220756100004", 21);
+CALL insert_application_random("210756100052", 22);
+CALL insert_application_random("220756100031", 23);
+CALL insert_application_random("220756100004", 24);
+CALL insert_application_random("210756100052", 25);
+CALL insert_application_random("220756100031", 26);
+CALL insert_application_random("220756100004", 27);
+CALL insert_application_random("210756100052", 28);
+CALL insert_application_random("220756100031", 29);
+CALL insert_application_random("220756100004", 30);
+CALL insert_application_random("210756100052", 1);
+CALL insert_application_random("220756100031", 2);
+CALL insert_application_random("220756100004", 3);
+CALL insert_application_random("210756100052", 4);
+CALL insert_application_random("220756100031", 5);
+CALL insert_application_random("220756100004", 6);
+CALL insert_application_random("210756100052", 7);
+CALL insert_application_random("220756100031", 8);
+CALL insert_application_random("220756100004", 9);
+CALL insert_application_random("210756100052", 10);
+CALL insert_application_random("220756100031", 11);
+CALL insert_application_random("220756100004", 12);
+CALL insert_application_random("210756100052", 13);
+CALL insert_application_random("220756100031", 14);
+CALL insert_application_random("220756100004", 15);
+CALL insert_application_random("210756100052", 16);
+CALL insert_application_random("220756100031", 17);
+CALL insert_application_random("220756100004", 18);
+CALL insert_application_random("210756100052", 19);
+CALL insert_application_random("220756100031", 20);
 
 
 insert into scholarships.admin(username, salt, password)
