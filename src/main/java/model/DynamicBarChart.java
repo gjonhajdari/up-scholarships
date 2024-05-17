@@ -1,4 +1,4 @@
-package utils;
+package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -6,7 +6,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import model.VoucherApplied;
+
 import java.util.List;
 
 public class DynamicBarChart extends BarChart<String, Number> {
