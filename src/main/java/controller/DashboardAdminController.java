@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import model.VoucherApplied;
@@ -19,6 +20,14 @@ public class DashboardAdminController {
   private StackPane piechartPane;
   @FXML
   private StackPane linechartPane;
+  @FXML
+  private Button btnWeek;
+  @FXML
+  private Button btnMonth;
+  @FXML
+  private Button btnYear;
+  @FXML
+  private Button btnAllTime;
 
   private DynamicBarChart barChart;
   private List<VoucherApplied> vouchers;
@@ -30,33 +39,47 @@ public class DashboardAdminController {
 
     vouchers = VoucherService.getAllAppliedVouchers();
     updateChart(vouchers);
+    setActive(btnAllTime);
   }
 
   public void updateChart(List<VoucherApplied> voucherAppliedList) {
     barChart.updateData(voucherAppliedList);
   }
 
+  private void setActive(Button activeButton) {
+    btnWeek.getStyleClass().remove("button-active");
+    btnMonth.getStyleClass().remove("button-active");
+    btnYear.getStyleClass().remove("button-active");
+    btnAllTime.getStyleClass().remove("button-active");
+
+    activeButton.getStyleClass().add("button-active");
+  }
+
   @FXML
   private void handleFilterWeekClick(MouseEvent me) {
     filteredVouchers = FilterService.filterLastWeek(vouchers);
     updateChart(filteredVouchers);
+    setActive(btnWeek);
   }
 
   @FXML
   private void handleFilterMonthClick(MouseEvent me) {
     filteredVouchers = FilterService.filterLastMonth(vouchers);
     updateChart(filteredVouchers);
+    setActive(btnMonth);
   }
 
   @FXML
   private void handleFilterYearClick(MouseEvent me) {
     filteredVouchers = FilterService.filterLastYear(vouchers);
     updateChart(filteredVouchers);
+    setActive(btnYear);
   }
 
   @FXML
   private void handleFilterAllTimeClick(MouseEvent me) {
     updateChart(vouchers);
+    setActive(btnAllTime);
   }
 
   @FXML

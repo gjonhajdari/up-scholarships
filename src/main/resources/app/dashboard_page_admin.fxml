@@ -12,8 +12,12 @@
 <?import javafx.scene.text.Text?>
 
 <?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import java.net.URL?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardAdminController">
+  <stylesheets>
+    <URL value="@../styles/style.css" />
+    </stylesheets>
    <children>
       <VBox prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -127,10 +131,10 @@
                         </Text>
                         <HBox alignment="CENTER_RIGHT" spacing="8.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button mnemonicParsing="false" onMouseClicked="#handleFilterWeekClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="Past week" />
-                              <Button layoutX="726.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleFilterMonthClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="Past month" />
-                              <Button layoutX="726.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleFilterYearClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="Past year" />
-                              <Button layoutX="726.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleFilterAllTimeClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="All time" />
+                              <Button fx:id="btnWeek" mnemonicParsing="false" onMouseClicked="#handleFilterWeekClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="Past week" />
+                              <Button fx:id="btnMonth" layoutX="726.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleFilterMonthClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="Past month" />
+                              <Button fx:id="btnYear" layoutX="726.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleFilterYearClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="Past year" />
+                              <Button fx:id="btnAllTime" layoutX="726.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleFilterAllTimeClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="All time" />
                            </children>
                         </HBox>
                      </children>
