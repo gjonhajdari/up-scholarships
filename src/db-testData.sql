@@ -1,6 +1,3 @@
-SET @randomDateFuture = DATE_FORMAT(NOW() + INTERVAL FLOOR(RAND() * 180) DAY, "%Y-%m-%d %H:%i");
-SET @randomDatePast = DATE_FORMAT(NOW() - INTERVAL FLOOR(RAND() * 180) DAY, "%Y-%m-%d %H:%i");
-
 -- --------------------
 -- Test data insertion
 -- --------------------
