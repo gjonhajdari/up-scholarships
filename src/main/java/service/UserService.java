@@ -1,11 +1,29 @@
 package service;
 
 import model.User;
+import model.dto.CreateStudentDto;
 import model.dto.LoginUserDto;
 import model.dto.StudentChangePasswordDto;
+import model.dto.StudentDto;
 import repository.UserRepository;
 
 public class UserService {
+  public static boolean create(StudentDto studentData) {
+    String salt = PasswordHasher.generateSalt();
+    String password = PasswordHasher.generateSaltedHash("12345", salt);
+
+    CreateStudentDto createStudentData = new CreateStudentDto(
+      studentData.getStudentId(),
+      studentData.getFirstName(),
+      studentData.getLastName(),
+      studentData.getEmail(),
+      salt,
+      password
+    );
+
+    return UserRepository.create(createStudentData);
+  }
+
   public static boolean login(LoginUserDto loginData) {
     User user = UserRepository.getById(loginData.getStudentId());
 

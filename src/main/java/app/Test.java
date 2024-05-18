@@ -1,54 +1,39 @@
 package app;
 
-import model.ApplicantWithData;
-import service.ConnectionUtil;
-import service.PasswordHasher;
-import service.VoucherService;
+import model.dto.StudentDto;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.*;
-import java.util.List;
+import java.util.Scanner;
 
 public class Test {
-  public static void main(String[] args) throws SQLException {
-//    printUser();
-    // Hash passwords for 6 test users
-//    for (int i = 0; i <= 5 ; i++) {
-//      String salt = PasswordHasher.generateSalt();
-//      String hashedPassword = PasswordHasher.generateSaltedHash("12345", salt);
-//
-//      System.out.println("User " + (i + 1));
-//      System.out.println("Salt: " + salt);
-//      System.out.println("Hashed Password: " + hashedPassword);
-//      System.out.println("--------------------");
-//    }
+  public static void main(String[] args) throws SQLException, FileNotFoundException {
+    File file = new File("target/classes/student-list.csv");
+    Scanner scanner = new Scanner(file);
 
-    List<ApplicantWithData> applicants = VoucherService.getApplicants(1);
+    while (scanner.hasNextLine()) {
+      String line = scanner.nextLine();
+      String[] data = line.split(",");
 
-    for (ApplicantWithData applicant : applicants) {
-      System.out.println("ID: " + applicant.getId());
-      System.out.println("First Name: " + applicant.getFirstName());
-      System.out.println("Last Name: " + applicant.getLastName());
-      System.out.println("Status: " + applicant.getStatus());
-      System.out.println("Application Date: " + applicant.getApplicationDate());
-      System.out.println("--------------------");
+      String studentId = data[0];
+      String fullName = data[1];
+      String[] nameParts = fullName.split(" ");
+      String firstName = nameParts[1];
+      String lastName = nameParts[nameParts.length - 1];
+      String email = data[2];
+
+      StudentDto student = new StudentDto(studentId, firstName, lastName, email);
+      boolean created = service.UserService.create(student);
+
+      if (created) {
+        continue;
+      } else {
+        System.out.println("Failed to create student with ID: " + studentId);
+      }
     }
-  }
 
-  public static void printUser() throws SQLException {
-    String sql = "SELECT * FROM student";
-
-    Connection connection = ConnectionUtil.getConnection();
-    Statement statement = connection.createStatement();
-    ResultSet result = statement.executeQuery(sql);
-
-    while (result.next()) {
-      String resultId = result.getString("student_id");
-      String resultFirstName = result.getString("first_name");
-      String resultLastName = result.getString("last_name");
-
-      System.out.println("ID: " + resultId);
-      System.out.println("First Name: " + resultFirstName);
-      System.out.println("Last Name: " + resultLastName);
-    }
+    System.out.println("All students created successfully!");
+    scanner.close();
   }
 }
