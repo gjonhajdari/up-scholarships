@@ -11,7 +11,7 @@ create table if not exists scholarships.student(
   first_name nvarchar(30) not null,
   last_name nvarchar(30) not null,
   email nvarchar(320) not null,
-  salt varchar(100) not null,
+  salt varchar(44) not null,
   password varchar(256) not null,
   primary key (student_id)
 );
