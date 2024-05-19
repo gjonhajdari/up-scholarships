@@ -4,11 +4,10 @@ import model.dto.StudentDto;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.*;
 import java.util.Scanner;
 
-public class Test {
-  public static void main(String[] args) throws SQLException, FileNotFoundException {
+public class Migration {
+  public static void main(String[] args) throws FileNotFoundException {
     File file = new File("target/classes/student-list.csv");
     Scanner scanner = new Scanner(file);
 
