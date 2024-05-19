@@ -192,11 +192,12 @@
                                     <Insets left="4.0" right="4.0" />
                                  </padding>
                               </Label>
-                              <ComboBox fx:id="cmbCategory" editable="true" prefHeight="48.0" prefWidth="200.0" promptText="UNIVERSITY" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 8px; -fx-border-radius: 8px;" visibleRowCount="3">
+                              <ComboBox fx:id="cmbCategory" editable="true" prefHeight="48.0" prefWidth="200.0" promptText="Category" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 8px; -fx-border-radius: 8px;" visibleRowCount="3">
                                     <items>
                                        <FXCollections fx:factory="observableArrayList">
                                           <String fx:value="UNIVERSITY" />
                                           <String fx:value="STEM" />
+                                          <String fx:value="ARTS" />
                                           <String fx:value="OTHER" />
                                        </FXCollections>
                                     </items>

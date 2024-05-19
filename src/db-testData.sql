@@ -29,9 +29,9 @@ values
 
 
 -- Data with random dates
-CALL insert_voucher_random("STEM Excellence Scholarship", 800.00, "UNIVERSITY", "Scholarship description with criteria");
+CALL insert_voucher_random("STEM Excellence Scholarship", 800.00, "STEM", "Scholarship description with criteria");
 CALL insert_voucher_random("Community Service Award", 2000.00, "OTHER", "Scholarship description with criteria");
-CALL insert_voucher_random("Arts & Humanities Grant", 150.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Arts & Humanities Grant", 150.00, "ARTS", "Scholarship description with criteria");
 CALL insert_voucher_random("Women in Tech Scholarship", 500.00, "STEM", "Scholarship description with criteria");
 CALL insert_voucher_random("First Generation Student Grant", 1000.00, "UNIVERSITY", "Scholarship description with criteria");
 CALL insert_voucher_random("Entrepreneurship Award", 1200.00, "STEM", "Scholarship description with criteria");
@@ -41,24 +41,24 @@ CALL insert_voucher_random("Social Sciences Award", 350.00, "OTHER", "Scholarshi
 CALL insert_voucher_random("Engineering Excellence Scholarship", 600.00, "STEM", "Scholarship description with criteria");
 CALL insert_voucher_random("Business & Finance Grant", 1100.00, "UNIVERSITY", "Scholarship description with criteria");
 CALL insert_voucher_random("Athletic Achievement Award", 2200.00, "OTHER", "Scholarship description with criteria");
-CALL insert_voucher_random("Performing Arts Scholarship", 450.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Performing Arts Scholarship", 450.00, "ARTS", "Scholarship description with criteria");
 CALL insert_voucher_random("Computer Science Grant", 700.00, "STEM", "Scholarship description with criteria");
 CALL insert_voucher_random("Leadership Excellence Award", 900.00, "UNIVERSITY", "Scholarship description with criteria");
 CALL insert_voucher_random("Veteran's Grant", 2300.00, "OTHER", "Scholarship description with criteria");
 CALL insert_voucher_random("Human Rights Scholarship", 550.00, "OTHER", "Scholarship description with criteria");
 CALL insert_voucher_random("Mathematics Excellence Scholarship", 800.00, "STEM", "Scholarship description with criteria");
 CALL insert_voucher_random("Journalism & Media Grant", 950.00, "UNIVERSITY", "Scholarship description with criteria");
-CALL insert_voucher_random("Culinary Arts Scholarship", 2400.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Culinary Arts Scholarship", 2400.00, "ARTS", "Scholarship description with criteria");
 CALL insert_voucher_random("Graphic Design Scholarship", 1000.00, "ARTS", "Scholarship description with criteria");
 CALL insert_voucher_random("Music Excellence Award", 1200.00, "ARTS", "Scholarship description with criteria");
-CALL insert_voucher_random("Literature & Languages Grant", 800.00, "HUMANITIES", "Scholarship description with criteria");
+CALL insert_voucher_random("Literature & Languages Grant", 800.00, "ARTS", "Scholarship description with criteria");
 CALL insert_voucher_random("Physics Excellence Scholarship", 1500.00, "STEM", "Scholarship description with criteria");
 CALL insert_voucher_random("Chemistry Achievement Award", 2000.00, "STEM", "Scholarship description with criteria");
 CALL insert_voucher_random("Biology Research Grant", 1800.00, "STEM", "Scholarship description with criteria");
-CALL insert_voucher_random("History & Culture Scholarship", 900.00, "HUMANITIES", "Scholarship description with criteria");
-CALL insert_voucher_random("Philosophy Excellence Award", 1100.00, "HUMANITIES", "Scholarship description with criteria");
-CALL insert_voucher_random("Psychology Research Grant", 1300.00, "SOCIAL_SCIENCES", "Scholarship description with criteria");
-CALL insert_voucher_random("Sociology Achievement Scholarship", 1600.00, "SOCIAL_SCIENCES", "Scholarship description with criteria");
+CALL insert_voucher_random("History & Culture Scholarship", 900.00, "ARTS", "Scholarship description with criteria");
+CALL insert_voucher_random("Philosophy Excellence Award", 1100.00, "ARTS", "Scholarship description with criteria");
+CALL insert_voucher_random("Psychology Research Grant", 1300.00, "OTHER", "Scholarship description with criteria");
+CALL insert_voucher_random("Sociology Achievement Scholarship", 1600.00, "OTHER", "Scholarship description with criteria");
 
 
 CALL insert_application_random("210756100052", 1);

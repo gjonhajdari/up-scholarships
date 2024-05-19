@@ -20,7 +20,7 @@ create table if not exists scholarships.voucher(
   voucher_id int not null auto_increment,
   title nvarchar(255) not null,
   amount decimal(10, 2) not null,
-  category nvarchar(30) not null, -- UNIVERSITY, STEM, OTHER
+  category nvarchar(30) not null, -- UNIVERSITY, STEM, ARTS, OTHER
   description text not null,
   deadline date not null,
   primary key (voucher_id)
