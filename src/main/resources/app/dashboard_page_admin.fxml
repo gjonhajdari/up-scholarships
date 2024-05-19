@@ -120,7 +120,7 @@
                   <Font size="32.0" />
                </font>
             </Text>
-            <VBox spacing="32.0">
+            <VBox spacing="40.0">
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
@@ -139,7 +139,7 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <HBox spacing="32.0">
+                  <HBox spacing="40.0">
                      <children>
                         <!-- StackPane containing the chart -->
                         <StackPane fx:id="barchartPane" prefHeight="250.0" HBox.hgrow="ALWAYS" />
