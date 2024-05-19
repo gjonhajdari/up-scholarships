@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import model.DynamicPieChart;
 import model.VoucherApplied;
 import service.AdminSession;
 import service.FilterService;
@@ -30,12 +31,16 @@ public class DashboardAdminController {
   private Button btnAllTime;
 
   private DynamicBarChart barChart;
+  private DynamicPieChart pieChart;
   private List<VoucherApplied> vouchers;
   private List<VoucherApplied> filteredVouchers;
 
   public void initialize() {
     barChart = new DynamicBarChart();
-    barchartPane.getChildren().add(barChart);
+    pieChart = new DynamicPieChart();
+
+    barchartPane.getChildren().add(barChart.getChart());
+    piechartPane.getChildren().add(pieChart.getChart());
 
     vouchers = VoucherService.getAllAppliedVouchers();
     updateChart(vouchers);
@@ -44,6 +49,7 @@ public class DashboardAdminController {
 
   public void updateChart(List<VoucherApplied> voucherAppliedList) {
     barChart.updateData(voucherAppliedList);
+    pieChart.updateData(voucherAppliedList);
   }
 
   private void setActive(Button activeButton) {
