@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import model.DynamicLineChart;
 import model.DynamicPieChart;
 import model.VoucherApplied;
 import service.AdminSession;
@@ -32,15 +33,18 @@ public class DashboardAdminController {
 
   private DynamicBarChart barChart;
   private DynamicPieChart pieChart;
+  private DynamicLineChart lineChart;
   private List<VoucherApplied> vouchers;
   private List<VoucherApplied> filteredVouchers;
 
   public void initialize() {
     barChart = new DynamicBarChart();
     pieChart = new DynamicPieChart();
+    lineChart = new DynamicLineChart();
 
     barchartPane.getChildren().add(barChart.getChart());
     piechartPane.getChildren().add(pieChart.getChart());
+    linechartPane.getChildren().add(lineChart.getChart());
 
     vouchers = VoucherService.getAllAppliedVouchers();
     updateChart(vouchers);
@@ -50,6 +54,7 @@ public class DashboardAdminController {
   public void updateChart(List<VoucherApplied> voucherAppliedList) {
     barChart.updateData(voucherAppliedList);
     pieChart.updateData(voucherAppliedList);
+    lineChart.updateData(voucherAppliedList);
   }
 
   private void setActive(Button activeButton) {
