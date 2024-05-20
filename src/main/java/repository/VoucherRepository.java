@@ -4,6 +4,7 @@ import model.ApplicantWithData;
 import model.Voucher;
 import model.VoucherApplied;
 import model.dto.CreateVoucherDto;
+import model.filter.VoucherAppliedFilter;
 import utils.DatabaseUtils;
 import utils.ResultSetUtils;
 
@@ -36,12 +37,15 @@ public class VoucherRepository {
   }
 
 
-  public static List<VoucherApplied> getAllApplied() {
+  public static List<VoucherApplied> getAllApplied(VoucherAppliedFilter filter) {
     String query = """
             SELECT *
             FROM voucher
             JOIN application ON voucher.voucher_id = application.voucher_id
+            WHERE 1 = 1
             """;
+    String filterQuery = filter.buildQuery();
+    query += filterQuery;
 
     return DatabaseUtils.executeSelect(query, ResultSetUtils::VoucherAppliedResultSet);
   }
@@ -74,7 +78,7 @@ public class VoucherRepository {
   }
 
 
-  public static List<VoucherApplied> getApplied(String studentId) {
+  public static List<VoucherApplied> getAppliedByStudentId(String studentId) {
     String query = """
             SELECT *
             FROM voucher

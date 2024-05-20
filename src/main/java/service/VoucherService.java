@@ -4,6 +4,7 @@ import model.ApplicantWithData;
 import model.Voucher;
 import model.VoucherApplied;
 import model.dto.CreateVoucherDto;
+import model.filter.VoucherAppliedFilter;
 import repository.VoucherRepository;
 import utils.Validator;
 
@@ -41,18 +42,18 @@ public class VoucherService {
     return VoucherRepository.getAll();
   }
 
-  public static List<VoucherApplied> getAllAppliedVouchers() {
-    return VoucherRepository.getAllApplied();
+  public static List<VoucherApplied> getAllAppliedVouchers(VoucherAppliedFilter filter) {
+    return VoucherRepository.getAllApplied(filter);
   }
 
   public static List<Voucher> getAllValidVouchers() {
-    String studentId = UserSession.getInstance(null).getId();
+    String studentId = UserSession.getUser().getId();
     return VoucherRepository.getAllValid(studentId);
   }
 
   public static List<VoucherApplied> getApplied() {
-    String studentId = UserSession.getInstance(null).getId();
-    return VoucherRepository.getApplied(studentId);
+    String studentId = UserSession.getUser().getId();
+    return VoucherRepository.getAppliedByStudentId(studentId);
   }
 
   public static VoucherApplied getAppliedById(int id) {
