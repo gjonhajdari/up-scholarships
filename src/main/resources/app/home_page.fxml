@@ -10,7 +10,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import java.net.URL?>
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+  <stylesheets>
+    <URL value="@../styles/style.css" />
+  </stylesheets> 
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="64.0">
          <children>
@@ -38,7 +42,7 @@
             </VBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="600.0" spacing="32.0">
                <children>
-                  <Button fx:id="btnStudent" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#handleStudentClick" style="-fx-background-radius: 5; -fx-background-color: #2dd4bf; -fx-border-color: #14b8a6; -fx-border-radius: 5; -fx-background-insets: 0; -fx-cursor: hand;" text="Student" textAlignment="CENTER" textFill="#f0f9ff">
+                  <Button fx:id="btnStudent" styleClass="button-green" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#handleStudentClick" style="-fx-background-radius: 5; -fx-background-color: #2dd4bf; -fx-border-color: #14b8a6; -fx-border-radius: 5; -fx-background-insets: 0; -fx-cursor: hand;" text="Student" textAlignment="CENTER" textFill="#f0f9ff">
                      <padding>
                         <Insets bottom="6.0" left="32.0" right="32.0" top="6.0" />
                      </padding>
@@ -46,7 +50,7 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnAdmin" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#handleAdminClick" style="-fx-background-color: #c4b5fd; -fx-background-radius: 5; -fx-border-color: #a78bfa; -fx-border-radius: 5; -fx-background-insets: 0; -fx-cursor: hand;" text="Admin" textAlignment="CENTER" textFill="#fef2f2">
+                  <Button fx:id="btnAdmin" styleClass="button-purple" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#handleAdminClick" style="-fx-background-color: #c4b5fd; -fx-background-radius: 5; -fx-border-color: #a78bfa; -fx-border-radius: 5; -fx-background-insets: 0; -fx-cursor: hand;" text="Admin" textAlignment="CENTER" textFill="#fef2f2">
                      <padding>
                         <Insets bottom="6.0" left="32.0" right="32.0" top="6.0" />
                      </padding>

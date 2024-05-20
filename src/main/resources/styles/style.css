@@ -117,3 +117,11 @@
     -fx-text-fill: #115e59 !important;
     -fx-border-width: 0;
 }
+
+.button-green:focused {
+  -fx-background-color: #14b8a6 !important;
+}
+
+.button-purple:focused {
+  -fx-background-color: #8b5cf6 !important;
+}

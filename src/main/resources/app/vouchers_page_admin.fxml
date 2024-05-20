@@ -14,7 +14,11 @@
 
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
+<?import java.net.URL?>
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VouchersAdminController">
+   <stylesheets>
+      <URL value="@../styles/style.css" />
+   </stylesheets>
    <children>
       <VBox prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -136,7 +140,7 @@
                         </VBox>
                         <VBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#handleCreateClick" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="Add new" textFill="#f0f9ff">
+                              <Button fx:id="btnAddNew" styleClass="button-green" alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#handleCreateClick" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="Add new" textFill="#f0f9ff">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

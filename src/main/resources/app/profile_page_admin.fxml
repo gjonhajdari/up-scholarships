@@ -15,7 +15,11 @@
 <?import javafx.scene.text.Text?>
 
 <?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import java.net.URL?>
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileAdminController">
+   <stylesheets>
+      <URL value="@../styles/style.css" />
+   </stylesheets>
    <children>
       <VBox prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -191,7 +195,7 @@
                         </Text>
                      </children>
                   </VBox>
-                  <Button mnemonicParsing="false" onMouseClicked="#handleSaveClick" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="Save changes" textFill="#ccfbf1">
+                  <Button fx:id="btnSave" styleClass="button-green" mnemonicParsing="false" onMouseClicked="#handleSaveClick" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="Save changes" textFill="#ccfbf1">
                      <padding>
                         <Insets bottom="5.0" left="16.0" right="16.0" top="5.0" />
                      </padding>
