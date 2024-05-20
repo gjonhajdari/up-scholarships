@@ -1,8 +1,10 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import model.dto.AdminChangePasswordDto;
@@ -23,19 +25,29 @@ public class ProfileAdminController {
   @FXML
   private ToggleGroup Language;
   @FXML
+  private Button btnSave;
+  @FXML
   private Text txtErrorMessage;
   @FXML
   private Text txtSuccessMessage;
 
   @FXML
+  private void initialize() {
+    btnSave.setOnKeyPressed(event -> {
+      if (event.getCode() == KeyCode.ENTER) {
+        try {
+          handleSaveClick(null);
+        } catch (SQLException sqle) {
+          sqle.printStackTrace();
+        }
+      }
+    });
+  }
+
+  @FXML
   private void handleSaveClick(MouseEvent me) throws SQLException {
     if (Validator.isEmpty(pwdOldPassword.getText(), pwdNewPassword.getText(), pwdConfirmPassword.getText())) {
       txtErrorMessage.setText("Please fill in all fields.");
-      return;
-    }
-
-    if (!pwdNewPassword.getText().equals(pwdConfirmPassword.getText())) {
-      txtErrorMessage.setText("Passwords do not match.");
       return;
     }
 
@@ -48,6 +60,11 @@ public class ProfileAdminController {
 
     if (!isSaved) {
       txtErrorMessage.setText("Password is incorrect.");
+      return;
+    }
+
+    if (!pwdNewPassword.getText().equals(pwdConfirmPassword.getText())) {
+      txtErrorMessage.setText("Passwords do not match.");
       return;
     }
 

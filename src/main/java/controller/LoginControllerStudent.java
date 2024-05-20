@@ -1,9 +1,12 @@
 package controller;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import model.dto.LoginUserDto;
@@ -19,11 +22,13 @@ public class LoginControllerStudent {
   @FXML
   private PasswordField pwdPassword;
   @FXML
+  private Button btnLogin;
+  @FXML
   private Text txtErrorMessage;
 
   @FXML
   private void initialize() {
-    pwdPassword.setOnKeyPressed(event -> {
+    EventHandler<KeyEvent> enterKeyHandler = event -> {
       if (event.getCode() == KeyCode.ENTER) {
         try {
           handleLoginStudent();
@@ -34,7 +39,10 @@ public class LoginControllerStudent {
           sqle.printStackTrace();
         }
       }
-    });
+    };
+
+    pwdPassword.setOnKeyPressed(enterKeyHandler);
+    btnLogin.setOnKeyPressed(enterKeyHandler);
   }
 
   @FXML

@@ -2,17 +2,22 @@ package controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import model.Voucher;
 import service.*;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -25,6 +30,8 @@ public class VouchersAdminController {
   private TableColumn<Voucher, Float> colAmount;
   @FXML
   private TableColumn<Voucher, LocalDate> colDeadline;
+  @FXML
+  private Button btnAddNew;
 
   public void initialize() {
     colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -48,11 +55,19 @@ public class VouchersAdminController {
 
       return row;
     });
+
+
+    btnAddNew.setOnKeyPressed(event -> {
+      if (event.getCode() == KeyCode.ENTER) {
+        ActionEvent actionEvent = new ActionEvent(event.getSource(), btnAddNew);
+        handleAddNewClick(actionEvent);
+      }
+    });
   }
 
   @FXML
-  private void handleAddNewClick(MouseEvent me){
-      Navigator.navigate(me,Navigator.CREATE_VOUCHER);
+  private void handleAddNewClick(Event me){
+      Navigator.navigate(me, Navigator.CREATE_VOUCHER);
   }
   
   @FXML

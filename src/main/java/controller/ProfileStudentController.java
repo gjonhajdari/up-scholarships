@@ -1,7 +1,9 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import model.dto.StudentChangePasswordDto;
@@ -18,9 +20,24 @@ public class ProfileStudentController {
   @FXML
   private PasswordField pwdConfirmPassword;
   @FXML
+  private Button btnSave;
+  @FXML
   private Text txtErrorMessage;
   @FXML
   private Text txtSuccessMessage;
+
+  @FXML
+  private void initialize() {
+    btnSave.setOnKeyPressed(event -> {
+      if (event.getCode() == KeyCode.ENTER) {
+        try {
+          handleSaveClick(null);
+        } catch (SQLException sqle) {
+          sqle.printStackTrace();
+        }
+      }
+    });
+  }
 
   @FXML
   private void handleSaveClick(MouseEvent me) throws SQLException {
