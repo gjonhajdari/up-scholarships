@@ -11,7 +11,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import model.Voucher;
-import service.AdminSession;
 import service.Navigator;
 import service.UserSession;
 import service.VoucherService;

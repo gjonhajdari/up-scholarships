@@ -2,7 +2,6 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
-import service.AdminSession;
 import service.Navigator;
 import service.UserSession;
 

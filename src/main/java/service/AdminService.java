@@ -5,8 +5,6 @@ import model.dto.AdminChangePasswordDto;
 import model.dto.LoginUserDto;
 import repository.AdminRepository;
 
-import java.sql.SQLException;
-
 public class AdminService {
   public static boolean login(LoginUserDto loginData) {
     Admin admin = AdminRepository.getByUsername(loginData.getStudentId());

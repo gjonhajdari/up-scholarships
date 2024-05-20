@@ -13,11 +13,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 import model.Voucher;
 import service.*;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
