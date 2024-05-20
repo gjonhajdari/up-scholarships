@@ -7,8 +7,9 @@ import javafx.scene.layout.StackPane;
 import model.DynamicLineChart;
 import model.DynamicPieChart;
 import model.VoucherApplied;
+import model.filter.VoucherAppliedFilter;
+import model.filter.VoucherAppliedFilter.Duration;
 import service.AdminSession;
-import service.FilterService;
 import service.Navigator;
 import service.VoucherService;
 import model.DynamicBarChart;
@@ -35,7 +36,7 @@ public class DashboardAdminController {
   private DynamicPieChart pieChart;
   private DynamicLineChart lineChart;
   private List<VoucherApplied> vouchers;
-  private List<VoucherApplied> filteredVouchers;
+  private VoucherAppliedFilter filter;
 
   public void initialize() {
     barChart = new DynamicBarChart();
@@ -46,7 +47,9 @@ public class DashboardAdminController {
     piechartPane.getChildren().add(pieChart.getChart());
     linechartPane.getChildren().add(lineChart.getChart());
 
-    vouchers = VoucherService.getAllAppliedVouchers();
+    filter = new VoucherAppliedFilter(Duration.ALL);
+
+    vouchers = VoucherService.getAllAppliedVouchers(filter);
     updateChart(vouchers);
     setActive(btnAllTime);
   }
@@ -68,27 +71,36 @@ public class DashboardAdminController {
 
   @FXML
   private void handleFilterWeekClick(MouseEvent me) {
-    filteredVouchers = FilterService.filterLastWeek(vouchers);
-    updateChart(filteredVouchers);
+    filter.setDuration(Duration.WEEK);
+    vouchers = VoucherService.getAllAppliedVouchers(filter);
+
+    updateChart(vouchers);
     setActive(btnWeek);
   }
 
   @FXML
   private void handleFilterMonthClick(MouseEvent me) {
-    filteredVouchers = FilterService.filterLastMonth(vouchers);
-    updateChart(filteredVouchers);
+    filter.setDuration(Duration.MONTH);
+    vouchers = VoucherService.getAllAppliedVouchers(filter);
+
+    updateChart(vouchers);
     setActive(btnMonth);
   }
 
   @FXML
   private void handleFilterYearClick(MouseEvent me) {
-    filteredVouchers = FilterService.filterLastYear(vouchers);
-    updateChart(filteredVouchers);
+    filter.setDuration(Duration.YEAR);
+    vouchers = VoucherService.getAllAppliedVouchers(filter);
+
+    updateChart(vouchers);
     setActive(btnYear);
   }
 
   @FXML
   private void handleFilterAllTimeClick(MouseEvent me) {
+    filter.setDuration(Duration.ALL);
+    vouchers = VoucherService.getAllAppliedVouchers(filter);
+
     updateChart(vouchers);
     setActive(btnAllTime);
   }
@@ -101,7 +113,7 @@ public class DashboardAdminController {
   private void handleProfileClick(MouseEvent me) { Navigator.navigate(me, Navigator.PROFILE_ADMIN); }
   @FXML
   private void handleLogoutClick(MouseEvent me) {
-    AdminSession.getInstance(null).cleanAdminSession();
+    AdminSession.clearAdminSession();
     Navigator.navigate(me, Navigator.HOME_PAGE);
   }
 }

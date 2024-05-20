@@ -43,7 +43,7 @@ public class VoucherStudentController implements InitialisableController {
 
   @FXML
   private void handleApplyClick(MouseEvent me) {
-    boolean didApply = VoucherService.apply(voucherId, UserSession.getInstance(null).getId());
+    boolean didApply = VoucherService.apply(voucherId, UserSession.getUser().getId());
 
     if (!didApply) {
       txtErrorMessage.setText("There was an error applying for this voucher. Please try again later.");
@@ -69,7 +69,7 @@ public class VoucherStudentController implements InitialisableController {
   private void handleHelpClick(MouseEvent me) { Navigator.navigate(me, Navigator.HELP_STUDENT); }
   @FXML
   private void handleLogoutClick(MouseEvent me) {
-    UserSession.getInstance(null).cleanUserSession();
+    UserSession.clearUserSession();
     Navigator.navigate(me, Navigator.HOME_PAGE);
   }
 }

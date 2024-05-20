@@ -29,7 +29,7 @@ public class HelpStudentController {
   private void handleUPExternalButtonClick(MouseEvent me) {Navigator.navigate(me,Navigator.UP_EXTERNAL_PAGE);}
   @FXML
   private void handleLogoutClick(MouseEvent me) {
-      UserSession.getInstance(null).cleanUserSession();
+      UserSession.clearUserSession();
       Navigator.navigate(me, Navigator.HOME_PAGE);
   }
 }

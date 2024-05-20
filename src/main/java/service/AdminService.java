@@ -23,12 +23,12 @@ public class AdminService {
       return false;
     }
 
-    AdminSession.getInstance(admin);
+    AdminSession.setAdminSession(admin);
     return true;
   }
 
   public static boolean updatePassword(AdminChangePasswordDto saveData) {
-    String username = AdminSession.getInstance(null).getUsername();
+    String username = AdminSession.getAdmin().getUsername();
     Admin admin = AdminRepository.getByUsername(username);
 
     if (admin == null) {

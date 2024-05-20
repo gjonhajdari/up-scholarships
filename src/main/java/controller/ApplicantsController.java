@@ -161,7 +161,7 @@ public class ApplicantsController implements InitialisableController {
 
   @FXML
   private void handleLogoutClick(MouseEvent me) {
-      AdminSession.getInstance(null).cleanAdminSession();
-      Navigator.navigate(me, Navigator.HOME_PAGE);
+    AdminSession.clearAdminSession();
+    Navigator.navigate(me, Navigator.HOME_PAGE);
   }
 }

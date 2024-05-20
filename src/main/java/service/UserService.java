@@ -39,12 +39,12 @@ public class UserService {
       return false;
     }
 
-    UserSession.getInstance(user);
+    UserSession.setUserSession(user);
     return true;
   }
 
   public static boolean updatePassword(StudentChangePasswordDto saveData) {
-    String studentId = UserSession.getInstance(null).getId();
+    String studentId = UserSession.getUser().getId();
     User user = UserRepository.getById(studentId);
 
     if (user == null){
