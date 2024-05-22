@@ -39,7 +39,7 @@
                   <HBox alignment="CENTER_LEFT" onMouseClicked="#handleDashboardClick" spacing="12.0" style="-fx-background-radius: 5px;">
                      <children>
                         <FontIcon iconLiteral="bi-grid-1x2-fill" iconSize="24" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblDashboardTitle">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -52,7 +52,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleAppliedClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-folder-fill" iconSize="24" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applied">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblApplicationsTitle">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -65,7 +65,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" onMouseClicked="#handleProfileClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-person-fill" iconSize="24" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblProfileTitle">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -78,7 +78,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-info-circle-fill" iconSize="24" iconColor="#115e59" />
-                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
+                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblHelpTitle">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -94,7 +94,7 @@
             <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                <children>
                   <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblLogout">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -116,7 +116,7 @@
          <children>
             <HBox prefHeight="84.0" prefWidth="882.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblHelpTitle">
                      <font>
                         <Font size="32.0" />
                      </font>
@@ -127,7 +127,7 @@
                <children>
                   <VBox prefHeight="99.0" prefWidth="824.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Our application process is designed to be straightforward and accessible to all aspiring scholars. All applications undergo a rigorous review process by our esteemed panel of judges. Each application is evaluated based on merit, potential, and alignment with our program's values and objectives.                 Selected scholars will receive financial support to pursue their academic endeavors, along with access to mentorship, networking opportunities, and other resources to support their personal and professional growth." wrappingWidth="823.453125">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtHelp1" wrappingWidth="823.453125">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -140,7 +140,7 @@
                <children>
                   <VBox prefHeight="190.0" prefWidth="324.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You wan't to see official UP website?">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtHelp2">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -148,7 +148,7 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You wan't to see official MASHT website?">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtHelp3">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -156,7 +156,7 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You wan't to see official Kosovo government website?">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtHelp4">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -164,7 +164,7 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You wan't to go to official MFPT website?">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtHelp5">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -237,14 +237,14 @@
 
             <HBox prefHeight="26.0" prefWidth="915.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="For further assistance or inquiries regarding our scholarship program, please don't hesitate to contact our dedicated team." wrappingWidth="914.447265625">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtHelp6" wrappingWidth="914.447265625">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Text>
                </children>
             </HBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="We're here to support you every step of the way on your journey to academic excellence and beyond.">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtHelp7">
                <font>
                   <Font size="17.0" />
                </font>
@@ -252,7 +252,7 @@
 
              <HBox prefHeight="0.0" prefWidth="885.0">
                  <children>
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us">
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtContactUs">
                          <font>
                              <Font size="22.0" />
                          </font>
