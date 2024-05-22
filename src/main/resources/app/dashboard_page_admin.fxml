@@ -44,7 +44,7 @@
                   <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-grid-1x2-fill" iconSize="24" iconColor="#115e59" />
-                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblDashboardTitle">
                            <font>
                               <Font size="20.0" />
                            </font></Text>
@@ -56,7 +56,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleCreateClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-file-earmark-plus-fill" iconSize="24" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblCreateVoucherTitle">
                            <font>
                               <Font size="20.0" />
                            </font></Text>
@@ -68,7 +68,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" onMouseClicked="#handleVouchersClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-folder-fill" iconSize="24" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vouchers">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblVouchersTitle">
                            <font>
                               <Font size="20.0" />
                            </font></Text>
@@ -80,7 +80,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" onMouseClicked="#handleProfileClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
                         <FontIcon iconLiteral="bi-person-fill" iconSize="24" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblProfileTitle">
                            <font>
                               <Font size="20.0" />
                            </font></Text>
@@ -96,7 +96,7 @@
             <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                <children>
                   <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblLogout">
                      <font>
                         <Font size="20.0" />
                      </font></Text>
@@ -115,7 +115,7 @@
             <Insets bottom="24.0" left="32.0" right="32.0" top="24.0" />
          </padding>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblDashboardTitle">
                <font>
                   <Font size="32.0" />
                </font>
@@ -124,17 +124,17 @@
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="All applications">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblAllApplications">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Text>
                         <HBox alignment="CENTER_RIGHT" spacing="8.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button fx:id="btnWeek" mnemonicParsing="false" onMouseClicked="#handleFilterWeekClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="Past week" />
-                              <Button fx:id="btnMonth" layoutX="726.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleFilterMonthClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="Past month" />
-                              <Button fx:id="btnYear" layoutX="726.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleFilterYearClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="Past year" />
-                              <Button fx:id="btnAllTime" layoutX="726.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleFilterAllTimeClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="All time" />
+                              <Button fx:id="btnWeek" mnemonicParsing="false" onMouseClicked="#handleFilterWeekClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="%btnWeek" />
+                              <Button fx:id="btnMonth" layoutX="726.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleFilterMonthClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="%btnMonth" />
+                              <Button fx:id="btnYear" layoutX="726.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleFilterYearClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="%btnYear" />
+                              <Button fx:id="btnAllTime" layoutX="726.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#handleFilterAllTimeClick" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 6px; -fx-border-radius: 6px; -fx-cursor: hand;" text="%btnAllTime" />
                            </children>
                         </HBox>
                      </children>

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import org.kordamp.ikonli.javafx.FontIcon?>
+<!--<?import org.kordamp.ikonli.javafx.FontIcon?>-->
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicantsController">
    <children>
@@ -43,8 +43,8 @@
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
                      <children>
-                     <FontIcon iconLiteral="bi-grid-1x2-fill" iconSize="24" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+<!--                     <FontIcon iconLiteral="bi-grid-1x2-fill" iconSize="24" />-->
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblDashboardTitle">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -53,8 +53,8 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleCreateClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
-                     <FontIcon iconLiteral="bi-file-earmark-plus-fill" iconSize="24" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create">
+<!--                     <FontIcon iconLiteral="bi-file-earmark-plus-fill" iconSize="24" />-->
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblCreateVoucherTitle">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -66,8 +66,8 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1; -fx-cursor: hand;">
                      <children>
-                     <FontIcon iconLiteral="bi-folder-fill" iconSize="24" iconColor="#115e59"/>
-                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Vouchers">
+<!--                     <FontIcon iconLiteral="bi-folder-fill" iconSize="24" iconColor="#115e59"/>-->
+                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblVouchersTitle">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -79,8 +79,8 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" onMouseClicked="#handleProfileClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
-                     <FontIcon iconLiteral="bi-person-fill" iconSize="24" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
+<!--                     <FontIcon iconLiteral="bi-person-fill" iconSize="24" />-->
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblProfileTitle">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -95,8 +95,8 @@
             <Pane layoutX="16.0" layoutY="49.0" prefHeight="376.0" prefWidth="230.0" />
             <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                <children>
-               <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
+<!--               <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />-->
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="lblLogout">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -122,8 +122,8 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" onMouseClicked="#handleBackClick" spacing="4.0" style="-fx-cursor: hand;" VBox.vgrow="NEVER">
                            <children>
-                           <FontIcon iconLiteral="bi-arrow-left-short" iconSize="20" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
+<!--                           <FontIcon iconLiteral="bi-arrow-left-short" iconSize="20" />-->
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblBack">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -184,7 +184,7 @@
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" spacing="16.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applicants">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblApplicants">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -192,10 +192,10 @@
                         <TableView fx:id="tblApplicationsAdmin" minWidth="300.0" prefHeight="390.0" prefWidth="700.0" stylesheets="@../styles/style.css">
                            <columns>
                               <TableColumn fx:id="colStudentId" maxWidth="398.1690979003906" minWidth="96.0" prefWidth="150.0" text="ID" />
-                              <TableColumn fx:id="colFirstName" minWidth="100.0" prefWidth="140.0" text="First name" />
-                              <TableColumn fx:id="colLastName" minWidth="100.0" prefWidth="140.0" text="Last name" />
+                              <TableColumn fx:id="colFirstName" minWidth="100.0" prefWidth="140.0" text="%tblFirstName" />
+                              <TableColumn fx:id="colLastName" minWidth="100.0" prefWidth="140.0" text="%tblLastName" />
                               <TableColumn fx:id="colStatus" prefWidth="113.0" text="Status" />
-                              <TableColumn fx:id="colDateApplied" maxWidth="500.0" prefWidth="132.0" text="Date applied" />
+                              <TableColumn fx:id="colDateApplied" maxWidth="500.0" prefWidth="132.0" text="%tblDateapplied" />
                            </columns>
                         </TableView>
                      </children>
