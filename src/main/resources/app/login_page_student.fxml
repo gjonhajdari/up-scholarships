@@ -29,12 +29,12 @@
                         <Insets bottom="16.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="University of Prishtina Scholarships" textAlignment="CENTER">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblTitle" textAlignment="CENTER">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Text>
-                  <Text fill="#555555" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back">
+                  <Text fill="#555555" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblSubtitle1">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -48,14 +48,14 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="txtStudentId" prefWidth="350.0" promptText="Student ID" style="-fx-border-radius: 8px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff; -fx-background-radius: 8px;">
+                  <TextField fx:id="txtStudentId" prefWidth="350.0" promptText="%txtStudentId" style="-fx-border-radius: 8px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff; -fx-background-radius: 8px;">
                      <font>
                         <Font size="20.0" />
                      </font>
                      <padding>
                         <Insets bottom="10.0" left="16.0" right="16.0" top="10.0" />
                      </padding></TextField>
-                  <PasswordField fx:id="pwdPassword" prefWidth="350.0" promptText="Password" style="-fx-background-radius: 8px; -fx-border-radius: 8px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff;">
+                  <PasswordField fx:id="pwdPassword" prefWidth="350.0" promptText="%txtPassword" style="-fx-background-radius: 8px; -fx-border-radius: 8px; -fx-border-color: #dbdbdb; -fx-background-color: #ffffff;">
                      <font>
                         <Font size="20.0" />
                      </font>

@@ -1,3 +1,4 @@
+
 package service;
 
 import controller.interfaces.InitialisableController;
@@ -5,9 +6,12 @@ import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Stack;
 
 public class Navigator {
@@ -32,7 +36,6 @@ public class Navigator {
 
   private static Stack<String> history = new Stack<>();
 
-
   public static void navigate(Event event, String path) {
     // Check if the path is a web URL
     if (path.startsWith("http://") || path.startsWith("https://")) {
@@ -46,24 +49,24 @@ public class Navigator {
     }
   }
 
-
   public static void navigate(Stage stage, String path) {
-    FXMLLoader loader = new FXMLLoader(Navigator.class.getResource("/app/" + path));
-
     try {
-      Scene newScene = new Scene(loader.load());
-      stage.setScene(newScene);
-      stage.show();
+      Pane newPane = loadPane("/app/" + path);
 
-      // Adding the navigated page to the history stack
-      if (history.isEmpty() || !history.peek().equals(path)) {
-        history.push(path);
+      if (newPane != null) {
+        Scene newScene = new Scene(newPane);
+        stage.setScene(newScene);
+        stage.show();
+
+        // Adding the navigated page to the history stack
+        if (history.isEmpty() || !history.peek().equals(path)) {
+          history.push(path);
+        }
       }
-    } catch (IOException ioe) {
-      ioe.printStackTrace();
+    } catch (Exception e) {
+      e.printStackTrace();
     }
   }
-
 
   public static void navigate(Event event, String path, int id) {
     Node eventNode = (Node) event.getSource();
@@ -72,27 +75,42 @@ public class Navigator {
     navigate(stage, path, id);
   }
 
-
   public static void navigate(Stage stage, String path, int id) {
-    FXMLLoader loader = new FXMLLoader(Navigator.class.getResource("/app/" + path));
-
     try {
-      Scene newScene = new Scene(loader.load());
-      stage.setScene(newScene);
-      stage.show();
+      Pane newPane = loadPane("/app/" + path);
 
-      InitialisableController controller = loader.getController();
-      controller.initData(id);
+      if (newPane != null) {
+        Scene newScene = new Scene(newPane);
+        stage.setScene(newScene);
+        stage.show();
 
-      // Adding the navigated page to the history stack
-      if (history.isEmpty() || !history.peek().equals(path)) {
-        history.push(path);
+        FXMLLoader loader = new FXMLLoader(Navigator.class.getResource("/app/" + path));
+        loader.setResources(ResourceBundle.getBundle("translations.content", Locale.getDefault()));
+        loader.load();
+
+        InitialisableController controller = loader.getController();
+        controller.initData(id);
+
+        // Adding the navigated page to the history stack
+        if (history.isEmpty() || !history.peek().equals(path)) {
+          history.push(path);
+        }
       }
-    } catch (IOException ioe) {
-      ioe.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 
+  private static Pane loadPane(String form) {
+    ResourceBundle bundle = ResourceBundle.getBundle("translations.content", Locale.getDefault());
+    FXMLLoader loader = new FXMLLoader(Navigator.class.getResource(form), bundle);
+    try {
+      return loader.load();
+    } catch (IOException ioe) {
+      ioe.printStackTrace();
+      return null;
+    }
+  }
 
   private static void navigateToExternalLink(String url) {
     try {
@@ -101,7 +119,6 @@ public class Navigator {
       e.printStackTrace();
     }
   }
-
 
   public static void back(Event event) {
     Node eventNode = (Node) event.getSource();

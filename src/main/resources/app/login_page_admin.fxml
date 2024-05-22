@@ -29,12 +29,12 @@
                         <Insets bottom="16.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="University of Prishtina Scholarships" textAlignment="CENTER">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblTitle" textAlignment="CENTER">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Text>
-                  <Text fill="#555555" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back">
+                  <Text fill="#555555" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblSubtitle2">
                      <font>
                         <Font size="18.0" />
                      </font>
