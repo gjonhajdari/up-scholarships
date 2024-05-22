@@ -179,7 +179,7 @@
                   <VBox spacing="16.0">
                      <children>
                         <Separator prefWidth="200.0" />
-                        <Text fx:id="txtSuccessMessage" strokeType="OUTSIDE" strokeWidth="0.0" text="Application info">
+                        <Text fx:id="txtSuccessMessage" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtAppinfo">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -188,7 +188,7 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="6.0" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 8px; -fx-border-radius: 8px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 20, 0, 0, 5 1);">
                                  <children>
-                                    <Text fill="#00000080" strokeType="OUTSIDE" strokeWidth="0.0" text="Applied at">
+                                    <Text fill="#00000080" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtAppAt">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -205,7 +205,7 @@
                               </VBox>
                               <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefWidth="200.0" spacing="6.0" style="-fx-background-color: #ffffff; -fx-border-color: #dbdbdb; -fx-background-radius: 8px; -fx-border-radius: 8px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 20, 0, 0, 5 1);">
                                  <children>
-                                    <Text fill="#00000080" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+                                    <Text fill="#00000080" strokeType="OUTSIDE" strokeWidth="0.0" text="%tblStatus">
                                        <font>
                                           <Font size="14.0" />
                                        </font>

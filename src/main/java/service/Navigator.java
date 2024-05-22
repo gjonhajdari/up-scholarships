@@ -400,6 +400,7 @@ public class Navigator {
     }
   }
 
+
   private static void reloadScene(Stage stage, String path, ResourceBundle bundle) {
     try {
       FXMLLoader loader = new FXMLLoader(Navigator.class.getResource("/app/" + path));
