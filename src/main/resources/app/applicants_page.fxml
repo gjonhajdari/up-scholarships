@@ -96,7 +96,7 @@
             <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                <children>
                <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="lblLogout">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblLogout">
                      <font>
                         <Font size="20.0" />
                      </font>

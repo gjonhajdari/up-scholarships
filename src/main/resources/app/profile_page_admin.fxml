@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,8 +15,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<!--<?import org.kordamp.ikonli.javafx.FontIcon?>-->
-<?import java.net.URL?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileAdminController">
    <stylesheets>
       <URL value="@../styles/style.css" />
@@ -48,7 +49,7 @@
                         <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
                      </padding>
                      <children>
-<!--                        <FontIcon iconLiteral="bi-grid-1x2-fill" iconSize="24" />-->
+                        <FontIcon iconLiteral="bi-grid-1x2-fill" iconSize="24" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblDashboardTitle">
                            <font>
                               <Font size="20.0" />
@@ -58,7 +59,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleCreateClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
-<!--                        <FontIcon iconLiteral="bi-file-earmark-plus-fill" iconSize="24" />-->
+                        <FontIcon iconLiteral="bi-file-earmark-plus-fill" iconSize="24" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblCreateVoucherTitle">
                            <font>
                               <Font size="20.0" />
@@ -71,7 +72,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" onMouseClicked="#handleVouchersClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
-<!--                        <FontIcon iconLiteral="bi-folder-fill" iconSize="24" />-->
+                        <FontIcon iconLiteral="bi-folder-fill" iconSize="24" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblVouchersTitle">
                            <font>
                               <Font size="20.0" />
@@ -84,7 +85,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1; -fx-cursor: hand;">
                      <children>
-<!--                        <FontIcon iconLiteral="bi-person-fill" iconSize="24" iconColor="#115e59" />-->
+                        <FontIcon iconLiteral="bi-person-fill" iconSize="24" iconColor="#115e59" />
                         <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblProfileTitle">
                            <font>
                               <Font size="20.0" />
@@ -100,7 +101,7 @@
             <Pane layoutX="16.0" layoutY="49.0" prefHeight="376.0" prefWidth="230.0" />
             <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                <children>
-<!--                  <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />-->
+                  <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblLogout">
                      <font>
                         <Font size="20.0" />
@@ -137,7 +138,7 @@
                         </Label>
                         <HBox spacing="16.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" text="%btnAlb">
+                              <RadioButton fx:id="radioAlb" mnemonicParsing="false" text="%btnAlb">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -145,7 +146,7 @@
                                     <ToggleGroup fx:id="Language" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" selected="true" text="%btnEng" toggleGroup="$Language">
+                              <RadioButton fx:id="radioEng" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" selected="true" text="%btnEng" toggleGroup="$Language">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -195,7 +196,7 @@
                         </Text>
                      </children>
                   </VBox>
-                  <Button fx:id="btnSave" styleClass="button-green" mnemonicParsing="false" onMouseClicked="#handleSaveClick" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="%btnSaveChanges" textFill="#ccfbf1">
+                  <Button fx:id="btnSave" mnemonicParsing="false" onMouseClicked="#handleSaveClick" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" styleClass="button-green" text="%btnSaveChanges" textFill="#ccfbf1">
                      <padding>
                         <Insets bottom="5.0" left="16.0" right="16.0" top="5.0" />
                      </padding>

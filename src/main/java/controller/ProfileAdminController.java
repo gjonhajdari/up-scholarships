@@ -3,6 +3,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
@@ -14,6 +15,8 @@ import service.Navigator;
 import utils.Validator;
 
 import java.sql.SQLException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class ProfileAdminController {
   @FXML
@@ -24,6 +27,11 @@ public class ProfileAdminController {
   private PasswordField pwdConfirmPassword;
   @FXML
   private ToggleGroup Language;
+  @FXML
+  private RadioButton radioAlb;
+  @FXML
+  private RadioButton radioEng;
+
   @FXML
   private Button btnSave;
   @FXML
@@ -42,8 +50,28 @@ public class ProfileAdminController {
         }
       }
     });
-  }
 
+    Language = new ToggleGroup();
+    radioAlb.setToggleGroup(Language);
+    radioEng.setToggleGroup(Language);
+    radioAlb.setUserData("sq");
+    radioEng.setUserData("en");
+    Language.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+      if(newValue != null){
+        String selectedLanguage = newValue.getUserData().toString();
+        changeLanguage(selectedLanguage);
+      }
+    });
+
+    radioEng.setSelected(true);
+  }
+  private void changeLanguage(String languageCode) {
+    Locale locale = new Locale(languageCode);
+    Locale.setDefault(locale);
+    ResourceBundle bundle = ResourceBundle.getBundle("translations.content", locale);
+    // Assuming you have a method to reload the current scene with the new bundle
+    Navigator.reloadCurrentScene(bundle);
+  }
   @FXML
   private void handleSaveClick(MouseEvent me) throws SQLException {
     if (Validator.isEmpty(pwdOldPassword.getText(), pwdNewPassword.getText(), pwdConfirmPassword.getText())) {

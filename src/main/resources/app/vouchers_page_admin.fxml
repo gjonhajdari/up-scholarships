@@ -48,7 +48,7 @@
                      </padding>
                      <children>
                        <FontIcon iconLiteral="bi-grid-1x2-fill" iconSize="24"/>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblDashboardTitle">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -58,7 +58,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleCreateClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
                        <FontIcon iconLiteral="bi-file-earmark-plus-fill" iconSize="24" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblCreateVoucherTitle">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -71,7 +71,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="37.0" spacing="12.0" style="-fx-background-radius: 5px; -fx-background-color: #ccfbf1; -fx-cursor: hand;">
                      <children>
                        <FontIcon iconLiteral="bi-folder-fill" iconSize="24" iconColor="#115e59" />
-                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="Vouchers">
+                        <Text fill="#115e59" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblVouchersTitle">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -84,7 +84,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="64.0" onMouseClicked="#handleProfileClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                      <children>
                        <FontIcon iconLiteral="bi-person-fill" iconSize="24" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblProfileTitle">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -100,7 +100,7 @@
             <HBox alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick" spacing="12.0" style="-fx-background-radius: 5px; -fx-cursor: hand;">
                <children>
                  <FontIcon iconLiteral="bi-arrow-left-circle-fill" iconSize="24" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log out">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblLogout">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -120,7 +120,7 @@
             <Insets bottom="24.0" left="32.0" right="32.0" top="24.0" />
          </padding>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vouchers">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%lblVouchersTitle">
                <font>
                   <Font size="32.0" />
                </font>
@@ -131,7 +131,7 @@
                      <children>
                         <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="All vouchers">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtAllV">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -140,7 +140,7 @@
                         </VBox>
                         <VBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button fx:id="btnAddNew" styleClass="button-green" alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#handleCreateClick" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="Add new" textFill="#f0f9ff">
+                              <Button fx:id="btnAddNew" styleClass="button-green" alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#handleCreateClick" style="-fx-background-color: #2dd4bf; -fx-background-radius: 8px; -fx-border-color: #14b8a6; -fx-border-radius: 8px; -fx-background-insets: 0; -fx-cursor: hand;" text="%btnAddNew" textFill="#f0f9ff">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -154,9 +154,9 @@
                   </HBox>
                    <TableView fx:id="tblVouchersAdmin" minWidth="300.0" stylesheets="@../styles/style.css" VBox.vgrow="ALWAYS">
                        <columns>
-                           <TableColumn fx:id="colTitle" minWidth="350" prefWidth="600.0" text="Title" />
-                           <TableColumn fx:id="colAmount" minWidth="150.0" prefWidth="130.0" text="Amount" />
-                           <TableColumn fx:id="colDeadline" minWidth="130.0" prefWidth="130.0" text="Deadline" />
+                           <TableColumn fx:id="colTitle" minWidth="350" prefWidth="600.0" text="%tblTitle" />
+                           <TableColumn fx:id="colAmount" minWidth="150.0" prefWidth="130.0" text="%tblAmount" />
+                           <TableColumn fx:id="colDeadline" minWidth="130.0" prefWidth="130.0" text="%tblDeadline" />
                        </columns>
                        <VBox.margin>
                            <Insets />
