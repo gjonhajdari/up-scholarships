@@ -306,6 +306,7 @@ public class Navigator {
   public final static String VOUCHER_APPLIED = "applied_voucher_page_student.fxml";
   public final static String PROFILE_STUDENT = "profile_page_student.fxml";
   public final static String HELP_STUDENT = "help_page_student.fxml";
+  public final static String HELP_ADMIN = "help_page_admin.fxml";
   public final static String LOGIN_PAGE_ADMIN = "login_page_admin.fxml";
   public final static String DASHBOARD_ADMIN = "dashboard_page_admin.fxml";
   public final static String VOUCHERS_ADMIN = "vouchers_page_admin.fxml";

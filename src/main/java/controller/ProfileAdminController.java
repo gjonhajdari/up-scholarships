@@ -107,6 +107,8 @@ public class ProfileAdminController {
   @FXML
   private void handleCreateClick(MouseEvent me) { Navigator.navigate(me, Navigator.CREATE_VOUCHER); }
   @FXML
+  private void handleHelpClick(MouseEvent me) {Navigator.navigate(me,Navigator.HELP_ADMIN);};
+  @FXML
   private void handleLogoutClick(MouseEvent me) {
     AdminSession.clearAdminSession();
     Navigator.navigate(me, Navigator.HOME_PAGE);
