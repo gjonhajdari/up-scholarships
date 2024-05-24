@@ -26,12 +26,11 @@ public class ProfileAdminController {
   @FXML
   private PasswordField pwdConfirmPassword;
   @FXML
-  private ToggleGroup Language;
+  private ToggleGroup languageGroup;
   @FXML
   private RadioButton radioAlb;
   @FXML
   private RadioButton radioEng;
-
   @FXML
   private Button btnSave;
   @FXML
@@ -41,6 +40,7 @@ public class ProfileAdminController {
 
   @FXML
   private void initialize() {
+    // Set up the Save button to handle Enter key press
     btnSave.setOnKeyPressed(event -> {
       if (event.getCode() == KeyCode.ENTER) {
         try {
@@ -51,27 +51,37 @@ public class ProfileAdminController {
       }
     });
 
-    Language = new ToggleGroup();
-    radioAlb.setToggleGroup(Language);
-    radioEng.setToggleGroup(Language);
+    // Set up the language radio buttons with a toggle group
+    languageGroup = new ToggleGroup();
+    radioAlb.setToggleGroup(languageGroup);
+    radioEng.setToggleGroup(languageGroup);
     radioAlb.setUserData("sq");
     radioEng.setUserData("en");
-    Language.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
-      if(newValue != null){
+
+    // Add a listener to handle language change
+    languageGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+      if (newValue != null) {
         String selectedLanguage = newValue.getUserData().toString();
         changeLanguage(selectedLanguage);
       }
     });
 
-    radioEng.setSelected(true);
+    // Set the selected language based on the current locale
+    String currentLanguage = Locale.getDefault().getLanguage();
+    if (currentLanguage.equals("sq")) {
+      radioAlb.setSelected(true);
+    } else {
+      radioEng.setSelected(true);
+    }
   }
+
   private void changeLanguage(String languageCode) {
     Locale locale = new Locale(languageCode);
     Locale.setDefault(locale);
     ResourceBundle bundle = ResourceBundle.getBundle("translations.content", locale);
-    // Assuming you have a method to reload the current scene with the new bundle
     Navigator.reloadCurrentScene(bundle);
   }
+
   @FXML
   private void handleSaveClick(MouseEvent me) throws SQLException {
     if (Validator.isEmpty(pwdOldPassword.getText(), pwdNewPassword.getText(), pwdConfirmPassword.getText())) {
@@ -80,8 +90,8 @@ public class ProfileAdminController {
     }
 
     AdminChangePasswordDto adminSaveDto = new AdminChangePasswordDto(
-      pwdOldPassword.getText(),
-      pwdNewPassword.getText()
+            pwdOldPassword.getText(),
+            pwdNewPassword.getText()
     );
 
     boolean isSaved = AdminService.updatePassword(adminSaveDto);
@@ -101,13 +111,25 @@ public class ProfileAdminController {
   }
 
   @FXML
-  private void handleDashboardClick(MouseEvent me) { Navigator.navigate(me, Navigator.DASHBOARD_ADMIN); }
+  private void handleDashboardClick(MouseEvent me) {
+    Navigator.navigate(me, Navigator.DASHBOARD_ADMIN);
+  }
+
   @FXML
-  private void handleVouchersClick(MouseEvent me) { Navigator.navigate(me, Navigator.VOUCHERS_ADMIN); }
+  private void handleVouchersClick(MouseEvent me) {
+    Navigator.navigate(me, Navigator.VOUCHERS_ADMIN);
+  }
+
   @FXML
-  private void handleCreateClick(MouseEvent me) { Navigator.navigate(me, Navigator.CREATE_VOUCHER); }
+  private void handleCreateClick(MouseEvent me) {
+    Navigator.navigate(me, Navigator.CREATE_VOUCHER);
+  }
+
   @FXML
-  private void handleHelpClick(MouseEvent me) {Navigator.navigate(me,Navigator.HELP_ADMIN);};
+  private void handleHelpClick(MouseEvent me) {
+    Navigator.navigate(me, Navigator.HELP_ADMIN);
+  }
+
   @FXML
   private void handleLogoutClick(MouseEvent me) {
     AdminSession.clearAdminSession();

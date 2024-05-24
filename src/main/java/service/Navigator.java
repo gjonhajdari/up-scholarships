@@ -319,6 +319,15 @@ public class Navigator {
   public final static String KosovoGovernment_EXTERNAL_PAGE = "https://kryeministri.rks-gov.net/";
 
   private static Stack<String> history = new Stack<>();
+  private static Stage currentStage;
+
+  public static void setCurrentStage(Stage stage) {
+    currentStage = stage;
+  }
+
+  private static Stage getCurrentStage() {
+    return currentStage;
+  }
 
   public static void navigate(Event event, String path) {
     if (path.startsWith("http://") || path.startsWith("https://")) {
@@ -326,6 +335,7 @@ public class Navigator {
     } else {
       Node eventNode = (Node) event.getSource();
       Stage stage = (Stage) eventNode.getScene().getWindow();
+      setCurrentStage(stage);
       navigate(stage, path);
     }
   }
@@ -350,6 +360,7 @@ public class Navigator {
   public static void navigate(Event event, String path, int id) {
     Node eventNode = (Node) event.getSource();
     Stage stage = (Stage) eventNode.getScene().getWindow();
+    setCurrentStage(stage);
     navigate(stage, path, id);
   }
 
@@ -376,23 +387,6 @@ public class Navigator {
     }
   }
 
-  private static Pane loadPane(String form) {
-    ResourceBundle bundle = ResourceBundle.getBundle("translations.content", Locale.getDefault());
-    FXMLLoader loader = new FXMLLoader(Navigator.class.getResource(form), bundle);
-    try {
-      return loader.load();
-    } catch (IOException ioe) {
-      ioe.printStackTrace();
-      return null;
-    }
-  }
-  private static Stage currentStage;
-  public static void setCurrentStage(Stage stage) {
-    currentStage = stage;
-  }
-  private static Stage getCurrentStage() {
-    return currentStage;
-  }
   public static void reloadCurrentScene(ResourceBundle bundle) {
     if (!history.isEmpty()) {
       String currentPath = history.peek();
@@ -400,7 +394,6 @@ public class Navigator {
       reloadScene(stage, currentPath, bundle);
     }
   }
-
 
   private static void reloadScene(Stage stage, String path, ResourceBundle bundle) {
     try {
@@ -419,14 +412,25 @@ public class Navigator {
       e.printStackTrace();
     }
   }
-  private static void navigateToExternalLink(String url) {
+
+  private static Pane loadPane(String form) {
+    ResourceBundle bundle = ResourceBundle.getBundle("translations.content", Locale.getDefault());
+    FXMLLoader loader = new FXMLLoader(Navigator.class.getResource(form), bundle);
     try {
-      java.awt.Desktop.getDesktop().browse(new java.net.URI(url));
-    } catch (Exception e) {
-      e.printStackTrace();
+      return loader.load();
+    } catch (IOException ioe) {
+      ioe.printStackTrace();
+      return null;
     }
   }
 
+  private static void navigateToExternalLink(String url) {
+    try {
+      java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
   public static void back(Event event) {
     Node eventNode = (Node) event.getSource();
     Stage stage = (Stage) eventNode.getScene().getWindow();
@@ -438,6 +442,13 @@ public class Navigator {
         String previousPath = history.peek();
         navigate(stage, previousPath);
       }
+    }
+  }
+
+  public static void goBack(Event event) {
+    if (history.size() > 1) {
+      history.pop();
+      navigate(event, history.peek());
     }
   }
 }

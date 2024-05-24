@@ -29,6 +29,11 @@ public class VoucherAppliedStudentController implements InitialisableController 
 
   private int voucherId;
 
+  @FXML
+  private void handleBackClick(MouseEvent event) {
+    Navigator.back(event);
+  }
+
   public void initData(int id) {
     VoucherApplied voucherApplied = VoucherService.getAppliedById(id);
 
@@ -54,16 +59,25 @@ public class VoucherAppliedStudentController implements InitialisableController 
   }
 
   @FXML
-  private void handleBackClick(MouseEvent me) { Navigator.back(me); }
+  private void handleDashboardClick(MouseEvent me) {
+    Navigator.navigate(me, Navigator.DASHBOARD_STUDENT);
+  }
 
   @FXML
-  private void handleDashboardClick(MouseEvent me) { Navigator.navigate(me, Navigator.DASHBOARD_STUDENT); }
+  private void handleAppliedClick(MouseEvent me) {
+    Navigator.navigate(me, Navigator.APPLIED_STUDENT);
+  }
+
   @FXML
-  private void handleAppliedClick(MouseEvent me) { Navigator.navigate(me, Navigator.APPLIED_STUDENT); }
+  private void handleProfileClick(MouseEvent me) {
+    Navigator.navigate(me, Navigator.PROFILE_STUDENT);
+  }
+
   @FXML
-  private void handleProfileClick(MouseEvent me) { Navigator.navigate(me, Navigator.PROFILE_STUDENT); }
-  @FXML
-  private void handleHelpClick(MouseEvent me) { Navigator.navigate(me, Navigator.HELP_STUDENT); }
+  private void handleHelpClick(MouseEvent me) {
+    Navigator.navigate(me, Navigator.HELP_STUDENT);
+  }
+
   @FXML
   private void handleLogoutClick(MouseEvent me) {
     UserSession.clearUserSession();
