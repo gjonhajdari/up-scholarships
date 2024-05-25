@@ -3,11 +3,14 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import model.dto.StudentChangePasswordDto;
-import service.*;
+import service.Navigator;
+import service.UserSession;
+import service.UserService;
 import utils.Validator;
 
 import java.sql.SQLException;
@@ -25,6 +28,12 @@ public class ProfileStudentController {
   private Text txtErrorMessage;
   @FXML
   private Text txtSuccessMessage;
+  @FXML
+  private ToggleGroup languageGroup;
+  @FXML
+  private javafx.scene.control.RadioButton radioAlb; 
+  @FXML
+  private javafx.scene.control.RadioButton radioEng;
 
   @FXML
   private void initialize() {
@@ -37,6 +46,33 @@ public class ProfileStudentController {
         }
       }
     });
+
+    languageGroup = new ToggleGroup();
+    radioAlb.setToggleGroup(languageGroup);
+    radioEng.setToggleGroup(languageGroup);
+    radioAlb.setUserData("sq");
+    radioEng.setUserData("en");
+
+    languageGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+      if (newValue != null) {
+        String selectedLanguage = newValue.getUserData().toString();
+        changeLanguage(selectedLanguage);
+      }
+    });
+
+    String currentLanguage = java.util.Locale.getDefault().getLanguage();
+    if (currentLanguage.equals("sq")) {
+      radioAlb.setSelected(true);
+    } else {
+      radioEng.setSelected(true);
+    }
+  }
+
+  private void changeLanguage(String languageCode) {
+    java.util.Locale locale = new java.util.Locale(languageCode);
+    java.util.Locale.setDefault(locale);
+    java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("translations.content", locale);
+    Navigator.reloadCurrentScene(bundle);
   }
 
   @FXML
@@ -52,8 +88,8 @@ public class ProfileStudentController {
     }
 
     StudentChangePasswordDto studentSaveDto = new StudentChangePasswordDto(
-      pwdOldPassword.getText(),
-      pwdNewPassword.getText()
+            pwdOldPassword.getText(),
+            pwdNewPassword.getText()
     );
 
     boolean isSaved = UserService.updatePassword(studentSaveDto);
