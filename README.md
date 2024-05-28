@@ -38,6 +38,13 @@ public class ConnectionUtil {
 }
 ```
 
+### Add all student accounts
+
+The `db-testData.sql` script adds a few student accounts to the database. You can add the rest by running the `Migration.java` file. It creates accounts using the student data from the `students.csv` file.
+
+After that you can uncomment the remaining `insert_application_random()` calls in the `db-testData.sql` script and run it again.
+
+
 ## Dependencies
 
 | Name                                                               | Version |
