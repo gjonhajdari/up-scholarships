@@ -110,7 +110,7 @@
             <Insets bottom="16.0" left="10.0" right="10.0" top="16.0" />
          </padding>
       </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" spacing="72">
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="72" HBox.hgrow="ALWAYS">
          <padding>
             <Insets bottom="24.0" left="32.0" right="32.0" top="24.0" />
          </padding>
@@ -127,7 +127,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TableView fx:id="tblAppliedStudent" minWidth="300.0" stylesheets="@../styles/style.css">
+                  <TableView fx:id="tblAppliedStudent" minWidth="300.0" stylesheets="@../styles/style.css" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="colTitle" minWidth="360" prefWidth="445.0" text="%tblTitle" />
                         <TableColumn fx:id="colAmount" minWidth="108.0" prefWidth="138.0" text="%tblAmount" />
