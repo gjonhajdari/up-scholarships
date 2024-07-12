@@ -45,6 +45,17 @@ The `db-testData.sql` script adds a few student accounts to the database. You ca
 After that you can uncomment the remaining `insert_application_random()` calls in the `db-testData.sql` script and run it again.
 
 
+## Screenshots
+
+Admin dashboard page
+![](src/screenshots/dashboard.png)
+
+Voucher page with a list of applicants
+![](src/screenshots/voucher.png)
+
+Create voucher page
+![](src/screenshots/create-voucher.png)
+
 ## Dependencies
 
 | Name                                                               | Version |
