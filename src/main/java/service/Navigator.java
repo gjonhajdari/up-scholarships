@@ -431,6 +431,7 @@ public class Navigator {
       e.printStackTrace();
     }
   }
+
   public static void back(Event event) {
     Node eventNode = (Node) event.getSource();
     Stage stage = (Stage) eventNode.getScene().getWindow();

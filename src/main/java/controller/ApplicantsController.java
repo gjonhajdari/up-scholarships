@@ -158,6 +158,8 @@ public class ApplicantsController implements InitialisableController {
   private void handleCreateClick(MouseEvent me) { Navigator.navigate(me, Navigator.CREATE_VOUCHER); }
   @FXML
   private void handleProfileClick(MouseEvent me) { Navigator.navigate(me, Navigator.PROFILE_ADMIN); }
+  @FXML
+  private void handleHelpClick(MouseEvent me) { Navigator.navigate(me, Navigator.HELP_ADMIN); }
 
   @FXML
   private void handleLogoutClick(MouseEvent me) {
